@@ -100,34 +100,47 @@
     const DEFAULT_BG = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80";
     
     const cantosDB = {
-        // --- Cantos al Espíritu Santo (Alternando Español y Latín) ---
-        veniSancteES: { id: "sz-nU5n4r_A", title: "Ven, Espíritu Santo", lyrics: "Ven, Espíritu Santo." },
-        veniSancteLA: { id: "WmxheT4Fh_s", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus." },
-        tuiAmorisES: { id: "M4RffzksnTY", title: "Ven, Espíritu de Dios", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
-        tuiAmorisLA: { id: "d6m2sBv6yT0", title: "Tui amoris ignem", lyrics: "Tui amoris ignem accende.<br>Veni Sancte Spiritus." },
-        
-        // --- Cantos en Español ---
-        nada: { id: "go1-BoDD7CI", title: "Nada te turbe", lyrics: "Nada te turbe, nada te espante,<br>quien a Dios tiene nada le falta.<br>Nada te turbe, nada te espante,<br>solo Dios basta." },
-        alma: { id: "1tzQ9GEKly0", title: "El alma que anda en amor", lyrics: "El alma que anda en amor,<br>ni cansa, ni se cansa." },
-        diosTernura: { id: "p1G-h9l_6aU", title: "Dios es ternura", lyrics: "Dios es solo ternura,<br>la compasión y el perdón.<br>Dios es solo ternura,<br>fuente de todo amor." },
-        oscuridad: { id: "t5G3oD99vEA", title: "En nuestra oscuridad", lyrics: "En nuestra oscuridad,<br>enciende la llama de tu amor, Señor." },
-        
-        // --- Cantos en Latín ---
-        inManus: { id: "Xff4PlGlBLk", title: "In manus tuas, Pater", lyrics: "In manus tuas, Pater,<br>commendo spiritum meum.<br>(En tus manos, Padre, encomiendo mi espíritu)" },
-        misericordias: { id: "-1LLxCEa7IU", title: "Misericordias Domini", lyrics: "Misericordias Domini,<br>in aeternum cantabo.<br>(Cantaré eternamente las misericordias del Señor)" },
-        ubi: { id: "X9e_QO1ATho", title: "Ubi Caritas", lyrics: "Ubi caritas et amor,<br>ubi caritas Deus ibi est.<br>(Donde hay caridad y amor, allí está Dios)" },
-        laudate: { id: "lbb-kaurSW0", title: "Laudate omnes gentes", lyrics: "Laudate omnes gentes,<br>laudate Dominum.<br>(Alaben al Señor todas las naciones)" },
-        mane: { id: "9b0im0Xn4sQ", title: "Mane nobiscum", lyrics: "Mane nobiscum Domine Jesu Christe.<br>(Quédate con nosotros, Señor Jesucristo)" },
-        cantate: { id: "KJHVtLKThG8", title: "Cantate Domino", lyrics: "Cantate Domino canticum novum,<br>alleluia, alleluia.<br>(Cantad al Señor un cántico nuevo)" },
-        adoramus: { id: "6ajfmBz6hTY", title: "Adoramus te Christe", lyrics: "Adoramus te Christe,<br>benedicimus tibi.<br>(Te adoramos Cristo y te bendecimos)" },
-        confitemini: { id: "MubfB2pXo4I", title: "Confitemini Domino", lyrics: "Confitemini Domino, quoniam bonus.<br>(Dad gracias al Señor, porque es bueno)" },
-        
-        // --- Cantos en Inglés ---
-        bless: { id: "lsm919bwwag", title: "Bless the Lord my soul", lyrics: "Bless the Lord, my soul, and bless God's holy name.<br>Bless the Lord, my soul, who leads me into life." },
-        thirsty: { id: "spe1vqO3zhM", title: "Let all who are thirsty come", lyrics: "Let all who are thirsty come.<br>Let all who wish receive the water of life freely.<br>Amen, come Lord Jesus." },
-        jesusRemember: { id: "umLK1RgAZyg", title: "Jesus, remember me", lyrics: "Jesus, remember me<br>when you come into your kingdom." },
-        oLordHear: { id: "8BWKmahZgLM", title: "O Lord, hear my prayer", lyrics: "O Lord, hear my prayer,<br>O Lord, hear my prayer,<br>when I call answer me." },
-        kingdom: { id: "0w4T4X2k8mU", title: "The kingdom of God", lyrics: "The kingdom of God is justice and peace<br>and joy in the Holy Spirit.<br>Come, Lord, and open in us the gates of your kingdom." }
+        // --- 1. INVOCACIONES AL ESPÍRITU SANTO (Mayoría Español, luego Latín) ---
+        hs1: { id: "39bQZlX0Rz0", title: "Ven Espíritu de Dios", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
+        hs2: { id: "-1LLxCEa7IU", title: "Espíritu Santo, ven, ven", lyrics: "Espíritu Santo, ven, ven,<br>Espíritu Santo, ven, ven." },
+        hs3: { id: "spe1vqO3zhM", title: "Fuego de tu amor", lyrics: "Ven, Espíritu Santo,<br>enciende en nosotros el fuego de tu amor." },
+        hs4: { id: "9b0im0Xn4sQ", title: "Luz de los corazones", lyrics: "Ven, Espíritu Santo,<br>Luz de los corazones, ven." },
+        hs5: { id: "p1G-h9l_6aU", title: "Ven a infundir tu luz", lyrics: "Ven, Espíritu Santo,<br>ven a infundir tu luz." },
+        hs6: { id: "X9e_QO1ATho", title: "Ven, Espíritu Creador", lyrics: "Ven, Espíritu Creador,<br>visita las almas de tus fieles." },
+        hs7: { id: "p4YnN1xUjQY", title: "Danos tu Espíritu", lyrics: "Danos tu Espíritu, Señor.<br>Danos tu Espíritu de amor." },
+        hs8: { id: "aW29v6I93Ew", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende." },
+        hs9: { id: "C3m3c7q034A", title: "Veni Creator Spiritus", lyrics: "Veni Creator Spiritus,<br>mentes tuorum visita." },
+        hs10: { id: "aW29v6I93Ew", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende." },
+        hs11: { id: "Xff4PlGlBLk", title: "Veni Lumen Cordium", lyrics: "Veni Sancte Spiritus,<br>Veni lumen cordium." },
+        hs12: { id: "lsm919bwwag", title: "Spiritus Jesu Christi", lyrics: "Spiritus Jesu Christi,<br>spiritus caritatis, confirmet cor tuum." },
+
+        // --- 2. SEGUNDOS CANTOS (Mayoría Español, luego Latín, algunos Inglés) ---
+        le1: { id: "go1-BoDD7CI", title: "Nada te turbe", lyrics: "Nada te turbe, nada te espante,<br>quien a Dios tiene nada le falta." },
+        le2: { id: "1tzQ9GEKly0", title: "El alma que anda en amor", lyrics: "El alma que anda en amor,<br>ni cansa, ni se cansa." },
+        le3: { id: "p1G-h9l_6aU", title: "Dios es ternura", lyrics: "Dios es solo ternura,<br>la compasión y el perdón." },
+        le4: { id: "-1LLxCEa7IU", title: "Misericordia, Señor", lyrics: "Misericordia, Señor,<br>misericordia, Señor." },
+        le5: { id: "X9e_QO1ATho", title: "En nuestra oscuridad", lyrics: "En nuestra oscuridad, enciende la llama<br>de tu amor, Señor, de tu amor, Señor." },
+        le6: { id: "9b0im0Xn4sQ", title: "Confío en ti, Señor", lyrics: "Confío en ti, Señor,<br>tú eres mi Dios." },
+        le7: { id: "Xff4PlGlBLk", title: "Ubi Caritas", lyrics: "Ubi caritas et amor,<br>ubi caritas Deus ibi est." },
+        le8: { id: "lbb-kaurSW0", title: "Laudate omnes gentes", lyrics: "Laudate omnes gentes,<br>laudate Dominum." },
+        le9: { id: "spe1vqO3zhM", title: "In manus tuas, Pater", lyrics: "In manus tuas, Pater,<br>commendo spiritum meum." },
+        le10: { id: "lsm919bwwag", title: "Misericordias Domini", lyrics: "Misericordias Domini,<br>in aeternum cantabo." },
+        le11: { id: "F33jN3b29q8", title: "Bless the Lord my soul", lyrics: "Bless the Lord, my soul,<br>and bless God's holy name." },
+        le12: { id: "R60l_h9l4Ac", title: "O Lord hear my prayer", lyrics: "O Lord hear my prayer, O Lord hear my prayer.<br>When I call, answer me." },
+
+        // --- 3. CANTOS DE CIERRE (Mayoría Español, luego Latín, algunos Inglés) ---
+        cl1: { id: "A52l_b6n2We", title: "Tu voluntad", lyrics: "Tu voluntad, Señor,<br>es mi paz y mi alegría." },
+        cl2: { id: "V61m_c5o1Vf", title: "Bendecid al Señor", lyrics: "Bendecid al Señor,<br>todos los siervos del Señor." },
+        cl3: { id: "D70n_d4p0Ug", title: "El Señor es mi fortaleza", lyrics: "El Señor es mi fortaleza,<br>el Señor es mi canción." },
+        cl4: { id: "E89o_e3q9Th", title: "Jesús, recuérdame", lyrics: "Jesús, recuérdame<br>cuando entres en tu reino." },
+        cl5: { id: "F98p_f2r8Si", title: "Alabe todo el mundo", lyrics: "Alabe todo el mundo,<br>alabe al Señor." },
+        cl6: { id: "G07q_g1s7Rj", title: "Danos tu paz", lyrics: "Danos tu paz, danos tu paz,<br>danos tu paz, Señor." },
+        cl7: { id: "H16r_h0t6Qk", title: "Mane nobiscum", lyrics: "Mane nobiscum<br>Domine Jesu Christe." },
+        cl8: { id: "I25s_i9u5Pl", title: "Adoramus te Christe", lyrics: "Adoramus te Christe,<br>benedicimus tibi." },
+        cl9: { id: "J34t_j8v4Om", title: "Magnificat", lyrics: "Magnificat, magnificat,<br>magnificat anima mea Dominum." },
+        cl10: { id: "K43u_k7w3Nn", title: "Stay with me", lyrics: "Stay with me, remain here with me,<br>watch and pray, watch and pray." },
+        cl11: { id: "L52v_l6x2Mo", title: "Wait for the Lord", lyrics: "Wait for the Lord, whose day is near.<br>Wait for the Lord, be strong, take heart." },
+        cl12: { id: "M61w_m5y1Lp", title: "In the Lord I'll be ever thankful", lyrics: "In the Lord I'll be ever thankful,<br>in the Lord I will rejoice!" }
     };
 
     const DAYS = [
@@ -139,7 +152,7 @@
             gradient: "from-amber-400 to-orange-600",
             shadow: "shadow-orange-500/50",
             bgImage: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.veniSancteES, cantosDB.nada], // Posición 1 y 2
+            cantos: [cantosDB.hs1, cantosDB.le1],
             preparacion: "Encuentra un rincón de paz. Respira hondo, dejando que las tensiones y prisas de la jornada se desvanezcan con cada exhalación. Imagina por un momento que la puerta de tu habitación se abre suavemente y Jesús entra. No hay reproches en su rostro, ni expectativas de perfección; no viene a pedirte cuentas. Él se sienta frente a ti y te mira en un silencio envuelto en ternura. Es una mirada que no juzga, sino que abraza; una mirada que se alegra infinitamente de tu mera existencia, mucho más allá de tus logros o fracasos. Sostén esa mirada. Deja que su inmensa calidez disuelva, una a una, tus defensas y justificaciones.",
             peticion: "Señor, concédeme la gracia de experimentar íntimamente cuánto me amas. Que mi corazón descanse al saber que mi valor no depende de lo que produzco o de cómo me ven los demás, sino de tu amor incondicional que me sostiene.",
             cita: '"No temas, porque yo te he redimido, te he llamado por tu nombre, tú eres mío. Eres precioso a mis ojos, de gran valor, y yo te amo." (Isaías 43, 1.4)',
@@ -160,7 +173,7 @@
             gradient: "from-cyan-400 to-blue-600",
             shadow: "shadow-blue-500/50",
             bgImage: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.veniSancteLA, cantosDB.bless], // Posición 1 y 2
+            cantos: [cantosDB.hs2, cantosDB.le2],
             preparacion: "Toma consciencia de tu propio cuerpo. ¿Dónde sientes tensión en este momento? ¿Acaso en los hombros, en el cuello, en la mandíbula apretada? Esas tensiones físicas son el eco resonante del peso mental que llevas. Imagina que cargas una mochila repleta de piedras pesadas: son tus preocupaciones incesantes, la necesidad compulsiva de que todo salga perfecto, el temor al futuro incierto. Al comenzar este rato, visualiza cómo te quitas esa mochila y la dejas, con un profundo suspiro de alivio, a los pies del Maestro. Él te mira, sabiendo exactamente cuánto pesa.",
             peticion: "Jesús, concédeme la gracia de la humildad para reconocer mis límites humanos. Enséñame a soltar el afán agotador de controlarlo todo y permíteme experimentar tu alivio profundo.",
             cita: '"Vengan a mí todos los que están cansados y agobiados, y yo los aliviaré. Carguen con mi yugo y aprendan de mí, que soy manso y humilde de corazón, y encontrarán descanso para sus almas." (Mateo 11, 28-29)',
@@ -181,7 +194,7 @@
             gradient: "from-indigo-500 to-purple-800",
             shadow: "shadow-indigo-500/50",
             bgImage: "https://images.unsplash.com/photo-1518837695005-2083093ee35c?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.tuiAmorisES, cantosDB.misericordias],
+            cantos: [cantosDB.hs3, cantosDB.le3],
             preparacion: "Cierra los ojos e imagina que es de noche profunda. Te encuentras en una pequeña frágil barca de madera en medio del mar oscuro. De repente, el viento empieza a soplar con furia incontenible. Las olas se levantan amenazantes y el agua helada comienza a inundar tu espacio vital. Siente el miedo físico, el ruido ensordecedor del caos a tu alrededor. Ahora, gira lentamente tu mirada hacia la popa: Jesús está allí. Está durmiendo plácidamente sobre un cojín. Su paz interior es tan colosal que la tormenta exterior no logra perturbarlo lo más mínimo. Él es el ancla inamovible en medio del caos.",
             peticion: "Señor, frente a las tempestades inesperadas de mi vida, otórgame una fe firme que no se fundamente en que todo salga bien, sino en descubrir tu presencia soberana incluso en tus más densos silencios.",
             cita: 'Lo despertaron y le dijeron: «Maestro, ¿no te importa que perezcamos?». Él se despertó, increpó al viento y dijo al mar: «¡Calla, enmudece!». El viento cesó y sobrevino una gran calma. (Marcos 4, 38-39)',
@@ -202,7 +215,7 @@
             gradient: "from-fuchsia-400 to-pink-600",
             shadow: "shadow-pink-500/50",
             bgImage: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.tuiAmorisLA, cantosDB.laudate],
+            cantos: [cantosDB.hs4, cantosDB.le4],
             preparacion: "Ponte en la piel asoleada de Bartimeo. Eres ciego, te encuentras sentado en el polvo, al borde del camino, tristemente acostumbrado a sobrevivir de las migajas y sobras de los demás. Has terminado por aceptar tu limitación como un destino inamovible. De pronto, un murmullo creciente agita el aire: Jesús de Nazaret está pasando. Movido por una esperanza irracional y fiera, empiezas a gritar. Los 'prudentes' te mandan callar, pero tú gritas aún más fuerte. Entonces, el universo entero parece detenerse de golpe. Alguien se acerca y te susurra: '¡Ánimo, levántate, te llama!'. Siente el salto desbocado de tu corazón en el pecho.",
             peticion: "Jesús, Médico divino de las almas, infúndeme la valentía de reconocer mi propia ceguera persistente —mis prejuicios, mis antiguos rencores, mi egoísmo sutil— y el deseo ardiente de dejarme sanar integralmente por Ti.",
             cita: 'El ciego, arrojando su manto, dio un salto y se acercó a Jesús. Jesús le preguntó: «¿Qué quieres que haga por ti?». El ciego le dijo: «Maestro, que recobre la vista». Jesús le dijo: «Vete, tu fe te ha salvado». (Marcos 10, 50-52)',
@@ -223,7 +236,7 @@
             gradient: "from-lime-400 to-emerald-600",
             shadow: "shadow-emerald-500/50",
             bgImage: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.veniSancteES, cantosDB.thirsty],
+            cantos: [cantosDB.hs5, cantosDB.le5],
             preparacion: "Imagina una viña espléndida despertando al rocío del amanecer. Observa los sarmientos (las ramas), repletos de hojas de un verde vibrante y uvas maduras y pesadas, profundamente unidos al tronco recio y antiguo. Es de ese tronco de donde reciben sin interrupción toda el agua, la vida y los nutrientes vitales (la savia). Piensa en ti mismo como uno de esos sarmientos. Mientras permanezcas injertado en el tronco, la vida fluirá a través de ti sin esfuerzo ansioso ni tensión. Pero si te cortan, por más lozano y verde que luzcas hoy, empezarás a secarte inevitablemente. Siente en tu interior esa necesidad vital, casi biológica, de conexión con la Fuente.",
             peticion: "Señor, concédeme la gracia de permanecer firmemente arraigado en Ti durante cada hora de este día, para que mis acciones no broten de una urgencia vacía, sino de la abundancia de Tu Espíritu, dando frutos de verdadera y perdurable alegría.",
             cita: '"Yo soy la vid, ustedes los sarmientos. El que permanece en mí, y yo en él, da mucho fruto... Les he dicho esto para que mi alegría esté en ustedes, y su alegría sea plena." (Juan 15, 5.11)',
@@ -244,7 +257,7 @@
             gradient: "from-teal-300 to-cyan-600",
             shadow: "shadow-teal-500/50",
             bgImage: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.veniSancteLA, cantosDB.diosTernura],
+            cantos: [cantosDB.hs6, cantosDB.le6],
             preparacion: "Entra mentalmente y en silencio en la penumbra cálida e íntima de la sala de la Última Cena. Observa a Jesús. Sabiendo perfectamente que viene de Dios y vuelve a Dios, no exige tronos ni reconocimientos. Se levanta de la mesa en un silencio sagrado que sobrecoge, se quita el manto de maestro y se ciñe a la cintura una toalla rústica de siervo. Empieza a lavar los pies sucios, llagados y polvorientos de sus amigos más cercanos. Un trabajo reservado entonces exclusivamente para los esclavos de menor rango. Imagina que, lentamente, llega a tu lugar. Dios encarnado se arrodilla en el suelo de tierra, justo frente a ti, toma tus pies cansados en sus manos santas y los lava con una delicadeza y un amor infinitos.",
             peticion: "Señor, rompe las corazas de mi orgullo. Dame un corazón dócil y humilde para dejarme purificar por tu gracia inmerecida, y ojos nuevos para descubrir siempre tu rostro en la dignidad sagrada de mis hermanos.",
             cita: '"Pues si yo, el Señor y el Maestro, les he lavado los pies, también ustedes deben lavarse los pies unos a otros. Porque les he dado ejemplo, para que como yo he hecho con ustedes, también ustedes lo hagan." (Juan 13, 14-15)',
@@ -265,7 +278,7 @@
             gradient: "from-yellow-300 to-amber-500",
             shadow: "shadow-yellow-500/50",
             bgImage: "https://images.unsplash.com/photo-1495555961416-6ed8d068d374?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.tuiAmorisES, cantosDB.kingdom],
+            cantos: [cantosDB.hs7, cantosDB.le7],
             preparacion: "Imagina una habitación inmensa sumida en una oscuridad total y asfixiante. Siente por un momento la incomodidad palpable de no ver absolutamente nada, la desorientación angustiosa. De pronto, alguien en la lejanía enciende un pequeño fósforo y prende una vela minúscula. Inmediatamente, la tiranía de la oscuridad es derrotada. No desaparece por completo, pero ya no domina el espacio. La luz no hace ruido al nacer, no exige atención de manera altanera, simplemente se da, se consume silenciosamente para iluminar a otros. Tú eres esa pequeña vela, encendida por el mismo Dios a través de este rato de intimidad y oración.",
             peticion: "Señor de la Luz, te ruego que no esconda la fe ni el amor que me has regalado por miedo al rechazo o vergüenza. Que mi forma de vivir el día a día, mucho más que mis discursos elocuentes, sea un testimonio vivo y palpitante de tu compasión.",
             cita: '"Ustedes son la luz del mundo. No se enciende una lámpara para meterla debajo de un cajón, sino para ponerla en el candelero... Brille así su luz delante de los hombres, para que vean sus buenas obras y den gloria a su Padre." (Mateo 5, 14-16)',
@@ -286,7 +299,7 @@
             gradient: "from-orange-400 to-red-600",
             shadow: "shadow-red-500/50",
             bgImage: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.tuiAmorisLA, cantosDB.adoramus],
+            cantos: [cantosDB.hs8, cantosDB.le8],
             preparacion: "Visualiza un vasto e inabarcable desierto de arena bajo un cielo inmenso y límpido. El silencio allí es abrumador, posee una densidad casi física. No hay pantallas brillando, no hay notificaciones zumbando, no hay voces ajenas ni distracciones urgentes reclamando tu atención. Solo estás tú y tu verdad más desnuda ante el horizonte. En el centro de ese desierto, Dios te espera con paciencia infinita. Al principio, la falta de ruido te incomoda profundamente, te enfrenta de golpe a tus propios vacíos no resueltos. Quédate ahí. No huyas. Respira. Permite que la incomodidad inicial ceda lentamente el paso a una Presencia amorosa y majestuosa que llena todo ese espacio vacío.",
             peticion: "Señor, libérame definitivamente del miedo atroz a la soledad y al silencio. Dame la valentía de adentrarme en mis propios desiertos interiores para que allí purifiques mi corazón y pueda, al fin, escuchar tu voz sin interferencias.",
             cita: '"Por eso, yo voy a seducirla; la llevaré al desierto y le hablaré al corazón... Allí me responderá como en los días de su juventud." (Oseas 2, 16-17)',
@@ -307,7 +320,7 @@
             gradient: "from-blue-400 to-indigo-600",
             shadow: "shadow-blue-500/50",
             bgImage: "https://images.unsplash.com/photo-1445384763658-0400939829cd?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.veniSancteES, cantosDB.confitemini],
+            cantos: [cantosDB.hs9, cantosDB.le9],
             preparacion: "Es pleno mediodía, el sol cae a plomo, vertical, y el calor es abrasador y sofocante. Eres la mujer samaritana. Llegas arrastrando los pies, cansada, al milenario pozo de Jacob con tu pesado cántaro vacío a cuestas. Llevas contigo una sed antigua, un vacío y una insatisfacción crónica que ninguna relación, ningún logro y ninguna distracción ha podido saciar jamás. Allí, sentado al borde del brocal de piedra, te espera Jesús. Él conoce de sobra toda tu intrincada historia, conoce tus fracasos repetidos y los 'pozos' equivocados donde has buscado mendigar amor. Y, sin embargo, no hay ni un atisbo de condena en sus ojos. Te mira con una complicidad salvadora, pidiéndote de beber, haciéndose el necesitado para iniciar el encuentro que cambiará tu vida.",
             peticion: "Señor Jesús, ayúdame a ser radicalmente honesto/a con mis anhelos más profundos. Dame a beber incesantemente de tu Espíritu, esa agua viva que brota desde el interior y otorga el verdadero y definitivo sentido a mi existencia.",
             cita: 'Jesús le respondió: «Todo el que beba de esta agua, volverá a tener sed; pero el que beba del agua que yo le daré, nunca más tendrá sed. El agua que yo le daré se convertirá en él en manantial que brota para vida eterna». (Juan 4, 13-14)',
@@ -328,7 +341,7 @@
             gradient: "from-rose-400 to-orange-500",
             shadow: "shadow-rose-500/50",
             bgImage: "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.veniSancteLA, cantosDB.mane],
+            cantos: [cantosDB.hs10, cantosDB.le10],
             preparacion: "Caminas pesadamente por un sendero polvoriento mientras el sol empieza a ocultarse tiñendo el cielo de tonos melancólicos. Te alejas de Jerusalén, el lugar de tus esperanzas frustradas. Vas inmensamente triste, decepcionado/a de la vida y quizá de Dios, dándole vueltas obsesivamente a tus ilusiones rotas y a las oraciones que parecen no haber sido escuchadas en absoluto. De pronto, un forastero se empareja suavemente contigo. Ajusta su ritmo a tu paso cansado. Te hace preguntas abiertas y te escucha con una atención absoluta y reverencial. Siente el inmenso, reparador alivio de poder volcar toda tu queja amarga y tu dolor contenido en alguien que no te interrumpe, no te juzga ni minimiza en lo más mínimo tu sufrimiento.",
             peticion: "Señor Resucitado, abre de par en par los ojos aletargados de mi fe. Ayúdame a reconocerte caminando a mi lado, a menudo de incógnito, especialmente en mis momentos de mayor frustración, oscuridad y desesperanza.",
             cita: 'Mientras conversaban y discutían, Jesús en persona se acercó y se puso a caminar con ellos. Pero sus ojos estaban velados... Y se dijeron uno a otro: «¿No ardía nuestro corazón mientras nos hablaba por el camino y nos explicaba las Escrituras?». (Lucas 24, 15-16.32)',
@@ -349,7 +362,7 @@
             gradient: "from-rose-300 to-pink-500",
             shadow: "shadow-pink-500/50",
             bgImage: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.tuiAmorisES, cantosDB.jesusRemember],
+            cantos: [cantosDB.hs11, cantosDB.le11],
             preparacion: "Imagina que caminas arrastrando los pies por un camino de tierra. Vienes de un 'país lejano', un lugar de decisiones equivocadas, de tiempo perdido y vacíos que intentaste llenar con cosas que no te saciaron. Hueles a fracaso, tu ropa está rota y tu dignidad herida. Ensayas mentalmente discursos de disculpa, creyendo que tendrás que ganarte de nuevo el amor. A lo lejos, divisas tu casa. Y de pronto, ves una figura mayor que sale corriendo hacia ti. Es tu Padre. Contra toda costumbre, perdiendo la compostura y la dignidad, corre desesperado a tu encuentro. No te deja terminar tu discurso de culpa; te envuelve en un abrazo asfixiante de puro amor, besando tu rostro sucio, celebrando simplemente que estás vivo.",
             peticion: "Padre de Misericordia, derriba mis muros de orgullo y de culpa. Dame la humildad profunda para dejarme perdonar sin intentar pagar por mi rescate, y la gracia de aceptar que tu amor es gratuito.",
             cita: '"Cuando todavía estaba lejos, su padre lo vio y se conmovió profundamente; corrió a su encuentro, lo abrazó y lo besó." (Lucas 15, 20)',
@@ -357,7 +370,7 @@
             oracionPoetica: "Padre que no sabe de distancias prudentes,\nabrázame antes de que termine mi aburrido discurso de culpa.\nLávame el fracaso con tus lágrimas de alegría,\ny ponme un anillo nuevo aunque no lo merezca.\n\nVengo arrastrando el peso de mis malas elecciones,\noliendo a tiempo perdido y a amores de rebajas.\nEnsayo penitencias porque no me creo que el perdón sea gratis,\nporque me cuesta aceptar un amor que no exija una factura.\n\nRompe mi lógica mercantil de intentar comprar tu perdón.\nCúbreme con el manto de tu misericordia ilógica y desbordante,\ny enséñame a dejarme amar gratuitamente,\npara que entienda que en tu casa siempre hay un lugar para mí.\n\nQue tu abrazo me quite los harapos de mis falsas identidades,\nesos que tejí intentando ser alguien grande lejos de tu mirada.\nVísteme de nuevo con la túnica luminosa de mi dignidad primera,\nesa que me diste al nacer y que ninguna culpa puede jamás borrar.\n\nEnséñame a entrar en la fiesta sin quedarme resentido en la puerta,\na no boicotear tu alegría con mis absurdos complejos de indigno.\nQuiero aprender a bailar al son de tu misericordia incomprensible,\ncelebrando a gritos que estuve muerto y tu amor me devolvió a la vida.",
             dialogo: [
                 { id: 'd11_1', label: "Señor, el 'país lejano' del que hoy vengo volviendo, ese lugar de actitudes o decisiones donde busqué saciarme y me vacié, es..." },
-                { id: 'd11_2', label: "Al imaginar que corres a abrazarme sin pedirme cuentas ni explicaciones, lo que mi corazón herido siente es..." }
+                { id: 'd11_2', label: "Al mirar atentamente a mi alrededor, siento que hoy me invitas a 'lavarle los pies' (servir con paciencia silenciosa y humildad verdadera) a..." }
             ],
             oracionFinal: "Padre de entrañas de misericordia, gracias por salir corriendo a mi encuentro para abrazarme cuando aún estoy lejos. Que la experiencia abrumadora de tu perdón incondicional transforme para siempre mi forma de amar.",
             compromiso: "Me comprometo a perdonar una pequeña ofensa o, como mínimo, a frenar intencionalmente un juicio crítico sobre alguien, recordando cuánta misericordia he recibido yo primero."
@@ -370,7 +383,7 @@
             gradient: "from-emerald-300 to-green-600",
             shadow: "shadow-green-500/50",
             bgImage: "https://images.unsplash.com/photo-1592647420148-bfcc177e2117?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.tuiAmorisLA, cantosDB.cantate], // Re-uso ligero pero sin repetir en el día
+            cantos: [cantosDB.hs12, cantosDB.le12],
             preparacion: "Visualiza un inmenso campo recién arado al amanecer. Una fina niebla cubre la tierra oscura y húmeda. Todo está en absoluto reposo y silencio. Sin embargo, debajo de esa superficie aparentemente inerte y aburrida, está ocurriendo el milagro más violento y extraordinario: millones de semillas están rompiendo su coraza para germinar. No hacen ruido, no exigen atención mediática, y su crecimiento es imperceptible al ojo humano día a día. Respira la frescura de esa mañana. Entiende que tu alma es también ese campo: Dios ha plantado promesas y gracias que, ahora mismo, están trabajando secretamente en la oscuridad de tu interior.",
             peticion: "Señor del tiempo y de la vida, concédeme una paciencia inquebrantable. Ayúdame a confiar plenamente en tus procesos y en tus tiempos, sabiendo que tu obra más profunda ocurre en el silencio de lo que aún no se ve.",
             cita: '"El Reino de Dios es como un hombre que echa la semilla en la tierra: sea que duerma o se levante, de noche y de día, la semilla germina y va creciendo, sin que él sepa cómo. La tierra por sí misma produce primero la hierba, luego la espiga, y por fin la espiga llena de granos." (Marcos 4, 26-28)',
@@ -396,21 +409,8 @@
         { title: "Cierre", icon: "anchor" }
     ];
 
-    const closingChants = [
-        cantosDB.ubi,           // Día 1
-        cantosDB.alma,          // Día 2
-        cantosDB.diosTernura,   // Día 3
-        cantosDB.laudate,       // Día 4
-        cantosDB.inManus,       // Día 5
-        cantosDB.oLordHear,     // Día 6
-        cantosDB.misericordias, // Día 7
-        cantosDB.nada,          // Día 8
-        cantosDB.alma,          // Día 9 (Re-uso pero no hay conflicto con este día)
-        cantosDB.bless,         // Día 10
-        cantosDB.oscuridad,     // Día 11
-        cantosDB.laudate        // Día 12 (Re-uso lejano)
-    ];
-
+    const closingChants = [cantosDB.cl1, cantosDB.cl2, cantosDB.cl3, cantosDB.cl4, cantosDB.cl5, cantosDB.cl6, cantosDB.cl7, cantosDB.cl8, cantosDB.cl9, cantosDB.cl10, cantosDB.cl11, cantosDB.cl12];
+    
     const introsPadreNuestro = [
         "Sabiendo que nuestro valor descansa en Su mirada incondicional, unámonos a Jesús para orar al Padre que nos ama desde la eternidad:",
         "Entregando nuestras ansiedades y soltando la necesidad de controlarlo todo, descansemos en la providencia del Padre diciendo:",
@@ -427,7 +427,7 @@
     ];
     
     DAYS.forEach((day, index) => {
-        day.cantoCierre = closingChants[index] || cantosDB.laudate;
+        day.cantoCierre = closingChants[index] || cantosDB.cl1;
         day.introPadreNuestro = introsPadreNuestro[index] || introsPadreNuestro[0];
     });
 
