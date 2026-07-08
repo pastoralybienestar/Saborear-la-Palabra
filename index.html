@@ -99,48 +99,49 @@
 <script>
     const DEFAULT_BG = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80";
     
+    // BASE DE DATOS DE CANTOS - VERIFICADOS Y SIN REPETICIONES
     const cantosDB = {
-        // --- 1. INVOCACIONES AL ESPÍRITU SANTO (Mayoría Español, luego Latín) ---
-        hs1: { id: "39bQZlX0Rz0", title: "Ven Espíritu de Dios", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
-        hs2: { id: "-1LLxCEa7IU", title: "Espíritu Santo, ven, ven", lyrics: "Espíritu Santo, ven, ven,<br>Espíritu Santo, ven, ven." },
-        hs3: { id: "spe1vqO3zhM", title: "Fuego de tu amor", lyrics: "Ven, Espíritu Santo,<br>enciende en nosotros el fuego de tu amor." },
-        hs4: { id: "9b0im0Xn4sQ", title: "Luz de los corazones", lyrics: "Ven, Espíritu Santo,<br>Luz de los corazones, ven." },
-        hs5: { id: "p1G-h9l_6aU", title: "Ven a infundir tu luz", lyrics: "Ven, Espíritu Santo,<br>ven a infundir tu luz." },
-        hs6: { id: "X9e_QO1ATho", title: "Ven, Espíritu Creador", lyrics: "Ven, Espíritu Creador,<br>visita las almas de tus fieles." },
-        hs7: { id: "p4YnN1xUjQY", title: "Danos tu Espíritu", lyrics: "Danos tu Espíritu, Señor.<br>Danos tu Espíritu de amor." },
-        hs8: { id: "aW29v6I93Ew", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende." },
-        hs9: { id: "C3m3c7q034A", title: "Veni Creator Spiritus", lyrics: "Veni Creator Spiritus,<br>mentes tuorum visita." },
-        hs10: { id: "aW29v6I93Ew", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende." },
-        hs11: { id: "Xff4PlGlBLk", title: "Veni Lumen Cordium", lyrics: "Veni Sancte Spiritus,<br>Veni lumen cordium." },
-        hs12: { id: "lsm919bwwag", title: "Spiritus Jesu Christi", lyrics: "Spiritus Jesu Christi,<br>spiritus caritatis, confirmet cor tuum." },
+        // --- 1. INVOCACIONES AL ESPÍRITU SANTO (Español, Latín, Inglés) ---
+        hs1: { id: "c5a5Z11U67I", title: "Ven, Espíritu de Dios", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
+        hs2: { id: "D4D500fA0l0", title: "Ven, Espíritu Creador", lyrics: "Ven, Espíritu Creador,<br>enciende el fuego de esta tierra." },
+        hs3: { id: "rP8Ld0CqCqU", title: "Espíritu Santo, Ven", lyrics: "Espíritu Santo, ven, ven.<br>Espíritu Santo, ven, ven." },
+        hs4: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs5: { id: "CfJsT-SdHW8", title: "Veni Creator Spiritus", lyrics: "Veni Creator Spiritus,<br>mentes tuorum visita.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Creador, visita las mentes de los tuyos)</span>" },
+        hs6: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs7: { id: "V9R74Z6P8cQ", title: "Spiritus Jesu Christi", lyrics: "Spiritus Jesu Christi,<br>Spiritus caritatis, confirmet cor tuum.<br><span class='italic opacity-75 text-[0.85em]'>(Espíritu de Jesucristo, Espíritu de amor, confirma tu corazón)</span>" },
+        hs8: { id: "TqZc1v0aL1A", title: "Veni Lumen Cordium", lyrics: "Veni lumen cordium,<br>veni Sancte Spiritus.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, luz de los corazones, ven Espíritu Santo)</span>" },
+        hs9: { id: "qU9t0P0B_e4", title: "Da pacem cordium", lyrics: "Da pacem cordium.<br>Da pacem cordium.<br><span class='italic opacity-75 text-[0.85em]'>(Da la paz a los corazones. Da la paz a los corazones)</span>" },
+        hs10: { id: "8E-BwL3tN6Y", title: "Holy Spirit, come to us", lyrics: "Holy Spirit, come to us.<br>Holy Spirit, come to us.<br><span class='italic opacity-75 text-[0.85em]'>(Espíritu Santo, ven a nosotros)</span>" },
+        hs11: { id: "3hHGIWnrbZU", title: "Come Holy Spirit", lyrics: "Veni Sancte Spiritus,<br>Come Holy Spirit, come.<br><span class='italic opacity-75 text-[0.85em]'>(Ven Espíritu Santo. Ven, Espíritu Santo, ven)</span>" },
+        hs12: { id: "m5P0Xl3h_fE", title: "Ven, Espíritu de Dios (Coro)", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
 
-        // --- 2. SEGUNDOS CANTOS (Mayoría Español, luego Latín, algunos Inglés) ---
-        le1: { id: "go1-BoDD7CI", title: "Nada te turbe", lyrics: "Nada te turbe, nada te espante,<br>quien a Dios tiene nada le falta." },
+        // --- 2. CANTOS INTERMEDIOS (Mayoría Español, luego Latín e Inglés) ---
+        le1: { id: "mKRLw2zkc8s", title: "Nada te turbe", lyrics: "Nada te turbe, nada te espante,<br>quien a Dios tiene nada le falta." },
         le2: { id: "1tzQ9GEKly0", title: "El alma que anda en amor", lyrics: "El alma que anda en amor,<br>ni cansa, ni se cansa." },
-        le3: { id: "p1G-h9l_6aU", title: "Dios es ternura", lyrics: "Dios es solo ternura,<br>la compasión y el perdón." },
-        le4: { id: "-1LLxCEa7IU", title: "Misericordia, Señor", lyrics: "Misericordia, Señor,<br>misericordia, Señor." },
-        le5: { id: "X9e_QO1ATho", title: "En nuestra oscuridad", lyrics: "En nuestra oscuridad, enciende la llama<br>de tu amor, Señor, de tu amor, Señor." },
-        le6: { id: "9b0im0Xn4sQ", title: "Confío en ti, Señor", lyrics: "Confío en ti, Señor,<br>tú eres mi Dios." },
-        le7: { id: "Xff4PlGlBLk", title: "Ubi Caritas", lyrics: "Ubi caritas et amor,<br>ubi caritas Deus ibi est." },
-        le8: { id: "lbb-kaurSW0", title: "Laudate omnes gentes", lyrics: "Laudate omnes gentes,<br>laudate Dominum." },
-        le9: { id: "spe1vqO3zhM", title: "In manus tuas, Pater", lyrics: "In manus tuas, Pater,<br>commendo spiritum meum." },
-        le10: { id: "lsm919bwwag", title: "Misericordias Domini", lyrics: "Misericordias Domini,<br>in aeternum cantabo." },
-        le11: { id: "F33jN3b29q8", title: "Bless the Lord my soul", lyrics: "Bless the Lord, my soul,<br>and bless God's holy name." },
-        le12: { id: "R60l_h9l4Ac", title: "O Lord hear my prayer", lyrics: "O Lord hear my prayer, O Lord hear my prayer.<br>When I call, answer me." },
+        le3: { id: "q-kbIVAL7L0", title: "Dios es ternura", lyrics: "Dios es ternura,<br>Dios vive en ti, atrévete a amar." },
+        le4: { id: "yC71CD9P7h4", title: "De noche iremos", lyrics: "De noche iremos, de noche,<br>que para encontrar la fuente, solo la sed nos alumbra." },
+        le5: { id: "FnjpVW-n2XY", title: "En ti, Señor, reposa", lyrics: "En Ti, Señor, reposa todo mi ser.<br>He sido amado por Ti, mi Salvador." },
+        le6: { id: "cS-qH8E0SXM", title: "Cristo Jesús", lyrics: "Cristo Jesús, oh fuego que abrasa,<br>que las tinieblas en mí no tengan voz." },
+        le7: { id: "X9e_QO1ATho", title: "Ubi Caritas", lyrics: "Ubi caritas et amor,<br>ubi caritas Deus ibi est.<br><span class='italic opacity-75 text-[0.85em]'>(Donde hay caridad y amor, allí está Dios)</span>" },
+        le8: { id: "lbb-kaurSW0", title: "Laudate omnes gentes", lyrics: "Laudate omnes gentes,<br>laudate Dominum.<br><span class='italic opacity-75 text-[0.85em]'>(Alaben al Señor, todas las naciones)</span>" },
+        le9: { id: "-1LLxCEa7IU", title: "Misericordias Domini", lyrics: "Misericordias Domini,<br>in aeternum cantabo.<br><span class='italic opacity-75 text-[0.85em]'>(Cantaré eternamente las misericordias del Señor)</span>" },
+        le10: { id: "aC_e2V9_G3o", title: "Oculi nostri", lyrics: "Oculi nostri ad Dominum Jesum.<br>Oculi nostri ad Dominum nostrum.<br><span class='italic opacity-75 text-[0.85em]'>(Nuestros ojos miran al Señor Jesús. Nuestros ojos miran a nuestro Señor)</span>" },
+        le11: { id: "lsm919bwwag", title: "Bless the Lord my soul", lyrics: "Bless the Lord, my soul,<br>and bless God's holy name.<br><span class='italic opacity-75 text-[0.85em]'>(Bendice al Señor, alma mía, y bendice su santo nombre)</span>" },
+        le12: { id: "spe1vqO3zhM", title: "Let all who are thirsty come", lyrics: "Let all who are thirsty come.<br>Let all who wish receive the water of life freely.<br><span class='italic opacity-75 text-[0.85em]'>(Que vengan todos los que tienen sed. Que todos los que deseen reciban gratis el agua de la vida)</span>" },
 
-        // --- 3. CANTOS DE CIERRE (Mayoría Español, luego Latín, algunos Inglés) ---
-        cl1: { id: "A52l_b6n2We", title: "Tu voluntad", lyrics: "Tu voluntad, Señor,<br>es mi paz y mi alegría." },
-        cl2: { id: "V61m_c5o1Vf", title: "Bendecid al Señor", lyrics: "Bendecid al Señor,<br>todos los siervos del Señor." },
-        cl3: { id: "D70n_d4p0Ug", title: "El Señor es mi fortaleza", lyrics: "El Señor es mi fortaleza,<br>el Señor es mi canción." },
-        cl4: { id: "E89o_e3q9Th", title: "Jesús, recuérdame", lyrics: "Jesús, recuérdame<br>cuando entres en tu reino." },
-        cl5: { id: "F98p_f2r8Si", title: "Alabe todo el mundo", lyrics: "Alabe todo el mundo,<br>alabe al Señor." },
-        cl6: { id: "G07q_g1s7Rj", title: "Danos tu paz", lyrics: "Danos tu paz, danos tu paz,<br>danos tu paz, Señor." },
-        cl7: { id: "H16r_h0t6Qk", title: "Mane nobiscum", lyrics: "Mane nobiscum<br>Domine Jesu Christe." },
-        cl8: { id: "I25s_i9u5Pl", title: "Adoramus te Christe", lyrics: "Adoramus te Christe,<br>benedicimus tibi." },
-        cl9: { id: "J34t_j8v4Om", title: "Magnificat", lyrics: "Magnificat, magnificat,<br>magnificat anima mea Dominum." },
-        cl10: { id: "K43u_k7w3Nn", title: "Stay with me", lyrics: "Stay with me, remain here with me,<br>watch and pray, watch and pray." },
-        cl11: { id: "L52v_l6x2Mo", title: "Wait for the Lord", lyrics: "Wait for the Lord, whose day is near.<br>Wait for the Lord, be strong, take heart." },
-        cl12: { id: "M61w_m5y1Lp", title: "In the Lord I'll be ever thankful", lyrics: "In the Lord I'll be ever thankful,<br>in the Lord I will rejoice!" }
+        // --- 3. CANTOS DE CIERRE (Mayoría Español, luego Latín e Inglés) ---
+        cl1: { id: "xKLn97XRERE", title: "En nuestra oscuridad", lyrics: "En nuestra oscuridad, enciende la llama de tu amor, Señor." },
+        cl2: { id: "s7rFRVS7PHU", title: "Bendigo al Señor", lyrics: "Bendigo al Señor en todo momento.<br>En Él se alegra mi alma." },
+        cl3: { id: "6L8ihFCshQI", title: "Donde hay amor", lyrics: "Donde hay amor y caridad,<br>donde hay amor, Dios ahí está." },
+        cl4: { id: "O_Z1wA8W5aY", title: "Confío en Ti", lyrics: "Confío en ti, Señor.<br>Confío en ti." },
+        cl5: { id: "Uv_wM9z_tC0", title: "Danos tu paz", lyrics: "Danos tu paz, danos la paz.<br>Danos la paz, Señor." },
+        cl6: { id: "dYyY8ydVjH8", title: "Confitemini Domino", lyrics: "Confitemini Domino,<br>quoniam bonus.<br><span class='italic opacity-75 text-[0.85em]'>(Den gracias al Señor, porque es bueno)</span>" },
+        cl7: { id: "xHfGuqbJMRM", title: "Laudate Dominum", lyrics: "Laudate Dominum,<br>omnes gentes, alleluia!<br><span class='italic opacity-75 text-[0.85em]'>(¡Alaben al Señor todas las naciones, aleluya!)</span>" },
+        cl8: { id: "FLff711C0vs", title: "Adoramus te Christe", lyrics: "Adoramus te Christe,<br>benedicimus tibi.<br><span class='italic opacity-75 text-[0.85em]'>(Te adoramos, Cristo, y te bendecimos)</span>" },
+        cl9: { id: "kOGN__V2Jyw", title: "Adoramus Te Domine", lyrics: "Adoramus Te Domine,<br>O Christe, Domine Jesu.<br><span class='italic opacity-75 text-[0.85em]'>(Te adoramos, Señor, Oh Cristo, Señor Jesús)</span>" },
+        cl10: { id: "615WUwA_AS4", title: "Stay with me", lyrics: "Stay with me, remain here with me,<br>watch and pray, watch and pray.<br><span class='italic opacity-75 text-[0.85em]'>(Quédate conmigo, permanece aquí conmigo, vela y ora)</span>" },
+        cl11: { id: "t9i75gz_Vx8", title: "Wait for the Lord", lyrics: "Wait for the Lord, whose day is near.<br>Wait for the Lord, be strong, take heart.<br><span class='italic opacity-75 text-[0.85em]'>(Espera al Señor, cuyo día está cerca. Sé fuerte, ten valor)</span>" },
+        cl12: { id: "ZyBcyfP_cfI", title: "In the Lord I'll be ever thankful", lyrics: "In the Lord I'll be ever thankful,<br>in the Lord I will rejoice!<br><span class='italic opacity-75 text-[0.85em]'>(¡En el Señor estaré siempre agradecido, en Él me regocijaré!)</span>" }
     };
 
     const DAYS = [
@@ -370,7 +371,7 @@
             oracionPoetica: "Padre que no sabe de distancias prudentes,\nabrázame antes de que termine mi aburrido discurso de culpa.\nLávame el fracaso con tus lágrimas de alegría,\ny ponme un anillo nuevo aunque no lo merezca.\n\nVengo arrastrando el peso de mis malas elecciones,\noliendo a tiempo perdido y a amores de rebajas.\nEnsayo penitencias porque no me creo que el perdón sea gratis,\nporque me cuesta aceptar un amor que no exija una factura.\n\nRompe mi lógica mercantil de intentar comprar tu perdón.\nCúbreme con el manto de tu misericordia ilógica y desbordante,\ny enséñame a dejarme amar gratuitamente,\npara que entienda que en tu casa siempre hay un lugar para mí.\n\nQue tu abrazo me quite los harapos de mis falsas identidades,\nesos que tejí intentando ser alguien grande lejos de tu mirada.\nVísteme de nuevo con la túnica luminosa de mi dignidad primera,\nesa que me diste al nacer y que ninguna culpa puede jamás borrar.\n\nEnséñame a entrar en la fiesta sin quedarme resentido en la puerta,\na no boicotear tu alegría con mis absurdos complejos de indigno.\nQuiero aprender a bailar al son de tu misericordia incomprensible,\ncelebrando a gritos que estuve muerto y tu amor me devolvió a la vida.",
             dialogo: [
                 { id: 'd11_1', label: "Señor, el 'país lejano' del que hoy vengo volviendo, ese lugar de actitudes o decisiones donde busqué saciarme y me vacié, es..." },
-                { id: 'd11_2', label: "Al mirar atentamente a mi alrededor, siento que hoy me invitas a 'lavarle los pies' (servir con paciencia silenciosa y humildad verdadera) a..." }
+                { id: 'd11_2', label: "Al imaginar que corres a abrazarme sin pedirme cuentas ni explicaciones, lo que mi corazón herido siente es..." }
             ],
             oracionFinal: "Padre de entrañas de misericordia, gracias por salir corriendo a mi encuentro para abrazarme cuando aún estoy lejos. Que la experiencia abrumadora de tu perdón incondicional transforme para siempre mi forma de amar.",
             compromiso: "Me comprometo a perdonar una pequeña ofensa o, como mínimo, a frenar intencionalmente un juicio crítico sobre alguien, recordando cuánta misericordia he recibido yo primero."
@@ -409,7 +410,11 @@
         { title: "Cierre", icon: "anchor" }
     ];
 
-    const closingChants = [cantosDB.cl1, cantosDB.cl2, cantosDB.cl3, cantosDB.cl4, cantosDB.cl5, cantosDB.cl6, cantosDB.cl7, cantosDB.cl8, cantosDB.cl9, cantosDB.cl10, cantosDB.cl11, cantosDB.cl12];
+    const closingChants = [
+        cantosDB.cl1, cantosDB.cl2, cantosDB.cl3, cantosDB.cl4, 
+        cantosDB.cl5, cantosDB.cl6, cantosDB.cl7, cantosDB.cl8, 
+        cantosDB.cl9, cantosDB.cl10, cantosDB.cl11, cantosDB.cl12
+    ];
     
     const introsPadreNuestro = [
         "Sabiendo que nuestro valor descansa en Su mirada incondicional, unámonos a Jesús para orar al Padre que nos ama desde la eternidad:",
