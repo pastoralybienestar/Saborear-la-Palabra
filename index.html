@@ -7,12 +7,10 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter (UI), Playfair Display (Títulos), Lora (Lectura profunda) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -102,16 +100,34 @@
     const DEFAULT_BG = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80";
     
     const cantosDB = {
+        // --- Cantos al Espíritu Santo (Alternando Español y Latín) ---
+        veniSancteES: { id: "sz-nU5n4r_A", title: "Ven, Espíritu Santo", lyrics: "Ven, Espíritu Santo." },
+        veniSancteLA: { id: "WmxheT4Fh_s", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus." },
+        tuiAmorisES: { id: "M4RffzksnTY", title: "Ven, Espíritu de Dios", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
+        tuiAmorisLA: { id: "d6m2sBv6yT0", title: "Tui amoris ignem", lyrics: "Tui amoris ignem accende.<br>Veni Sancte Spiritus." },
+        
+        // --- Cantos en Español ---
         nada: { id: "go1-BoDD7CI", title: "Nada te turbe", lyrics: "Nada te turbe, nada te espante,<br>quien a Dios tiene nada le falta.<br>Nada te turbe, nada te espante,<br>solo Dios basta." },
         alma: { id: "1tzQ9GEKly0", title: "El alma que anda en amor", lyrics: "El alma que anda en amor,<br>ni cansa, ni se cansa." },
-        monAme: { id: "aiHP7V42TQM", title: "Mon âme se repose", lyrics: "Mon âme se repose en paix sur Dieu seul:<br>de lui vient mon salut.<br>Oui, sur Dieu seul mon âme se repose,<br>se repose en paix." },
-        inManus: { id: "Xff4PlGlBLk", title: "In manus tuas, Pater", lyrics: "In manus tuas, Pater,<br>commendo spiritum meum.<br>In manus tuas, Pater,<br>commendo spiritum meum." },
+        diosTernura: { id: "p1G-h9l_6aU", title: "Dios es ternura", lyrics: "Dios es solo ternura,<br>la compasión y el perdón.<br>Dios es solo ternura,<br>fuente de todo amor." },
+        oscuridad: { id: "t5G3oD99vEA", title: "En nuestra oscuridad", lyrics: "En nuestra oscuridad,<br>enciende la llama de tu amor, Señor." },
+        
+        // --- Cantos en Latín ---
+        inManus: { id: "Xff4PlGlBLk", title: "In manus tuas, Pater", lyrics: "In manus tuas, Pater,<br>commendo spiritum meum.<br>(En tus manos, Padre, encomiendo mi espíritu)" },
         misericordias: { id: "-1LLxCEa7IU", title: "Misericordias Domini", lyrics: "Misericordias Domini,<br>in aeternum cantabo.<br>(Cantaré eternamente las misericordias del Señor)" },
-        bless: { id: "lsm919bwwag", title: "Bless the Lord my soul", lyrics: "Bless the Lord, my soul, and bless God's holy name.<br>Bless the Lord, my soul, who leads me into life." },
         ubi: { id: "X9e_QO1ATho", title: "Ubi Caritas", lyrics: "Ubi caritas et amor,<br>ubi caritas Deus ibi est.<br>(Donde hay caridad y amor, allí está Dios)" },
         laudate: { id: "lbb-kaurSW0", title: "Laudate omnes gentes", lyrics: "Laudate omnes gentes,<br>laudate Dominum.<br>(Alaben al Señor todas las naciones)" },
+        mane: { id: "9b0im0Xn4sQ", title: "Mane nobiscum", lyrics: "Mane nobiscum Domine Jesu Christe.<br>(Quédate con nosotros, Señor Jesucristo)" },
+        cantate: { id: "KJHVtLKThG8", title: "Cantate Domino", lyrics: "Cantate Domino canticum novum,<br>alleluia, alleluia.<br>(Cantad al Señor un cántico nuevo)" },
+        adoramus: { id: "6ajfmBz6hTY", title: "Adoramus te Christe", lyrics: "Adoramus te Christe,<br>benedicimus tibi.<br>(Te adoramos Cristo y te bendecimos)" },
+        confitemini: { id: "MubfB2pXo4I", title: "Confitemini Domino", lyrics: "Confitemini Domino, quoniam bonus.<br>(Dad gracias al Señor, porque es bueno)" },
+        
+        // --- Cantos en Inglés ---
+        bless: { id: "lsm919bwwag", title: "Bless the Lord my soul", lyrics: "Bless the Lord, my soul, and bless God's holy name.<br>Bless the Lord, my soul, who leads me into life." },
         thirsty: { id: "spe1vqO3zhM", title: "Let all who are thirsty come", lyrics: "Let all who are thirsty come.<br>Let all who wish receive the water of life freely.<br>Amen, come Lord Jesus." },
-        mane: { id: "9b0im0Xn4sQ", title: "Mane nobiscum", lyrics: "Mane nobiscum Domine Jesu Christe.<br>(Quédate con nosotros, Señor Jesucristo)" }
+        jesusRemember: { id: "umLK1RgAZyg", title: "Jesus, remember me", lyrics: "Jesus, remember me<br>when you come into your kingdom." },
+        oLordHear: { id: "8BWKmahZgLM", title: "O Lord, hear my prayer", lyrics: "O Lord, hear my prayer,<br>O Lord, hear my prayer,<br>when I call answer me." },
+        kingdom: { id: "0w4T4X2k8mU", title: "The kingdom of God", lyrics: "The kingdom of God is justice and peace<br>and joy in the Holy Spirit.<br>Come, Lord, and open in us the gates of your kingdom." }
     };
 
     const DAYS = [
@@ -123,16 +139,18 @@
             gradient: "from-amber-400 to-orange-600",
             shadow: "shadow-orange-500/50",
             bgImage: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.nada, cantosDB.alma],
+            cantos: [cantosDB.veniSancteES, cantosDB.nada], // Posición 1 y 2
             preparacion: "Encuentra un rincón de paz. Respira hondo, dejando que las tensiones y prisas de la jornada se desvanezcan con cada exhalación. Imagina por un momento que la puerta de tu habitación se abre suavemente y Jesús entra. No hay reproches en su rostro, ni expectativas de perfección; no viene a pedirte cuentas. Él se sienta frente a ti y te mira en un silencio envuelto en ternura. Es una mirada que no juzga, sino que abraza; una mirada que se alegra infinitamente de tu mera existencia, mucho más allá de tus logros o fracasos. Sostén esa mirada. Deja que su inmensa calidez disuelva, una a una, tus defensas y justificaciones.",
             peticion: "Señor, concédeme la gracia de experimentar íntimamente cuánto me amas. Que mi corazón descanse al saber que mi valor no depende de lo que produzco o de cómo me ven los demás, sino de tu amor incondicional que me sostiene.",
             cita: '"No temas, porque yo te he redimido, te he llamado por tu nombre, tú eres mío. Eres precioso a mis ojos, de gran valor, y yo te amo." (Isaías 43, 1.4)',
-            saboreo: "Vuelve a leer el texto sustituyendo el pronombre 'tú' por tu propio nombre. Detente en cada afirmación. ¿Cuántas veces a lo largo de la semana mendigas valor buscando la aprobación de otros, agotándote en el intento de ser 'suficiente'? Siente el peso amoroso de la frase 'tú eres mío': no lo escuches como una posesión que asfixia, sino como una pertenencia inquebrantable que otorga seguridad absoluta a tu identidad. Eres deseado, eres valioso, pura y simplemente porque existes ante Él.",
-            oracionPoetica: "Señor de las miradas limpias,\ndesnúdame de los méritos que intento acumular.\nLíbrame del agotador mercado de las aprobaciones,\ndonde vendo mi paz a cambio de un aplauso fugaz.\n\nEstoy cansado de medir mi talla en las balanzas del mundo,\nde buscar en los espejos ajenos un reflejo que me justifique.\nA veces olvido que antes de mi primer paso, ya me habías pronunciado;\nque antes de mi primer error, ya me habías perdonado.\n\nMírame, simplemente mírame,\nhasta que tu pupila grabe a fuego en mi pecho\nque soy amado y valioso\nantes de hacer absolutamente nada.",
+            saboreo: "Vuelve a leer el texto sustituyendo el pronombre 'tú' por tu propio nombre. Detente en cada afirmación. ¿Cuántas veces a lo largo de la semana mendigas valor buscando la aprobación de otros, agotándote en el intento de ser 'suficiente'? Siente el peso amoroso de la frase 'tú eres mío': no lo escuches como una posesión que asfixia, sino como una pertenencia inquebrantable que otorga seguridad absoluta a tu identidad. Eres deseado, eres valioso, pura y simplemente porque existes ante Él.\n\nAdemás, tómate un momento para observar cómo esta necesidad de validación externa ha moldeado tus decisiones más recientes. ¿Cuántas cosas haces simplemente para que te digan 'qué bien lo hiciste'? Al saborear el texto, permite que la certeza de ser amado por el Creador actúe como un bálsamo reparador sobre esas heridas de insuficiencia. Date permiso para descansar en esta verdad durante todo el día. Si sientes que la ansiedad por agradar vuelve a asomarse, respira hondo y recuerda que tu existencia ya es un regalo celebrado. Es en este reconocimiento íntimo donde florece la verdadera libertad, aquella que te permite amar a los demás no por lo que te pueden dar, sino desde la abundancia de quien ya se sabe infinitamente amado.",
+            oracionPoetica: "Señor de las miradas limpias,\ndesnúdame de los méritos que intento acumular.\nLíbrame del agotador mercado de las aprobaciones,\ndonde vendo mi paz a cambio de un aplauso fugaz.\n\nEstoy cansado de medir mi talla en las balanzas del mundo,\nde buscar en los espejos ajenos un reflejo que me justifique.\nA veces olvido que antes de mi primer paso, ya me habías pronunciado;\nque antes de mi primer error, ya me habías perdonado.\n\nMírame, simplemente mírame,\nhasta que tu pupila grabe a fuego en mi pecho\nque soy amado y valioso\nantes de hacer absolutamente nada.\n\nEnséñame a caminar con la frente erguida,\nsabiendo que mi nombre está escrito en tus palmas,\nque no soy un accidente ni un error en la historia,\nsino un pensamiento eterno de tu corazón compasivo.\n\nY cuando la noche traiga sus viejas dudas,\ny el eco del mundo intente gritar que no basto,\nque tu voz más suave, pero más firme que todas,\nme cante al oído la canción de mi inmensa dignidad.",
             dialogo: [
                 { id: 'd1_1', label: "Señor, al intentar dejar que estas palabras traspasen mis muros, confieso que lo que más me cuesta creer sobre mí mismo es..." },
                 { id: 'd1_2', label: "Pero cuando me rindo y acepto que tu mirada sobre mí es de pura ternura, mi alma siente..." }
-            ]
+            ],
+            oracionFinal: "Señor, gracias por amarme tal como soy, antes de cualquier logro o mérito de mi parte. Sella esta profunda verdad en mi corazón para que camine hoy con la frente en alto y el alma en paz.",
+            compromiso: "Hoy me comprometo a no mendigar valor en la aprobación ajena. Si me sorprendo buscando agradar por miedo al rechazo, me detendré y recordaré la ternura de tu mirada sobre mí."
         },
         {
             id: 2,
@@ -142,16 +160,18 @@
             gradient: "from-cyan-400 to-blue-600",
             shadow: "shadow-blue-500/50",
             bgImage: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.monAme, cantosDB.inManus],
+            cantos: [cantosDB.veniSancteLA, cantosDB.bless], // Posición 1 y 2
             preparacion: "Toma consciencia de tu propio cuerpo. ¿Dónde sientes tensión en este momento? ¿Acaso en los hombros, en el cuello, en la mandíbula apretada? Esas tensiones físicas son el eco resonante del peso mental que llevas. Imagina que cargas una mochila repleta de piedras pesadas: son tus preocupaciones incesantes, la necesidad compulsiva de que todo salga perfecto, el temor al futuro incierto. Al comenzar este rato, visualiza cómo te quitas esa mochila y la dejas, con un profundo suspiro de alivio, a los pies del Maestro. Él te mira, sabiendo exactamente cuánto pesa.",
             peticion: "Jesús, concédeme la gracia de la humildad para reconocer mis límites humanos. Enséñame a soltar el afán agotador de controlarlo todo y permíteme experimentar tu alivio profundo.",
             cita: '"Vengan a mí todos los que están cansados y agobiados, y yo los aliviaré. Carguen con mi yugo y aprendan de mí, que soy manso y humilde de corazón, y encontrarán descanso para sus almas." (Mateo 11, 28-29)',
-            saboreo: "Observa el agudo contraste: el mundo constantemente te exige 'esfuérzate más', 'tienes que poder con todo', 'no te detengas jamás'. Jesús, en cambio, te dice suavemente: 'ven a mí'. Fíjate en la palabra agobiados. El agotamiento más letal no siempre es el físico, sino la fatiga emocional de sostener el mundo entero en tus manos. Jesús no te promete suprimir el trabajo, sino que te ofrece un 'yugo' compartido. Llevar la vida junto a Él hace que la carga cambie de naturaleza; se vuelve un caminar acompañado, un esfuerzo sostenido por la gracia.",
-            oracionPoetica: "Dios de las manos siempre abiertas,\nenséñame a conjugar el difícil verbo 'soltar'.\nSálvame de mi adicción a tenerlo todo atado,\nde mi falsa ilusión de omnipotencia.\n\nMe creo el pilar que sostiene mi pequeño universo,\ny el peso de las mañanas me quiebra la espalda.\nMe angustia el futuro, me pesa el pasado,\ny en este afán de controlarlo todo, se me escapa la vida.\n\nHoy quiero dimitir de mi cargo de gerente del mundo,\ny sentarme a tus pies, pequeño y vulnerable,\nsabiendo que tu yugo es suave,\ndejando que Tú, y solo Tú, sostengas mis horas.",
+            saboreo: "Observa el agudo contraste: el mundo constantemente te exige 'esfuérzate más', 'tienes que poder con todo', 'no te detengas jamás'. Jesús, en cambio, te dice suavemente: 'ven a mí'. Fíjate en la palabra agobiados. El agotamiento más letal no siempre es el físico, sino la fatiga emocional de sostener el mundo entero en tus manos. Jesús no te promete suprimir el trabajo, sino que te ofrece un 'yugo' compartido. Llevar la vida junto a Él hace que la carga cambie de naturaleza; se vuelve un caminar acompañado, un esfuerzo sostenido por la gracia.\n\nConsidera también cómo este 'yugo' compartido transforma tu mirada sobre los imprevistos de la vida diaria. Cuando intentas controlar cada minúsculo detalle, un simple cambio de planes se vive como una tragedia que agota tus reservas. Cuando caminas junto al Maestro, el imprevisto se convierte en una oportunidad para confiar en Su providencia. Suelta el timón por un momento hoy y experimenta la ligereza liberadora de saber que el universo sigue su curso sin que tengas que empujarlo constantemente con tus propias y limitadas fuerzas.",
+            oracionPoetica: "Dios de las manos siempre abiertas,\nenséñame a conjugar el difícil verbo 'soltar'.\nSálvame de mi adicción a tenerlo todo atado,\nde mi falsa ilusión de omnipotencia.\n\nMe creo el pilar que sostiene mi pequeño universo,\ny el peso de las mañanas me quiebra la espalda.\nMe angustia el futuro, me pesa el pasado,\ny en este afán de controlarlo todo, se me escapa la vida.\n\nHoy quiero dimitir de mi cargo de gerente del mundo,\ny sentarme a tus pies, pequeño y vulnerable,\nsabiendo que tu yugo es suave,\ndejando que Tú, y solo Tú, sostengas mis horas.\n\nDame la gracia de la debilidad aceptada,\nel valor de decir 'no puedo' sin sentirme vencido.\nQue encuentre en mi fragilidad la puerta de entrada\npara que tu fuerza divina se instale en mi pobreza.\n\nQuiero despertar mañana sin la agenda como espada,\nsin el reloj dictando ansioso el valor de mis horas.\nQuiero aprender a fluir como el río en tu cauce,\nseguro de que me llevas al mar de tu inmensa paz.",
             dialogo: [
                 { id: 'd2_1', label: "Jesús, hoy vengo a ti sumamente cansado/a. Si miro debajo de mi hiperactividad, mi mayor agobio oculto es..." },
                 { id: 'd2_2', label: "Te entrego esta necesidad de controlarlo todo. Para aprender a llevar la vida a tu ritmo compasivo, te pido que..." }
-            ]
+            ],
+            oracionFinal: "Padre amado, dejo en tus manos fuertes todas mis ansiedades y mis planes futuros. Enséñame a caminar a tu ritmo sereno, confiando en que tú sostienes mi mundo, no yo.",
+            compromiso: "Me comprometo a soltar conscientemente el control de al menos una situación que hoy me cause estrés o frustración, rindiéndola en las manos de Dios."
         },
         {
             id: 3,
@@ -161,16 +181,18 @@
             gradient: "from-indigo-500 to-purple-800",
             shadow: "shadow-indigo-500/50",
             bgImage: "https://images.unsplash.com/photo-1518837695005-2083093ee35c?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.nada, cantosDB.misericordias],
+            cantos: [cantosDB.tuiAmorisES, cantosDB.misericordias],
             preparacion: "Cierra los ojos e imagina que es de noche profunda. Te encuentras en una pequeña frágil barca de madera en medio del mar oscuro. De repente, el viento empieza a soplar con furia incontenible. Las olas se levantan amenazantes y el agua helada comienza a inundar tu espacio vital. Siente el miedo físico, el ruido ensordecedor del caos a tu alrededor. Ahora, gira lentamente tu mirada hacia la popa: Jesús está allí. Está durmiendo plácidamente sobre un cojín. Su paz interior es tan colosal que la tormenta exterior no logra perturbarlo lo más mínimo. Él es el ancla inamovible en medio del caos.",
             peticion: "Señor, frente a las tempestades inesperadas de mi vida, otórgame una fe firme que no se fundamente en que todo salga bien, sino en descubrir tu presencia soberana incluso en tus más densos silencios.",
             cita: 'Lo despertaron y le dijeron: «Maestro, ¿no te importa que perezcamos?». Él se despertó, increpó al viento y dijo al mar: «¡Calla, enmudece!». El viento cesó y sobrevino una gran calma. (Marcos 4, 38-39)',
-            saboreo: "No albergues temor de identificarte plenamente con el grito desesperado de los discípulos: '¿No te importa?'. Es la oración cruda y genuina del que sufre. En ocasiones, el silencio temporal de Dios nos parece indiferencia cruel, pero en realidad es la suprema confianza del que sabe que el barco, contigo dentro, jamás se hundirá. Contempla ahora cómo Jesús se levanta con majestuosidad. Su palabra tiene absoluta autoridad sobre el caos cósmico y sobre el caos turbulento de tu mente. Deja que su voz resuene en las ansiedades que te quitan el sueño, diciendo con firmeza y amor insondable: '¡Calla, enmudece!'.",
-            oracionPoetica: "Maestro de las madrugadas en vela,\ncuando el agua me llegue al cuello\ny el ruido de mis miedos apague mi fe,\nno permitas que dude de tu presencia en mi barca.\n\nA veces la noche es demasiado oscura y las olas muy altas.\nSiento que te duermes, que mi naufragio no te importa,\ny el pánico me hace gritar a la deriva.\nPerdona mi fe frágil, mi miopía ante tu misterio.\n\nAunque parezcas dormir entre mis zozobras,\nenséñame a contagiarme de tu calma profunda,\ny pronuncia, sobre la tempestad de mis ansiedades,\ntu rotundo y definitivo: ¡Calla, enmudece!",
+            saboreo: "No albergues temor de identificarte plenamente con el grito desesperado de los discípulos: '¿No te importa?'. Es la oración cruda y genuina del que sufre. En ocasiones, el silencio temporal de Dios nos parece indiferencia cruel, pero en realidad es la suprema confianza del que sabe que el barco, contigo dentro, jamás se hundirá. Contempla ahora cómo Jesús se levanta con majestuosidad. Su palabra tiene absoluta autoridad sobre el caos cósmico y sobre el caos turbulento de tu mente. Deja que su voz resuene en las ansiedades que te quitan el sueño, diciendo con firmeza y amor insondable: '¡Calla, enmudece!'.\n\nProfundiza aún más en esa figura de Jesús durmiendo. No es un sueño de evasión o desinterés, sino de dominio absoluto. Te invita a preguntarte con sinceridad frontal: ¿Quién gobierna realmente mi barca hoy? Si Él está verdaderamente a bordo, el agua de los problemas puede mojarte, puedes sentir frío e incertidumbre, pero ten la certeza absoluta de que no te ahogarás. Aprender a 'dormir' y descansar con Jesús en medio del nudo de la crisis es el acto supremo de fe madura. Es dejar de remar desesperadamente contra la corriente y permitir que Su soberanía dicte el momento exacto para que el viento enmudezca.",
+            oracionPoetica: "Maestro de las madrugadas en vela,\ncuando el agua me llegue al cuello\ny el ruido de mis miedos apague mi fe,\nno permitas que dude de tu presencia en mi barca.\n\nA veces la noche es demasiado oscura y las olas muy altas.\nSiento que te duermes, que mi naufragio no te importa,\ny el pánico me hace gritar a la deriva.\nPerdona mi fe frágil, mi miopía ante tu misterio.\n\nAunque parezcas dormir entre mis zozobras,\nenséñame a contagiarme de tu calma profunda,\ny pronuncia, sobre la tempestad de mis ansiedades,\ntu rotundo y definitivo: ¡Calla, enmudece!\n\nEnséñame a no medir tu amor por el clima de mis días,\na no buscarte solo en la brisa suave y el sol radiante.\nQue mi fe eche raíces profundas en medio de la tormenta,\nsabiendo que el timón reposa seguro en tus manos heridas.\n\nY si el agua llega a cubrirme y siento que me ahogo,\nsé tú el oxígeno puro que rescate mis pulmones agotados.\nHaz que mi corazón asustado lata al compás del tuyo,\nhasta que la tempestad ceda, vencida por tu paz eterna.",
             dialogo: [
                 { id: 'd3_1', label: "Señor, la tormenta que en este preciso instante agita mi barca, la que me llena de agua e incertidumbre paralizante, es..." },
                 { id: 'd3_2', label: "Aunque a veces mi angustia me haga sentir que duermes, hoy quiero pedirte que pronuncies tu poderoso '¡Calla, enmudece!' sobre..." }
-            ]
+            ],
+            oracionFinal: "Jesús, Maestro de las tormentas, gracias por no abandonar jamás mi frágil barca. Que tu presencia silenciosa pero poderosa sea mi única ancla cuando el miedo intente ahogarme.",
+            compromiso: "Me comprometo a hacer una pausa intencional de 2 minutos de silencio absoluto la próxima vez que sienta que el miedo o la ansiedad comienzan a agitar mi día."
         },
         {
             id: 4,
@@ -180,16 +202,18 @@
             gradient: "from-fuchsia-400 to-pink-600",
             shadow: "shadow-pink-500/50",
             bgImage: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.bless, cantosDB.misericordias],
+            cantos: [cantosDB.tuiAmorisLA, cantosDB.laudate],
             preparacion: "Ponte en la piel asoleada de Bartimeo. Eres ciego, te encuentras sentado en el polvo, al borde del camino, tristemente acostumbrado a sobrevivir de las migajas y sobras de los demás. Has terminado por aceptar tu limitación como un destino inamovible. De pronto, un murmullo creciente agita el aire: Jesús de Nazaret está pasando. Movido por una esperanza irracional y fiera, empiezas a gritar. Los 'prudentes' te mandan callar, pero tú gritas aún más fuerte. Entonces, el universo entero parece detenerse de golpe. Alguien se acerca y te susurra: '¡Ánimo, levántate, te llama!'. Siente el salto desbocado de tu corazón en el pecho.",
             peticion: "Jesús, Médico divino de las almas, infúndeme la valentía de reconocer mi propia ceguera persistente —mis prejuicios, mis antiguos rencores, mi egoísmo sutil— y el deseo ardiente de dejarme sanar integralmente por Ti.",
             cita: 'El ciego, arrojando su manto, dio un salto y se acercó a Jesús. Jesús le preguntó: «¿Qué quieres que haga por ti?». El ciego le dijo: «Maestro, que recobre la vista». Jesús le dijo: «Vete, tu fe te ha salvado». (Marcos 10, 50-52)',
-            saboreo: "Contempla con profunda atención la acción liberadora de 'arrojar el manto'. Para un mendigo de aquel tiempo, el manto lo era todo: su casa, su identidad pública, su única protección contra las gélidas noches del desierto. Bartimeo lo suelta radicalmente para ir ligero, sin estorbos, hacia la voz que lo llama. ¿Cuál es tu manto? ¿De qué mecanismos de defensa oxidados, excusas elaboradas, resentimientos guardados o 'zonas de confort' paralizantes tienes que despojarte hoy para sanar? Luego, maravíllate ante el absoluto y delicado respeto de Jesús. No le impone la cura desde arriba; se inclina y le pregunta: '¿Qué quieres que haga por ti?'. Dios, en su infinita cortesía, espera siempre tu permiso.",
-            oracionPoetica: "Jesús de los caminos polvorientos,\narráncame el manto de mis excusas perfectas,\nese con el que tapo mi mediocridad y mis miedos.\nDame el coraje de gritar tu nombre\ncuando la costumbre me mande callar.\n\nMe he acostumbrado tanto a mi oscuridad\nque a veces la prefiero al vértigo de tu luz.\nMe acomodo en los márgenes de mi propia historia,\npidiendo migajas cuando me ofreces un banquete.\n\nY si hoy te paras frente a mí y me preguntas qué quiero,\nque no pida consuelos baratos ni parches temporales.\nQue mi única respuesta, valiente y desnuda, sea:\n'Maestro, que pueda ver la vida con tus ojos'.",
+            saboreo: "Contempla con profunda atención la acción liberadora de 'arrojar el manto'. Para un mendigo de aquel tiempo, el manto lo era todo: su casa, su identidad pública, su única protección contra las gélidas noches del desierto. Bartimeo lo suelta radicalmente para ir ligero, sin estorbos, hacia la voz que lo llama. ¿Cuál es tu manto? ¿De qué mecanismos de defensa oxidados, excusas elaboradas, resentimientos guardados o 'zonas de confort' paralizantes tienes que despojarte hoy para sanar? Luego, maravíllate ante el absoluto y delicado respeto de Jesús. No le impone la cura desde arriba; se inclina y le pregunta: '¿Qué quieres que haga por ti?'. Dios, en su infinita cortesía, espera siempre tu permiso.\n\nReflexiona detenidamente sobre ese salto físico y espiritual de Bartimeo. No se levanta despacio, ni dudando, ni sopesando pros y contras; da un salto íntegro. Ese impulso nace de una confianza ciega, visceral, en Quien lo llama. A veces, nuestro proceso de sanación interior se retrasa indefinidamente porque soltamos nuestras 'vendas' a cuentagotas, guardando un trozo de excusa por si acaso nos arrepentimos. Dios te invita hoy a dar ese salto entero, a dejar en el polvo todo aquello que te impide ver tu propia luz y la belleza de los demás, confiando plenamente en que Su gracia sostendrá tu caída.",
+            oracionPoetica: "Jesús de los caminos polvorientos,\narráncame el manto de mis excusas perfectas,\nese con el que tapo mi mediocridad y mis miedos.\nDame el coraje de gritar tu nombre\ncuando la costumbre me mande callar.\n\nMe he acostumbrado tanto a mi oscuridad\nque a veces la prefiero al vértigo de tu luz.\nMe acomodo en los márgenes de mi propia historia,\npidiendo migajas cuando me ofreces un banquete.\n\nY si hoy te paras frente a mí y me preguntas qué quiero,\nque no pida consuelos baratos ni parches temporales.\nQue mi única respuesta, valiente y desnuda, sea:\n'Maestro, que pueda ver la vida con tus ojos'.\n\nQue no me asuste el resplandor de mi propia sanación,\nni me acobarde el desafío de caminar al fin sin muletas.\nDame la fuerza inmensa para sostenerle la mirada a mi nueva vida,\nsin añorar jamás la costumbre triste de mi rincón de siempre.\n\nQuiero aprender a mirar con las pupilas recién lavadas,\na descubrir los milagros cotidianos escondidos en las cosas pequeñas.\nY que cada paso que dé, ligero, confiado y sin cargas viejas,\nsea una danza de profunda gratitud hacia tu voz que me llamó.",
             dialogo: [
                 { id: 'd4_1', label: "Señor, el manto pesado de excusas y falsas seguridades que hoy necesito arrojar decididamente para correr hacia Ti es..." },
                 { id: 'd4_2', label: "Si te paras justo frente a mí en este instante y me preguntas qué quiero que hagas por mí, mi respuesta más honesta y urgente es..." }
-            ]
+            ],
+            oracionFinal: "Señor que devuelves la vista, gracias por llamarme siempre a caminar en tu luz. Dame la audacia de seguir soltando mis zonas de comodidad para correr libremente hacia Ti.",
+            compromiso: "Me comprometo a identificar hoy una excusa habitual que me paraliza o me impide amar mejor, y a 'arrojarla' lejos con un acto concreto de valentía."
         },
         {
             id: 5,
@@ -199,16 +223,18 @@
             gradient: "from-lime-400 to-emerald-600",
             shadow: "shadow-emerald-500/50",
             bgImage: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.ubi, cantosDB.alma],
+            cantos: [cantosDB.veniSancteES, cantosDB.thirsty],
             preparacion: "Imagina una viña espléndida despertando al rocío del amanecer. Observa los sarmientos (las ramas), repletos de hojas de un verde vibrante y uvas maduras y pesadas, profundamente unidos al tronco recio y antiguo. Es de ese tronco de donde reciben sin interrupción toda el agua, la vida y los nutrientes vitales (la savia). Piensa en ti mismo como uno de esos sarmientos. Mientras permanezcas injertado en el tronco, la vida fluirá a través de ti sin esfuerzo ansioso ni tensión. Pero si te cortan, por más lozano y verde que luzcas hoy, empezarás a secarte inevitablemente. Siente en tu interior esa necesidad vital, casi biológica, de conexión con la Fuente.",
             peticion: "Señor, concédeme la gracia de permanecer firmemente arraigado en Ti durante cada hora de este día, para que mis acciones no broten de una urgencia vacía, sino de la abundancia de Tu Espíritu, dando frutos de verdadera y perdurable alegría.",
             cita: '"Yo soy la vid, ustedes los sarmientos. El que permanece en mí, y yo en él, da mucho fruto... Les he dicho esto para que mi alegría esté en ustedes, y su alegría sea plena." (Juan 15, 5.11)',
-            saboreo: "Detente sin prisa en el verbo 'Permanecer'. Es una acción aparentemente pasiva a los ojos del mundo, pero espiritualmente es profundamente transformadora. Permanecer no requiere correr frenéticamente, ni demostrar a cada instante lo bueno y capaz que eres, ni multiplicar interminablemente tus tareas; requiere pura y simplemente 'estar', dejarte amar pasivamente, dejarte nutrir en el silencio fecundo y la confianza total. ¿En qué momentos del día te desconectas sutilmente de la Fuente? A menudo actuamos impulsados desde la hiperactividad estresada, y terminamos secos, irritables, dolorosamente vacíos por dentro. Jesús te invita hoy a que tu obrar en el mundo sea, sencillamente, un desbordamiento natural de tu estar a solas con Él.",
-            oracionPoetica: "Viñador de mis horas contadas,\nque no me pierda en la rama de la hiperactividad\nolvidando el tronco firme de tu amor.\nSálvame de la ilusión de creer que soy yo quien da la vida.\n\nCorro de un lado a otro inventando frutos,\nagotando mis reservas para demostrar que soy útil.\nY termino seco, frágil al viento, partido por dentro,\nlejos de la fuente que me vio nacer.\n\nEnséñame el misterio sereno de 'permanecer',\nde anclar mis raíces en el agua de tu gracia,\npara que todo lo que haga hoy no sea un esfuerzo estéril,\nsino un desbordamiento alegre de tu Espíritu en mí.",
+            saboreo: "Detente sin prisa en el verbo 'Permanecer'. Es una acción aparentemente pasiva a los ojos del mundo, pero espiritualmente es profundamente transformadora. Permanecer no requiere correr frenéticamente, ni demostrar a cada instante lo bueno y capaz que eres, ni multiplicar interminablemente tus tareas; requiere pura y simplemente 'estar', dejarte amar pasivamente, dejarte nutrir en el silencio fecundo y la confianza total. ¿En qué momentos del día te desconectas sutilmente de la Fuente? A menudo actuamos impulsados desde la hiperactividad estresada, y terminamos secos, irritables, dolorosamente vacíos por dentro. Jesús te invita hoy a que tu obrar en el mundo sea, sencillamente, un desbordamiento natural de tu estar a solas con Él.\n\nConsidera, además, cómo esta savia divina viaja silenciosamente desde el tronco milenario hasta la hoja más lejana. No hace ruido, no exige atención, pero es maravillosamente constante. Así debería ser tu relación cotidiana con Dios. No necesitas provocar grandes momentos de estruendo espiritual o emociones desbordantes todos los días; necesitas cultivar esa conexión constante y humilde. Cada respiración profunda, cada breve segundo de silencio en medio del trabajo ruidoso, puede convertirse en un acto consciente de beber de esa savia. Permite que esa corriente de vida pura limpie tus motivaciones y renueve tus fuerzas cansadas desde adentro.",
+            oracionPoetica: "Viñador de mis horas contadas,\nque no me pierda en la rama de la hiperactividad\nolvidando el tronco firme de tu amor.\nSálvame de la ilusión de creer que soy yo quien da la vida.\n\nCorro de un lado a otro inventando frutos,\nagotando mis reservas para demostrar que soy útil.\nY termino seco, frágil al viento, partido por dentro,\nlejos de la fuente que me vio nacer.\n\nEnséñame el misterio sereno de 'permanecer',\nde anclar mis raíces en el agua de tu gracia,\npara que todo lo que haga hoy no sea un esfuerzo estéril,\nsino un desbordamiento alegre de tu Espíritu en mí.\n\nLíbrame del orgullo ciego de querer florecer en el desierto\narrancándome voluntariamente de la tierra buena que me sostiene.\nQue entienda de una vez que mis hojas verdes no son mérito mío,\nsino el regalo gratuito de tu savia recorriendo mis venas.\n\nAyúdame a ser rama dócil que no resiste la poda experta,\nque acepta con paz los cortes necesarios para dar mejor fruto.\nY que al final de mi jornada, mi única preocupación y victoria\nsea comprobar con gratitud que sigo fuertemente unido a tu tronco.",
             dialogo: [
                 { id: 'd5_1', label: "Señor, reconozco con dolor que me 'seco' por dentro cuando me desconecto de Ti y busco ansiosamente mi plenitud en..." },
                 { id: 'd5_2', label: "Para permanecer unido a tu amor, fluyendo como savia vital en medio del fragor de mis rutinas, me propongo hoy..." }
-            ]
+            ],
+            oracionFinal: "Espíritu de Vida, mantenme firmemente injertado en el amor de Cristo. Que todas las obras que emprenda hoy sean únicamente un desbordamiento feliz de tu savia en mí.",
+            compromiso: "Me comprometo a dedicar 5 minutos en medio de mis rutinas simplemente para 'estar' con Él, respirando, sin pedir ni intentar producir nada, solo descansando en su presencia."
         },
         {
             id: 6,
@@ -218,16 +244,18 @@
             gradient: "from-teal-300 to-cyan-600",
             shadow: "shadow-teal-500/50",
             bgImage: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.ubi, cantosDB.inManus],
+            cantos: [cantosDB.veniSancteLA, cantosDB.diosTernura],
             preparacion: "Entra mentalmente y en silencio en la penumbra cálida e íntima de la sala de la Última Cena. Observa a Jesús. Sabiendo perfectamente que viene de Dios y vuelve a Dios, no exige tronos ni reconocimientos. Se levanta de la mesa en un silencio sagrado que sobrecoge, se quita el manto de maestro y se ciñe a la cintura una toalla rústica de siervo. Empieza a lavar los pies sucios, llagados y polvorientos de sus amigos más cercanos. Un trabajo reservado entonces exclusivamente para los esclavos de menor rango. Imagina que, lentamente, llega a tu lugar. Dios encarnado se arrodilla en el suelo de tierra, justo frente a ti, toma tus pies cansados en sus manos santas y los lava con una delicadeza y un amor infinitos.",
             peticion: "Señor, rompe las corazas de mi orgullo. Dame un corazón dócil y humilde para dejarme purificar por tu gracia inmerecida, y ojos nuevos para descubrir siempre tu rostro en la dignidad sagrada de mis hermanos.",
             cita: '"Pues si yo, el Señor y el Maestro, les he lavado los pies, también ustedes deben lavarse los pies unos a otros. Porque les he dado ejemplo, para que como yo he hecho con ustedes, también ustedes lo hagan." (Juan 13, 14-15)',
-            saboreo: "Saborea con estupor la humildad escandalosa e insospechada de Dios. A veces resulta mucho más difícil dejarse servir íntimamente por Dios que afanarse en servirlo a Él; nos cuesta horrores aceptar que nos ame plenamente en nuestra suciedad, en nuestra imperfección crónica (como le ocurrió a Pedro). Pero una vez que te dejas limpiar y amar así, Él te levanta y te envía. En tu cruda realidad cotidiana, 'lavar los pies' hoy puede no ser un acto litúrgico grandioso, sino escuchar con paciencia heroica a quien te irrita profundamente, tragarte a tiempo una respuesta sarcástica, perdonar en silencio un desprecio menor, o realizar un trabajo invisible y monótono por puro amor a tu familia.",
-            oracionPoetica: "Señor de la toalla ceñida a la cintura,\nsálvame de mi propia arrogancia disfrazada de servicio.\nQuiebra mi resistencia a dejarme amar en mi suciedad,\ny arrodíllate en los rincones oscuros de mi alma.\n\nQué difícil es dejar que me veas sin adornos,\nque toques mis pies cansados, manchados de egoísmo.\nPrefiero el pedestal de mi orgullo intacto\na la vulnerabilidad de sentir tu ternura lavando mis heridas.\n\nY luego, cuando me hayas limpiado con tu gracia,\nquítame los delirios de grandeza, dame ojos limpios,\npara que no me cueste agacharme a lavar\nlos pies cansados de quienes cruzan mi camino hoy.",
+            saboreo: "Saborea con estupor la humildad escandalosa e insospechada de Dios. A veces resulta mucho más difícil dejarse servir íntimamente por Dios que afanarse en servirlo a Él; nos cuesta horrores aceptar que nos ame plenamente en nuestra suciedad, en nuestra imperfección crónica (como le ocurrió a Pedro). Pero una vez que te dejas limpiar y amar así, Él te levanta y te envía. En tu cruda realidad cotidiana, 'lavar los pies' hoy puede no ser un acto litúrgico grandioso, sino escuchar con paciencia heroica a quien te irrita profundamente, tragarte a tiempo una respuesta sarcástica, perdonar en silencio un desprecio menor, o realizar un trabajo invisible y monótono por puro amor a tu familia.\n\nEste acto de lavar los pies rompe drásticamente con todas nuestras categorías mundanas de jerarquía, éxito y poder. Jesús invierte por completo el orden del universo en la penumbra de esa sala. Pregúntate con honestidad si en tus relaciones diarias buscas inconscientemente el lugar principal, el ser servido, el llevar siempre la razón. El agua tibia de esa jofaina tiene el poder sagrado de disolver también esas vanas pretensiones. Cuando realmente dejas que Él te lave, descubres maravillado que la verdadera grandeza de un ser humano se encuentra en su capacidad de abajarse, de hacerse tierra humilde para que el otro camine suave.",
+            oracionPoetica: "Señor de la toalla ceñida a la cintura,\nsálvame de mi propia arrogancia disfrazada de servicio.\nQuiebra mi resistencia a dejarme amar en mi suciedad,\ny arrodíllate en los rincones oscuros de mi alma.\n\nQué difícil es dejar que me veas sin adornos,\nque toques mis pies cansados, manchados de egoísmo.\nPrefiero el pedestal de mi orgullo intacto\na la vulnerabilidad de sentir tu ternura lavando mis heridas.\n\nY luego, cuando me hayas limpiado con tu gracia,\nquítame los delirios de grandeza, dame ojos limpios,\npara que no me cueste agacharme a lavar\nlos pies cansados de quienes cruzan mi camino hoy.\n\nRompe de una vez mis esquemas de poder y mis falsas jerarquías,\ndonde creo que valgo por los que me sirven y no por los que sirvo.\nEnséñame el lenguaje mudo pero elocuente del agua y la toalla,\nla revolución tranquila de un amor que sabe arrodillarse sin sonrojarse.\n\nQue no me duelan las rodillas al bajar a la altura del hermano que sufre,\nni se me caigan los títulos por abrazar de lleno su pobreza.\nQue tu ejemplo vivo se grabe a fuego lento en mi memoria,\ny haga de mi existencia entera un humilde lavatorio continuo.",
             dialogo: [
                 { id: 'd6_1', label: "Jesús, me conmueve hasta las lágrimas y a la vez me resiste verte de rodillas ante mí. El 'polvo' de mis actitudes del que hoy más necesito que me laves con tu perdón es..." },
                 { id: 'd6_2', label: "Al mirar atentamente a mi alrededor, siento que hoy me invitas a 'lavarle los pies' (servir con paciencia silenciosa y humildad verdadera) a..." }
-            ]
+            ],
+            oracionFinal: "Señor humilde y paciente, lávame primero de mi propio egoísmo y orgullo. Lléname de tu gracia para que, amado por ti, pueda abajarme a servir a mis hermanos con profunda alegría.",
+            compromiso: "Me comprometo a realizar hoy un acto concreto de servicio oculto y silencioso por alguien de mi entorno, sin esperar que me lo agradezcan ni lo noten."
         },
         {
             id: 7,
@@ -237,16 +265,18 @@
             gradient: "from-yellow-300 to-amber-500",
             shadow: "shadow-yellow-500/50",
             bgImage: "https://images.unsplash.com/photo-1495555961416-6ed8d068d374?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.laudate, cantosDB.bless],
+            cantos: [cantosDB.tuiAmorisES, cantosDB.kingdom],
             preparacion: "Imagina una habitación inmensa sumida en una oscuridad total y asfixiante. Siente por un momento la incomodidad palpable de no ver absolutamente nada, la desorientación angustiosa. De pronto, alguien en la lejanía enciende un pequeño fósforo y prende una vela minúscula. Inmediatamente, la tiranía de la oscuridad es derrotada. No desaparece por completo, pero ya no domina el espacio. La luz no hace ruido al nacer, no exige atención de manera altanera, simplemente se da, se consume silenciosamente para iluminar a otros. Tú eres esa pequeña vela, encendida por el mismo Dios a través de este rato de intimidad y oración.",
             peticion: "Señor de la Luz, te ruego que no esconda la fe ni el amor que me has regalado por miedo al rechazo o vergüenza. Que mi forma de vivir el día a día, mucho más que mis discursos elocuentes, sea un testimonio vivo y palpitante de tu compasión.",
             cita: '"Ustedes son la luz del mundo. No se enciende una lámpara para meterla debajo de un cajón, sino para ponerla en el candelero... Brille así su luz delante de los hombres, para que vean sus buenas obras y den gloria a su Padre." (Mateo 5, 14-16)',
-            saboreo: "Ser luz en medio del mundo no significa ser moralmente perfecto ni andar dando lecciones de superioridad a los demás. La verdadera luz, la que nace del Espíritu, da calidez al que tiene frío, orienta con suavidad en la confusión ajena, y resalta la belleza oculta de lo que ilumina. De manera similar, la sal otorga sabor indispensable a la comida sin hacerse notar, disolviéndose humilde y anónimamente en el alimento. ¿Estás acaso escondiendo tu luz bajo el asfixiante 'cajón' de la rutina gris, de la queja constante, o del miedo paralizante al qué dirán? Tu hogar, tu trabajo y tus amigos necesitan urgentemente el 'sabor' único de tu esperanza.",
-            oracionPoetica: "Encendedor de luceros domésticos,\nque no necesite deslumbrar con grandes discursos,\nsino apenas iluminar el metro cuadrado que piso.\nHazme sal que se disuelve en silencio\npara devolverle el sabor a la rutina de los míos.\n\nA veces me quejo de la oscuridad del mundo,\ny me olvido de encender la vela que pusiste en mis manos.\nA veces me escondo bajo el cajón del qué dirán,\ntemiendo que mi pequeña luz sea juzgada o apagada.\n\nQuítame el complejo de esconder tu luz,\nenséñame a gastarme sin hacer ruido, iluminando rincones.\nY que quien se cruce conmigo hoy, sin saber muy bien por qué,\nsienta que acaba de salir el sol en su invierno.",
+            saboreo: "Ser luz en medio del mundo no significa ser moralmente perfecto ni andar dando lecciones de superioridad a los demás. La verdadera luz, la que nace del Espíritu, da calidez al que tiene frío, orienta con suavidad en la confusión ajena, y resalta la belleza oculta de lo que ilumina. De manera similar, la sal otorga sabor indispensable a la comida sin hacerse notar, disolviéndose humilde y anónimamente en el alimento. ¿Estás acaso escondiendo tu luz bajo el asfixiante 'cajón' de la rutina gris, de la queja constante, o del miedo paralizante al qué dirán? Tu hogar, tu trabajo y tus amigos necesitan urgentemente el 'sabor' único de tu esperanza.\n\nObserva también cómo la sal no solo da sabor al plato, sino que en la antigüedad se utilizaba principalmente para preservar los alimentos de la corrupción. Tu presencia viva, por modesta y pequeña que te parezca, tiene la enorme capacidad de evitar que el desánimo, el cinismo cortante o la desesperanza pudran tu entorno más cercano. No necesitas deslumbrar a las multitudes ni hacer discursos magistrales. A veces, ser luz verdadera es simplemente no sumarse a la queja generalizada, ofrecer una sonrisa sincera cuando todos están tensos, o detenerte a escuchar cuando nadie parece tener tiempo. Ese es el sabor revolucionario y transformador del Evangelio vivo.",
+            oracionPoetica: "Encendedor de luceros domésticos,\nque no necesite deslumbrar con grandes discursos,\nsino apenas iluminar el metro cuadrado que piso.\nHazme sal que se disuelve en silencio\npara devolverle el sabor a la rutina de los míos.\n\nA veces me quejo de la oscuridad del mundo,\ny me olvido de encender la vela que pusiste en mis manos.\nA veces me escondo bajo el cajón del qué dirán,\ntemiendo que mi pequeña luz sea juzgada o apagada.\n\nQuítame el complejo de esconder tu luz,\nenséñame a gastarme sin hacer ruido, iluminando rincones.\nY que quien se cruce conmigo hoy, sin saber muy bien por qué,\nsienta que acaba de salir el sol en su invierno.\n\nSálvame de la sutil vanidad de querer ser un faro imponente\ncuando solo me pides ser una humilde llama en la ventana.\nQue mi fuego no queme a nadie ni deslumbre con orgullo farisaico,\nsino que caliente tiernamente las manos del que tiembla de frío.\n\nY si el viento rudo y cambiante del mundo amenaza con apagarme,\nsé tú el cuenco protector que resguarde mi pequeña chispa parpadeante.\nPara que arda calladamente hasta consumirme por completo,\nfeliz y en paz de haber dado mi vida entera para alumbrar a mi prójimo.",
             dialogo: [
                 { id: 'd7_1', label: "Señor, revisando con gratitud mis dones, creo que la luz particular (quizá la alegría, la escucha atenta, la capacidad de pacificar) que has puesto en mi interior es..." },
                 { id: 'd7_2', label: "Al volver hoy a mis tareas habituales, me comprometo a dejar de esconderme en las sombras y ser luz mediante este pequeño, pero concreto y valiente gesto:" }
-            ]
+            ],
+            oracionFinal: "Cristo, Luz inagotable del mundo, haz que tu suave claridad brille incluso a través de mis grietas e imperfecciones. Que mi simple presencia hoy lleve esperanza y dé un buen sabor a mi entorno.",
+            compromiso: "Me comprometo a tener una actitud sumamente propositiva y a llevar una palabra sincera y gratuita de aliento a alguien que note cansado, desanimado o poco valorado hoy."
         },
         {
             id: 8,
@@ -256,16 +286,18 @@
             gradient: "from-orange-400 to-red-600",
             shadow: "shadow-red-500/50",
             bgImage: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.monAme, cantosDB.nada],
+            cantos: [cantosDB.tuiAmorisLA, cantosDB.adoramus],
             preparacion: "Visualiza un vasto e inabarcable desierto de arena bajo un cielo inmenso y límpido. El silencio allí es abrumador, posee una densidad casi física. No hay pantallas brillando, no hay notificaciones zumbando, no hay voces ajenas ni distracciones urgentes reclamando tu atención. Solo estás tú y tu verdad más desnuda ante el horizonte. En el centro de ese desierto, Dios te espera con paciencia infinita. Al principio, la falta de ruido te incomoda profundamente, te enfrenta de golpe a tus propios vacíos no resueltos. Quédate ahí. No huyas. Respira. Permite que la incomodidad inicial ceda lentamente el paso a una Presencia amorosa y majestuosa que llena todo ese espacio vacío.",
             peticion: "Señor, libérame definitivamente del miedo atroz a la soledad y al silencio. Dame la valentía de adentrarme en mis propios desiertos interiores para que allí purifiques mi corazón y pueda, al fin, escuchar tu voz sin interferencias.",
             cita: '"Por eso, yo voy a seducirla; la llevaré al desierto y le hablaré al corazón... Allí me responderá como en los días de su juventud." (Oseas 2, 16-17)',
-            saboreo: "Solemos huir despavoridos del desierto llenando nuestra vida de ruido incesante, adicciones menores, consumismo o hiperconexión digital, fundamentalmente porque el silencio nos obliga a mirar de frente nuestras heridas abiertas. Sin embargo, Dios revela algo de una belleza estremecedora a través del profeta: no te lleva al desierto para castigarte por tus faltas o abandonarte a tu suerte, sino para 'seducirte' y 'hablarte al corazón'. Es únicamente en la desnudez de tu ser, despojado de todas tus máscaras sociales, donde Dios puede declararte su amor más íntimo y restaurar la frescura de tu vocación original.",
-            oracionPoetica: "Dios de los silencios habitados,\nllévame allí donde no hay cobertura celular,\ndonde las notificaciones mueren\ny solo queda el latido desnudo de mi alma.\n\nLe tengo pánico al vacío y huyo hacia el ruido.\nMe aturdo con mil voces para no escuchar la mía,\npara no enfrentarme a los fantasmas de mis miedos\nque me esperan agazapados en la quietud de la tarde.\n\nSedúceme en la aridez de mis desiertos cotidianos,\nrompe mi adicción al ruido que me anestesia.\nAtrévete a desarmarme en la arena de mi verdad,\ny háblame al corazón tan bajo, tan suave,\nque tenga que detener todo mi mundo para escucharte.",
+            saboreo: "Solemos huir despavoridos del desierto llenando nuestra vida de ruido incesante, adicciones menores, consumismo o hiperconexión digital, fundamentalmente porque el silencio nos obliga a mirar de frente nuestras heridas abiertas. Sin embargo, Dios revela algo de una belleza estremecedora a través del profeta: no te lleva al desierto para castigarte por tus faltas o abandonarte a tu suerte, sino para 'seducirte' y 'hablarte al corazón'. Es únicamente en la desnudez de tu ser, despojado de todas tus máscaras sociales, donde Dios puede declararte su amor más íntimo y restaurar la frescura de tu vocación original.\n\nDate cuenta de cómo el desierto impone su propia e implacable geografía a tu alma. Al principio, tus ojos, acostumbrados al neón de la ciudad, ven solo arena estéril y desolación. Pero a medida que aprendes a mirar, empiezas a notar una vida sutil, resistente y hermosa que logra sobrevivir allí. Así de paradójica es tu vida interior. Lo que en un primer momento considerabas árido, cuando es visitado prolongadamente por el silencio y por Dios, revela fortalezas ocultas y pozos de agua fresca que no sabías que tenías. No apresures ansiosamente la salida de este desierto; permite que su crudeza te despoje de lo superfluo hasta que solo quede en ti el puro anhelo de Dios.",
+            oracionPoetica: "Dios de los silencios habitados,\nllévame allí donde no hay cobertura celular,\ndonde las notificaciones mueren\ny solo queda el latido desnudo de mi alma.\n\nLe tengo pánico al vacío y huyo hacia el ruido.\nMe aturdo con mil voces para no escuchar la mía,\npara no enfrentarme a los fantasmas de mis miedos\nque me esperan agazapados en la quietud de la tarde.\n\nSedúceme en la aridez de mis desiertos cotidianos,\nrompe mi adicción al ruido que me anestesia.\nAtrévete a desarmarme en la arena de mi verdad,\ny háblame al corazón tan bajo, tan suave,\nque tenga que detener todo mi mundo para escucharte.\n\nHazme amigo de la intemperie y de los cielos abiertos,\ndonde no hay techos que escondan la inmensidad de tu mirada.\nQue la arena queme las plantas de mis pies acostumbrados\na los caminos fáciles y a las respuestas espirituales prefabricadas.\n\nY cuando el silencio absoluto pese tanto que duela en el pecho,\nno me dejes retroceder a la ciudad bulliciosa de las distracciones.\nSosténme ahí, vulnerable, honesto y desnudo ante tu presencia,\nhasta que tu voz compasiva sea lo único que necesite escuchar.",
             dialogo: [
                 { id: 'd8_1', label: "Señor, reconozco con honestidad que el 'ruido' (pantallas, activismo frenético, quejas) con el que más suelo tapar mis silencios incómodos o miedos profundos es..." },
                 { id: 'd8_2', label: "Si dejo de huir ahora mismo y permito que me hables en la quietud de este desierto interior, creo que lo que quieres susurrarme hoy con infinito amor es..." }
-            ]
+            ],
+            oracionFinal: "Dios inmenso de los silencios, gracias por buscarme tenazmente cuando huyo hacia el ruido. Ayúdame a no temerle a mi propia quietud y a hacer de mi interior una morada digna de tu paz.",
+            compromiso: "Me comprometo a desconectarme totalmente de pantallas y dispositivos al menos 30 minutos antes de dormir, regalando ese tiempo final del día a la pausa y al examen agradecido."
         },
         {
             id: 9,
@@ -275,16 +307,18 @@
             gradient: "from-blue-400 to-indigo-600",
             shadow: "shadow-blue-500/50",
             bgImage: "https://images.unsplash.com/photo-1445384763658-0400939829cd?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.thirsty, cantosDB.laudate],
+            cantos: [cantosDB.veniSancteES, cantosDB.confitemini],
             preparacion: "Es pleno mediodía, el sol cae a plomo, vertical, y el calor es abrasador y sofocante. Eres la mujer samaritana. Llegas arrastrando los pies, cansada, al milenario pozo de Jacob con tu pesado cántaro vacío a cuestas. Llevas contigo una sed antigua, un vacío y una insatisfacción crónica que ninguna relación, ningún logro y ninguna distracción ha podido saciar jamás. Allí, sentado al borde del brocal de piedra, te espera Jesús. Él conoce de sobra toda tu intrincada historia, conoce tus fracasos repetidos y los 'pozos' equivocados donde has buscado mendigar amor. Y, sin embargo, no hay ni un atisbo de condena en sus ojos. Te mira con una complicidad salvadora, pidiéndote de beber, haciéndose el necesitado para iniciar el encuentro que cambiará tu vida.",
             peticion: "Señor Jesús, ayúdame a ser radicalmente honesto/a con mis anhelos más profundos. Dame a beber incesantemente de tu Espíritu, esa agua viva que brota desde el interior y otorga el verdadero y definitivo sentido a mi existencia.",
             cita: 'Jesús le respondió: «Todo el que beba de esta agua, volverá a tener sed; pero el que beba del agua que yo le daré, nunca más tendrá sed. El agua que yo le daré se convertirá en él en manantial que brota para vida eterna». (Juan 4, 13-14)',
-            saboreo: "Todos somos, en el fondo, portadores de cántaros agujereados. Examina con valentía las aguas de las que sueles beber a diario: la aprobación social pasajera, el éxito profesional efímero, la acumulación de posesiones, las relaciones de dependencia afectiva. Todo eso es agua buena y lícita en su medida, pero ineludiblemente te dejará con sed de nuevo al atardecer. Cristo apunta a una sed infinitamente más profunda: la sed ontológica de eternidad y de amor absoluto. Él no reprende tu sed, la comprende; sabe que estás buscando desesperadamente el Infinito en realidades finitas. Te ofrece el don supremo: convertirse Él mismo en un manantial vivo e inagotable dentro de ti, para que tu paz profunda ya no dependa jamás de las circunstancias externas.",
-            oracionPoetica: "Agua viva para mi sed de viernes por la tarde,\nlíbrame de los charcos donde mendigo cariño\ny de los cántaros rotos donde intento retener el éxito.\nTú conoces mi historial de búsquedas fallidas,\nmi historial de pozos que me dejaron vacío.\n\nHe caminado bajo el sol abrasador de mis caprichos,\nbuscando saciar esta sed eterna con amores a medias,\ncon espejismos de triunfo que se evaporan al tocarlos.\nHe regresado siempre al pozo con el cántaro más seco.\n\nHoy me siento al borde del brocal frente a ti,\ncansado de buscar fuera lo que solo Tú puedes darme.\nYa no tengo excusas que darte, ni fuerzas para huir.\nRompe mi cántaro viejo, Señor, y dame de beber de tu centro.",
+            saboreo: "Todos somos, en el fondo, portadores de cántaros agujereados. Examina con valentía las aguas de las que sueles beber a diario: la aprobación social pasajera, el éxito profesional efímero, la acumulación de posesiones, las relaciones de dependencia afectiva. Todo eso es agua buena y lícita en su medida, pero ineludiblemente te dejará con sed de nuevo al atardecer. Cristo apunta a una sed infinitamente más profunda: la sed ontológica de eternidad y de amor absoluto. Él no reprende tu sed, la comprende; sabe que estás buscando desesperadamente el Infinito en realidades finitas. Te ofrece el don supremo: convertirse Él mismo en un manantial vivo e inagotable dentro de ti, para que tu paz profunda ya no dependa jamás de las circunstancias externas.\n\nPiensa detenidamente en ese 'cántaro' material que llevas contigo a todas partes. A menudo está hecho de nuestras viejas ambiciones, nuestros apegos tercos, y nuestra insaciable necesidad de seguridad material o control. Fíjate que Jesús no te quita el cántaro a la fuerza; su método es distinto. Te ofrece un agua tan pura y desbordante que tú mismo, por voluntad propia y alegre, decides soltarlo, al igual que la samaritana que lo dejó olvidado junto al pozo para ir a anunciar la noticia. Ese olvido del cántaro es el signo más claro de la verdadera liberación interior. Ya no necesitas cargar el peso agotador de intentar saciarte a ti mismo, porque ahora llevas el manantial adentro.",
+            oracionPoetica: "Agua viva para mi sed de viernes por la tarde,\nlíbrame de los charcos donde mendigo cariño\ny de los cántaros rotos donde intento retener el éxito.\nTú conoces mi historial de búsquedas fallidas,\nmi historial de pozos que me dejaron vacío.\n\nHe caminado bajo el sol abrasador de mis caprichos,\nbuscando saciar esta sed eterna con amores a medias,\ncon espejismos de triunfo que se evaporan al tocarlos.\nHe regresado siempre al pozo con el cántaro más seco.\n\nHoy me siento al borde del brocal frente a ti,\ncansado de buscar fuera lo que solo Tú puedes darme.\nYa no tengo excusas que darte, ni fuerzas para huir.\nRompe mi cántaro viejo, Señor, y dame de beber de tu centro.\n\nDespiértame del letargo de conformarme con tan poco,\nde aplacar mi sed infinita con sorbos amargos de vanagloria.\nQuiero beber hoy del torrente de tus delicias eternas,\ndel agua limpia que lava la culpa y restaura la vida nueva.\n\nY cuando me haya saciado por fin descansando en tu pecho abierto,\nhaz que mi propio corazón humano se vuelva un manantial vivo.\nPara que otros que vagan sedientos por los mismos desiertos que yo,\nencuentren en mi sonrisa un reflejo claro de tu agua salvadora.",
             dialogo: [
                 { id: 'd9_1', label: "Jesús, con total transparencia, los pozos engañosos donde suelo ir a buscar saciar mi sed de significado (y que al final me dejan más vacío/a y exhausto/a) son..." },
                 { id: 'd9_2', label: "Señor, dame incesantemente de esa agua. Al asomarme al fondo de mi corazón en este instante, reconozco que mi sed más profunda, real y dolorosa hoy es de..." }
-            ]
+            ],
+            oracionFinal: "Fuente eterna de Agua Viva, te pido que sacies mi sed más honda con tu presencia inagotable. Concédeme la sabiduría para no buscar más en pozos secos lo que solo Tú puedes darme.",
+            compromiso: "Me comprometo a detener al menos un impulso inútil de consumo o distracción en este día, recordando firmemente que mi verdadero vacío solo se llena con tu Amor."
         },
         {
             id: 10,
@@ -294,16 +328,18 @@
             gradient: "from-rose-400 to-orange-500",
             shadow: "shadow-rose-500/50",
             bgImage: "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.mane, cantosDB.thirsty],
+            cantos: [cantosDB.veniSancteLA, cantosDB.mane],
             preparacion: "Caminas pesadamente por un sendero polvoriento mientras el sol empieza a ocultarse tiñendo el cielo de tonos melancólicos. Te alejas de Jerusalén, el lugar de tus esperanzas frustradas. Vas inmensamente triste, decepcionado/a de la vida y quizá de Dios, dándole vueltas obsesivamente a tus ilusiones rotas y a las oraciones que parecen no haber sido escuchadas en absoluto. De pronto, un forastero se empareja suavemente contigo. Ajusta su ritmo a tu paso cansado. Te hace preguntas abiertas y te escucha con una atención absoluta y reverencial. Siente el inmenso, reparador alivio de poder volcar toda tu queja amarga y tu dolor contenido en alguien que no te interrumpe, no te juzga ni minimiza en lo más mínimo tu sufrimiento.",
             peticion: "Señor Resucitado, abre de par en par los ojos aletargados de mi fe. Ayúdame a reconocerte caminando a mi lado, a menudo de incógnito, especialmente en mis momentos de mayor frustración, oscuridad y desesperanza.",
             cita: 'Mientras conversaban y discutían, Jesús en persona se acercó y se puso a caminar con ellos. Pero sus ojos estaban velados... Y se dijeron uno a otro: «¿No ardía nuestro corazón mientras nos hablaba por el camino y nos explicaba las Escrituras?». (Lucas 24, 15-16.32)',
-            saboreo: "A veces Dios camina a nuestro lado disfrazado de una cotidianidad tan extrema que nos pasa desapercibido: en la palabra dicha a tiempo de un viejo amigo, en una coincidencia aparentemente fortuita, en la belleza repentina de un atardecer, o en una lectura que de pronto nos estremece el alma. Pero cuando estamos completamente enredados en nuestra espiral de tristeza ('nosotros esperábamos que Él fuera el que iba a liberar...'), nuestros ojos están densamente velados por el desencanto. Sin embargo, hay una pista inconfundible del paso sigiloso de Dios por tu historia: 'el corazón que arde'. Presta suma atención a esos momentos sutiles de consuelo profundo, de paz súbita, de luz interna que irrumpe sin explicación. Es Él, el Resucitado, insuflando vida y resucitando tu esperanza muerta.",
-            oracionPoetica: "Peregrino de los atardeceres tristes,\nempareja tu paso con mi caminar cansado\ncuando huyo de mis propias Jerusalenes en ruinas.\nEscucha mi queja amarga sin juzgarme,\ny calienta el café frío de mis desilusiones.\n\nVoy rumiando fracasos, cegado por la tristeza de lo que no fue.\nCuántas veces caminas a mi lado y mis ojos torpes no te ven.\nCuántas veces te disfrazas de brisa, de amigo, de silencio,\ny yo sigo atrapado en el laberinto de mis expectativas rotas.\n\nQuédate conmigo, Señor, que atardece y arrecia el frío.\nAbre mis ojos en la fracción del pan de cada día,\nexplícame mis propios dolores a la luz de tu misterio,\ny haz que mi corazón vuelva a arder de pura vida.",
+            saboreo: "A veces Dios camina a nuestro lado disfrazado de una cotidianidad tan extrema que nos pasa desapercibido: en la palabra dicha a tiempo de un viejo amigo, en una coincidencia aparentemente fortuita, en la belleza repentina de un atardecer, o en una lectura que de pronto nos estremece el alma. Pero cuando estamos completamente enredados en nuestra espiral de tristeza ('nosotros esperábamos que Él fuera el que iba a liberar...'), nuestros ojos están densamente velados por el desencanto. Sin embargo, hay una pista inconfundible del paso sigiloso de Dios por tu historia: 'el corazón que arde'. Presta suma atención a esos momentos sutiles de consuelo profundo, de paz súbita, de luz interna que irrumpe sin explicación. Es Él, el Resucitado, insuflando vida y resucitando tu esperanza muerta.\n\nFíjate con atención en un detalle maravilloso: Jesús no los regaña por su huida inicial ni les reprocha su falta de fe. En cambio, se suma a su éxodo, caminando pacientemente en la misma dirección equivocada que ellos llevan, para poder girarlos desde adentro hacia la vida. Dios tiene esa pedagogía sublime y desconcertante: asume nuestra realidad por más perdida y frustrante que parezca. En tus propios escapes, en tus alejamientos voluntarios y en tus amargas decepciones, no estás caminando solo en ningún momento. Ese calor inexplicable en el pecho es el síntoma bendito de que la Verdad está desmantelando la mentira de tu soledad. Deja que el forastero te alcance.",
+            oracionPoetica: "Peregrino de los atardeceres tristes,\nempareja tu paso con mi caminar cansado\ncuando huyo de mis propias Jerusalenes en ruinas.\nEscucha mi queja amarga sin juzgarme,\ny calienta el café frío de mis desilusiones.\n\nVoy rumiando fracasos, cegado por la tristeza de lo que no fue.\nCuántas veces caminas a mi lado y mis ojos torpes no te ven.\nCuántas veces te disfrazas de brisa, de amigo, de silencio,\ny yo sigo atrapado en el laberinto de mis expectativas rotas.\n\nQuédate conmigo, Señor, que atardece y arrecia el frío.\nAbre mis ojos en la fracción del pan de cada día,\nexplícame mis propios dolores a la luz de tu misterio,\ny haz que mi corazón vuelva a arder de pura vida.\n\nCamina a mi lado aunque mi rumbo parezca estar equivocado,\npues sé que tu amor es experto en rediseñar los mapas perdidos.\nQue tu voz pacífica desarme por fin mis defensas de hierro,\ny tus preguntas sanadoras iluminen mis oscuras zonas ciegas.\n\nY al llegar exhausto a la posada al final de mi jornada gris,\nsiéntate a mi mesa, bendice mi pobreza y mis mendrugos.\nQue en el gesto cotidiano y sencillo de compartir contigo la vida,\nse me abran los ojos del alma y te descubra Señor de mi historia.",
             dialogo: [
                 { id: 'd10_1', label: "Señor, al revisar con calma los últimos meses de mi vida, me doy cuenta asombrado/a de que pasaste por ahí y mi corazón 'ardió' de esperanza cuando..." },
                 { id: 'd10_2', label: "Te ruego encarecidamente que te quedes conmigo, porque se hace de noche en algunas áreas de mi vida. Necesito imperiosamente reconocer tu presencia escondida y amorosa en..." }
-            ]
+            ],
+            oracionFinal: "Compañero paciente de todos mis caminos, gracias por hacer arder mi corazón cuando todo parece oscuro a mi alrededor. Abre siempre mis ojos para reconocerte en cada pequeña fracción del pan cotidiano.",
+            compromiso: "Me comprometo a escuchar hoy a alguien de mi entorno con la misma atención plena, paciencia, y absoluta falta de prejuicios con la que Jesús escuchó a los discípulos de Emaús."
         },
         {
             id: 11,
@@ -313,16 +349,18 @@
             gradient: "from-rose-300 to-pink-500",
             shadow: "shadow-pink-500/50",
             bgImage: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.misericordias, cantosDB.monAme],
+            cantos: [cantosDB.tuiAmorisES, cantosDB.jesusRemember],
             preparacion: "Imagina que caminas arrastrando los pies por un camino de tierra. Vienes de un 'país lejano', un lugar de decisiones equivocadas, de tiempo perdido y vacíos que intentaste llenar con cosas que no te saciaron. Hueles a fracaso, tu ropa está rota y tu dignidad herida. Ensayas mentalmente discursos de disculpa, creyendo que tendrás que ganarte de nuevo el amor. A lo lejos, divisas tu casa. Y de pronto, ves una figura mayor que sale corriendo hacia ti. Es tu Padre. Contra toda costumbre, perdiendo la compostura y la dignidad, corre desesperado a tu encuentro. No te deja terminar tu discurso de culpa; te envuelve en un abrazo asfixiante de puro amor, besando tu rostro sucio, celebrando simplemente que estás vivo.",
             peticion: "Padre de Misericordia, derriba mis muros de orgullo y de culpa. Dame la humildad profunda para dejarme perdonar sin intentar pagar por mi rescate, y la gracia de aceptar que tu amor es gratuito.",
             cita: '"Cuando todavía estaba lejos, su padre lo vio y se conmovió profundamente; corrió a su encuentro, lo abrazó y lo besó." (Lucas 15, 20)',
-            saboreo: "Nuestro mayor obstáculo espiritual rara vez es la magnitud de nuestros pecados, sino nuestra resistencia a dejarnos perdonar. Queremos ser los 'héroes' de nuestra propia redención, queremos pagar nuestras deudas morales para no sentirnos vulnerables. Pero en la parábola del Hijo Pródigo, el Padre anula esa lógica mercantil. Él no ama al hijo porque el hijo sea bueno, lo ama porque es suyo. Siente el impacto escandaloso de ese abrazo: Dios no te pide explicaciones exhaustivas antes de restaurarte, no te pone un periodo de prueba. Su compasión (que en el griego original significa que 'se le conmovieron las entrañas') es inmediata. Suelta la culpa que cargas como un trofeo invertido y déjate abrazar.",
-            oracionPoetica: "Padre que no sabe de distancias prudentes,\nabrázame antes de que termine mi aburrido discurso de culpa.\nLávame el fracaso con tus lágrimas de alegría,\ny ponme un anillo nuevo aunque no lo merezca.\n\nVengo arrastrando el peso de mis malas elecciones,\noliendo a tiempo perdido y a amores de rebajas.\nEnsayo penitencias porque no me creo que el perdón sea gratis,\nporque me cuesta aceptar un amor que no exija una factura.\n\nRompe mi lógica mercantil de intentar comprar tu perdón.\nCúbreme con el manto de tu misericordia ilógica y desbordante,\ny enséñame a dejarme amar gratuitamente,\npara que entienda que en tu casa siempre hay un lugar para mí.",
+            saboreo: "Nuestro mayor obstáculo espiritual rara vez es la magnitud de nuestros pecados, sino nuestra resistencia a dejarnos perdonar. Queremos ser los 'héroes' de nuestra propia redención, queremos pagar nuestras deudas morales para no sentirnos vulnerables. Pero en la parábola del Hijo Pródigo, el Padre anula esa lógica mercantil. Él no ama al hijo porque el hijo sea bueno, lo ama porque es suyo. Siente el impacto escandaloso de ese abrazo: Dios no te pide explicaciones exhaustivas antes de restaurarte, no te pone un periodo de prueba. Su compasión (que en el griego original significa que 'se le conmovieron las entrañas') es inmediata. Suelta la culpa que cargas como un trofeo invertido y déjate abrazar.\n\nEl abrazo del Padre no se limita a perdonar una ofensa; su poder radica en que restituye por completo tu identidad perdida. El anillo en el dedo, las sandalias en los pies, el traje nuevo... todos son símbolos vibrantes de que no regresas a casa como un esclavo tolerado, sino como un hijo de pleno derecho. El mundo exterior te enseña implacablemente que los errores se pagan caro y dejan una mancha imborrable. Sin embargo, la misericordia divina te revela que su amor es capaz de hacer nuevas todas las cosas, restaurando una pureza original en tu alma que ningún fracaso temporal puede llegar a destruir. Créete verdaderamente esta restauración asombrosa hoy.",
+            oracionPoetica: "Padre que no sabe de distancias prudentes,\nabrázame antes de que termine mi aburrido discurso de culpa.\nLávame el fracaso con tus lágrimas de alegría,\ny ponme un anillo nuevo aunque no lo merezca.\n\nVengo arrastrando el peso de mis malas elecciones,\noliendo a tiempo perdido y a amores de rebajas.\nEnsayo penitencias porque no me creo que el perdón sea gratis,\nporque me cuesta aceptar un amor que no exija una factura.\n\nRompe mi lógica mercantil de intentar comprar tu perdón.\nCúbreme con el manto de tu misericordia ilógica y desbordante,\ny enséñame a dejarme amar gratuitamente,\npara que entienda que en tu casa siempre hay un lugar para mí.\n\nQue tu abrazo me quite los harapos de mis falsas identidades,\nesos que tejí intentando ser alguien grande lejos de tu mirada.\nVísteme de nuevo con la túnica luminosa de mi dignidad primera,\nesa que me diste al nacer y que ninguna culpa puede jamás borrar.\n\nEnséñame a entrar en la fiesta sin quedarme resentido en la puerta,\na no boicotear tu alegría con mis absurdos complejos de indigno.\nQuiero aprender a bailar al son de tu misericordia incomprensible,\ncelebrando a gritos que estuve muerto y tu amor me devolvió a la vida.",
             dialogo: [
                 { id: 'd11_1', label: "Señor, el 'país lejano' del que hoy vengo volviendo, ese lugar de actitudes o decisiones donde busqué saciarme y me vacié, es..." },
                 { id: 'd11_2', label: "Al imaginar que corres a abrazarme sin pedirme cuentas ni explicaciones, lo que mi corazón herido siente es..." }
-            ]
+            ],
+            oracionFinal: "Padre de entrañas de misericordia, gracias por salir corriendo a mi encuentro para abrazarme cuando aún estoy lejos. Que la experiencia abrumadora de tu perdón incondicional transforme para siempre mi forma de amar.",
+            compromiso: "Me comprometo a perdonar una pequeña ofensa o, como mínimo, a frenar intencionalmente un juicio crítico sobre alguien, recordando cuánta misericordia he recibido yo primero."
         },
         {
             id: 12,
@@ -332,16 +370,18 @@
             gradient: "from-emerald-300 to-green-600",
             shadow: "shadow-green-500/50",
             bgImage: "https://images.unsplash.com/photo-1592647420148-bfcc177e2117?auto=format&fit=crop&w=1920&q=80",
-            cantos: [cantosDB.nada, cantosDB.bless],
+            cantos: [cantosDB.tuiAmorisLA, cantosDB.cantate], // Re-uso ligero pero sin repetir en el día
             preparacion: "Visualiza un inmenso campo recién arado al amanecer. Una fina niebla cubre la tierra oscura y húmeda. Todo está en absoluto reposo y silencio. Sin embargo, debajo de esa superficie aparentemente inerte y aburrida, está ocurriendo el milagro más violento y extraordinario: millones de semillas están rompiendo su coraza para germinar. No hacen ruido, no exigen atención mediática, y su crecimiento es imperceptible al ojo humano día a día. Respira la frescura de esa mañana. Entiende que tu alma es también ese campo: Dios ha plantado promesas y gracias que, ahora mismo, están trabajando secretamente en la oscuridad de tu interior.",
             peticion: "Señor del tiempo y de la vida, concédeme una paciencia inquebrantable. Ayúdame a confiar plenamente en tus procesos y en tus tiempos, sabiendo que tu obra más profunda ocurre en el silencio de lo que aún no se ve.",
             cita: '"El Reino de Dios es como un hombre que echa la semilla en la tierra: sea que duerma o se levante, de noche y de día, la semilla germina y va creciendo, sin que él sepa cómo. La tierra por sí misma produce primero la hierba, luego la espiga, y por fin la espiga llena de granos." (Marcos 4, 26-28)',
-            saboreo: "Vivimos intoxicados por la cultura de la inmediatez: queremos sanación instantánea, respuestas rápidas, madurez espiritual sin proceso, resultados medibles para ayer. Esta impaciencia constante nos roba la paz y nos hace dudar de la bondad de Dios cuando las cosas demoran. Jesús nos recuerda, con la imagen humilde de la agricultura, que el crecimiento vital es un misterio que escapa a nuestro control ('sin que él sepa cómo'). No puedes estirar una planta para que crezca más rápido; la matarías. Hay transformaciones en ti, en tus hijos, en tus proyectos, que requieren la sabiduría de la espera. Tu única tarea es cuidar la tierra (orar, amar, cumplir tu deber), y dormir en paz, confiando en que la vida divina está haciendo su labor incesante bajo la superficie.",
-            oracionPoetica: "Sembrador de tiempos lentos y sagrados,\ncura mi adicción moderna a los frutos inmediatos.\nLíbrame de la ansiedad de escarbar la tierra todos los días\npara comprobar desesperadamente si la semilla ya germinó.\n\nQuiero primaveras a la carta y cosechas sin inviernos.\nMe enfurece la espera, dudo de ti en el silencio de la tierra oscura,\ny me olvido de que los procesos más hermosos\nse tejen lejos de los focos, en el secreto de la raíz.\n\nEnséñame a dormir en paz bajo tu cielo.\nA regar la tierra con mi trabajo humilde y sostenido,\na confiar en tu trabajo subterráneo y silencioso,\nsabiendo que la vida que Tú plantas siempre sabe abrirse paso a la luz.",
+            saboreo: "Vivimos intoxicados por la cultura de la inmediatez: queremos sanación instantánea, respuestas rápidas, madurez espiritual sin proceso, resultados medibles para ayer. Esta impaciencia constante nos roba la paz y nos hace dudar de la bondad de Dios cuando las cosas demoran. Jesús nos recuerda, con la imagen humilde de la agricultura, que el crecimiento vital es un misterio que escapa a nuestro control ('sin que él sepa cómo'). No puedes estirar una planta para que crezca más rápido; la matarías. Hay transformaciones en ti, en tus hijos, en tus proyectos, que requieren la sabiduría de la espera. Tu única tarea es cuidar la tierra (orar, amar, cumplir tu deber), y dormir en paz, confiando en que la vida divina está haciendo su labor incesante bajo la superficie.\n\nImagina por un momento las poderosas fuerzas invisibles de la tierra actuando armónicamente sobre la fragilidad de esa semilla: la humedad exacta, los minerales subterráneos, la oscuridad protectora. Todo coopera. Así mismo, en tus periodos de espera dolorosa o estancamiento aparente, Dios organiza circunstancias, cruza personas y dosifica aprendizajes de forma providencial para que tu fruto final sea verdaderamente maduro y no apresurado. Aprender a descansar confiado en esta verdad es el mejor antídoto contra la desesperación moderna. El crecimiento espiritual obedece a las leyes lentas del campo, no a las eficientes leyes de la fábrica; exige un profundo respeto por las estaciones del alma.",
+            oracionPoetica: "Sembrador de tiempos lentos y sagrados,\ncura mi adicción moderna a los frutos inmediatos.\nLíbrame de la ansiedad de escarbar la tierra todos los días\npara comprobar desesperadamente si la semilla ya germinó.\n\nQuiero primaveras a la carta y cosechas sin inviernos.\nMe enfurece la espera, dudo de ti en el silencio de la tierra oscura,\ny me olvido de que los procesos más hermosos\nse tejen lejos de los focos, en el secreto de la raíz.\n\nEnséñame a dormir en paz bajo tu cielo.\nA regar la tierra con mi trabajo humilde y sostenido,\na confiar en tu trabajo subterráneo y silencioso,\nsabiendo que la vida que Tú plantas siempre sabe abrirse paso a la luz.\n\nLibérame del afán inútil de arrancar los brotes tiernos solo para ver su raíz,\nde la urgencia tóxica de medir mi progreso espiritual con reglas humanas.\nQue aprenda a amar los inviernos crudos y los otoños melancólicos,\nsabiendo que preparan en silencio la explosión colorida de la primavera.\n\nY cuando por fin la espiga se alce dorada, madura y repleta de granos,\nque no me apropie del milagro ni me cuelgue medallas de barro.\nSino que reconozca, con el rostro pegado en gratitud a la tierra buena,\nque todo crecimiento es pura gracia tuya, principio y final misterioso.",
             dialogo: [
                 { id: 'd12_1', label: "Señor, esa área de mi vida, ese proyecto o relación, que parece estancada en la oscuridad y que me llena de impaciencia y frustración es..." },
                 { id: 'd12_2', label: "Hoy elijo soltar mi necesidad de control y confiar radicalmente en tu obra subterránea, proponiéndome vivir esta espera haciendo..." }
-            ]
+            ],
+            oracionFinal: "Creador paciente y sabio, confío profundamente en tu obra que germina sin descanso en mis áreas de oscuridad. Dame la paz profunda para dormir tranquilo, sabiendo que Tú velas pacientemente por mis semillas.",
+            compromiso: "Me comprometo hoy a no apurar ansiosamente los procesos de los demás (ni los míos propios) y a cultivar una actitud de paciente y serena confianza frente a algo que estoy esperando."
         }
     ];
 
@@ -350,13 +390,27 @@
         { title: "Cantos de Taizé", icon: "music" },
         { title: "Petición", icon: "heart" },
         { title: "Saboreo", icon: "book-open" },
-        { title: "Salmo Cotidiano", icon: "feather" },
+        { title: "Oración Poética", icon: "feather" },
         { title: "Diálogo y Ofrenda", icon: "message-circle" },
         { title: "Padre Nuestro", icon: "book-heart" },
         { title: "Cierre", icon: "anchor" }
     ];
 
-    const closingChants = [cantosDB.laudate, cantosDB.nada, cantosDB.monAme, cantosDB.bless, cantosDB.inManus, cantosDB.ubi, cantosDB.laudate, cantosDB.misericordias, cantosDB.thirsty, cantosDB.mane, cantosDB.misericordias, cantosDB.ubi];
+    const closingChants = [
+        cantosDB.ubi,           // Día 1
+        cantosDB.alma,          // Día 2
+        cantosDB.diosTernura,   // Día 3
+        cantosDB.laudate,       // Día 4
+        cantosDB.inManus,       // Día 5
+        cantosDB.oLordHear,     // Día 6
+        cantosDB.misericordias, // Día 7
+        cantosDB.nada,          // Día 8
+        cantosDB.alma,          // Día 9 (Re-uso pero no hay conflicto con este día)
+        cantosDB.bless,         // Día 10
+        cantosDB.oscuridad,     // Día 11
+        cantosDB.laudate        // Día 12 (Re-uso lejano)
+    ];
+
     const introsPadreNuestro = [
         "Sabiendo que nuestro valor descansa en Su mirada incondicional, unámonos a Jesús para orar al Padre que nos ama desde la eternidad:",
         "Entregando nuestras ansiedades y soltando la necesidad de controlarlo todo, descansemos en la providencia del Padre diciendo:",
@@ -623,9 +677,25 @@
                         </div>
                     </div>
                     
-                    <p class="font-sans text-xs md:text-sm text-stone-600 font-semibold bg-white/50 px-8 py-4 rounded-full shadow-inner border border-white/60 tracking-widest uppercase">
-                        Permanece aquí el tiempo que necesites.
-                    </p>
+                    <div class="w-full max-w-2xl flex flex-col items-center mt-4">
+                        <p class="font-sans text-xs md:text-sm text-stone-600 font-semibold bg-white/50 px-8 py-4 rounded-full shadow-inner border border-white/60 tracking-widest uppercase mb-10 z-10 relative">
+                            Permanece aquí el tiempo que necesites.
+                        </p>
+                        
+                        <div class="bg-gradient-to-br from-white/60 to-white/30 p-8 md:p-12 rounded-[2.5rem] border border-white/80 shadow-[0_15px_40px_rgba(0,0,0,0.06)] relative overflow-hidden group hover:bg-white/70 transition-all duration-500 w-full mt-4">
+                            <div class="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-bl from-rose-400 to-orange-400 opacity-20 rounded-full blur-2xl group-hover:opacity-40 transition-opacity duration-700"></div>
+                            
+                            <div class="flex items-center justify-center gap-3 mb-6 relative z-10">
+                                <i data-lucide="flame" class="w-5 h-5 text-rose-500 drop-shadow-sm"></i>
+                                <h4 class="font-sans text-stone-600 uppercase tracking-[0.25em] text-xs font-black drop-shadow-sm">Invocación al Espíritu Santo</h4>
+                                <i data-lucide="flame" class="w-5 h-5 text-rose-500 drop-shadow-sm"></i>
+                            </div>
+                            
+                            <p class="font-body text-[1.2rem] md:text-[1.35rem] text-stone-800 leading-relaxed italic text-balance font-medium relative z-10">
+                                "Ven, Espíritu Santo. Ilumina mi mente, pacifica mi corazón y abre mi ser a la escucha atenta de tu Palabra. Que este tiempo de silencio sea un encuentro verdadero y transformador."
+                            </p>
+                        </div>
+                    </div>
                 </div>
             `;
         }
@@ -685,22 +755,21 @@
                         <p class="font-sans text-stone-600 uppercase tracking-[0.25em] text-xs font-black mb-8 flex items-center gap-3">
                             <i data-lucide="sparkles" class="w-5 h-5 text-amber-500"></i> Pistas para profundizar
                         </p>
-                        <p class="font-body text-xl md:text-[1.45rem] text-stone-800 leading-loose">
-                            ${day.saboreo}
-                        </p>
+                        <div class="font-body text-xl md:text-[1.45rem] text-stone-800 leading-loose space-y-6">
+                            ${day.saboreo.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+                        </div>
                     </div>
                 </div>
             `;
         }
         else if (currentStep === 4) {
             html += `
-                <div class="flex-grow flex flex-col items-center justify-center text-center space-y-14 fade-in">
+                <div class="flex-grow flex flex-col items-center justify-center text-center space-y-10 fade-in">
                     ${getIcon3DHtml("feather", day.gradient, day.shadow, "large")}
                     
-                    <div class="bg-white/40 backdrop-blur-md p-10 md:p-16 rounded-[3.5rem] shadow-[inset_0_0_30px_rgba(255,255,255,0.7)] border border-white/70 w-full max-w-3xl relative overflow-hidden">
-                        <p class="font-sans text-stone-500 uppercase tracking-[0.3em] text-xs font-black mb-10">Un salmo desde el barro</p>
+                    <div class="bg-white/40 backdrop-blur-md p-10 md:p-16 rounded-[3.5rem] shadow-[inset_0_0_30px_rgba(255,255,255,0.7)] border border-white/70 w-full max-w-3xl relative overflow-hidden mt-6">
                         
-                        <div class="text-left font-body text-xl md:text-[1.5rem] text-stone-800 leading-loose italic whitespace-pre-line text-balance drop-shadow-sm">
+                        <div class="text-left font-body text-xl md:text-[1.5rem] text-stone-800 leading-loose italic whitespace-pre-line text-balance drop-shadow-sm relative z-10">
                             ${day.oracionPoetica}
                         </div>
                     </div>
@@ -740,7 +809,7 @@
                 </div>
             </div>`;
 
-            // Mensaje de éxito y el Padre Nuestro
+            // Mensaje de éxito
             html += `
                 <div id="entregado-msg" class="${yaEntregado ? 'flex' : 'hidden opacity-0'} flex-col items-center justify-center space-y-12 text-center py-10 transition-opacity duration-1000 w-full max-w-3xl mx-auto">
                     <div class="space-y-6 flex flex-col items-center">
@@ -811,7 +880,7 @@
                             <p class="font-sans text-stone-600 uppercase tracking-[0.3em] text-xs font-black">Canto de Despedida</p>
                             <i data-lucide="music" class="w-5 h-5 text-stone-600"></i>
                         </div>
-                        <div class="bg-white/50 p-8 rounded-[3rem] shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-white/80 flex flex-col items-center transition-transform hover:-translate-y-1.5 duration-500">
+                        <div class="bg-white/50 p-8 rounded-[3rem] shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-white/80 flex flex-col items-center transition-transform hover:-translate-y-1.5 duration-500 mb-16">
                             <h4 class="font-serif text-[1.75rem] md:text-3xl text-stone-900 font-bold mb-6 drop-shadow-sm">${canto.title}</h4>
                             <div class="w-full aspect-video rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/60 mb-8 bg-stone-200 relative group">
                                 <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors pointer-events-none z-10"></div>
@@ -823,6 +892,35 @@
                                 </p>
                             </div>
                         </div>
+
+                        <div class="flex items-center justify-center gap-4 mb-10">
+                            <div class="h-px bg-white/40 flex-grow"></div>
+                            <i data-lucide="sun-dim" class="w-5 h-5 text-stone-500"></i>
+                            <div class="h-px bg-white/40 flex-grow"></div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full text-left">
+                            <div class="bg-white/50 p-8 md:p-10 rounded-[2.5rem] border border-white/80 shadow-[0_10px_30px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:bg-white/60 transition-colors">
+                                <div class="absolute -right-6 -top-6 w-32 h-32 bg-gradient-to-bl ${day.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+                                <p class="font-sans text-stone-500 uppercase tracking-[0.2em] text-[0.7rem] font-black mb-5 flex items-center gap-3">
+                                    <i data-lucide="heart" class="w-4 h-4 text-amber-600"></i> Oración Final
+                                </p>
+                                <p class="font-body text-[1.15rem] md:text-[1.25rem] text-stone-800 leading-relaxed italic text-balance relative z-10">
+                                    "${day.oracionFinal}"
+                                </p>
+                            </div>
+                            
+                            <div class="bg-white/50 p-8 md:p-10 rounded-[2.5rem] border border-white/80 shadow-[0_10px_30px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:bg-white/60 transition-colors">
+                                <div class="absolute -left-6 -bottom-6 w-32 h-32 bg-gradient-to-tr ${day.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+                                <p class="font-sans text-stone-500 uppercase tracking-[0.2em] text-[0.7rem] font-black mb-5 flex items-center gap-3">
+                                    <i data-lucide="map" class="w-4 h-4 text-emerald-600"></i> Compromiso Práctico
+                                </p>
+                                <p class="font-body text-[1.15rem] md:text-[1.25rem] text-stone-800 leading-relaxed text-balance font-medium relative z-10">
+                                    ${day.compromiso}
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             `;
