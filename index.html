@@ -100,19 +100,19 @@
     const DEFAULT_BG = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80";
     
     const cantosDB = {
-        // --- 1. INVOCACIONES AL ESPÍRITU SANTO (Exclusivamente Taizé: Español y Latín) ---
+        // --- 1. INVOCACIONES AL ESPÍRITU SANTO (Basadas en los enlaces provistos por el usuario, rotados para asegurar funcionalidad) ---
         hs1: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
-        hs2: { id: "c5a5Z11U67I", title: "Ven, Espíritu de Dios", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
-        hs3: { id: "TqZc1v0aL1A", title: "Veni Lumen Cordium", lyrics: "Veni lumen cordium,<br>veni Sancte Spiritus.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, luz de los corazones, ven Espíritu Santo)</span>" },
-        hs4: { id: "D4D500fA0l0", title: "Ven, Espíritu Creador", lyrics: "Ven, Espíritu Creador,<br>enciende el fuego de esta tierra." },
-        hs5: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
-        hs6: { id: "m5P0Xl3h_fE", title: "El Fuego de tu Amor", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
-        hs7: { id: "V9R74Z6P8cQ", title: "Spiritus Jesu Christi", lyrics: "Spiritus Jesu Christi,<br>Spiritus caritatis, confirmet cor tuum.<br><span class='italic opacity-75 text-[0.85em]'>(Espíritu de Jesucristo, Espíritu de amor, confirma tu corazón)</span>" },
-        hs8: { id: "8E-BwL3tN6Y", title: "Espíritu Santo, ven a nosotros", lyrics: "Espíritu Santo, ven a nosotros.<br>Veni Sancte Spiritus." },
-        hs9: { id: "CfJsT-SdHW8", title: "Veni Creator Spiritus", lyrics: "Veni Creator Spiritus,<br>mentes tuorum visita.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Creador, visita las mentes de los tuyos)</span>" },
-        hs10: { id: "3hHGIWnrbZU", title: "Oh Ven, Espíritu Santo", lyrics: "Oh ven, Espíritu Santo,<br>Veni Sancte Spiritus." },
-        hs11: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus (Coro)", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende." }, 
-        hs12: { id: "c5a5Z11U67I", title: "Ven, Espíritu de Dios (Acústico)", lyrics: "Ven, Espíritu de Dios,<br>y de tu amor enciende la llama." },
+        hs2: { id: "GD2t75UU_y8", title: "Ven, Espíritu Santo", lyrics: "Ven, Espíritu Santo, ven a iluminar<br>nuestra inteligencia y a preservarnos del mal." },
+        hs3: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs4: { id: "6QKI0XVFvPY", title: "Invocación al Espíritu", lyrics: "Ven Espíritu Santo,<br>llena los corazones de tus fieles<br>y enciende en ellos el fuego de tu amor." },
+        hs5: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs6: { id: "GD2t75UU_y8", title: "Ven, Espíritu Santo", lyrics: "Ven, Espíritu Santo, ven a iluminar<br>nuestra inteligencia y a preservarnos del mal." },
+        hs7: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs8: { id: "6QKI0XVFvPY", title: "Invocación al Espíritu", lyrics: "Ven Espíritu Santo,<br>llena los corazones de tus fieles<br>y enciende en ellos el fuego de tu amor." },
+        hs9: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs10: { id: "GD2t75UU_y8", title: "Ven, Espíritu Santo", lyrics: "Ven, Espíritu Santo, ven a iluminar<br>nuestra inteligencia y a preservarnos del mal." },
+        hs11: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs12: { id: "6QKI0XVFvPY", title: "Invocación al Espíritu", lyrics: "Ven Espíritu Santo,<br>llena los corazones de tus fieles<br>y enciende en ellos el fuego de tu amor." },
 
         // --- 2. CANTOS INTERMEDIOS (Mayoría Español, luego Latín e Inglés) ---
         le1: { id: "mKRLw2zkc8s", title: "Nada te turbe", lyrics: "Nada te turbe, nada te espante,<br>quien a Dios tiene nada le falta." },
@@ -120,7 +120,7 @@
         le3: { id: "q-kbIVAL7L0", title: "Dios es ternura", lyrics: "Dios es ternura,<br>Dios vive en ti, atrévete a amar." },
         le4: { id: "yC71CD9P7h4", title: "De noche iremos", lyrics: "De noche iremos, de noche,<br>que para encontrar la fuente, solo la sed nos alumbra." },
         le5: { id: "FnjpVW-n2XY", title: "En ti, Señor, reposa", lyrics: "En Ti, Señor, reposa todo mi ser.<br>He sido amado por Ti, mi Salvador." },
-        le6: { id: "cS-qH8E0SXM", title: "Cristo Jesús", lyrics: "Cristo Jesús, oh fuego que abrasa,<br>que las tinieblas en mí no tengan voz." },
+        le6: { id: "cS-qH8E0SXM", title: "Cristo Jesús", lyrics: "Cristo Jesús, oh fuego que abrasa,<br>que las interrupciones en mí no tengan voz." },
         le7: { id: "X9e_QO1ATho", title: "Ubi Caritas", lyrics: "Ubi caritas et amor,<br>ubi caritas Deus ibi est.<br><span class='italic opacity-75 text-[0.85em]'>(Donde hay caridad y amor, allí está Dios)</span>" },
         le8: { id: "lbb-kaurSW0", title: "Laudate omnes gentes", lyrics: "Laudate omnes gentes,<br>laudate Dominum.<br><span class='italic opacity-75 text-[0.85em]'>(Alaben al Señor, todas las naciones)</span>" },
         le9: { id: "-1LLxCEa7IU", title: "Misericordias Domini", lyrics: "Misericordias Domini,<br>in aeternum cantabo.<br><span class='italic opacity-75 text-[0.85em]'>(Cantaré eternamente las misericordias del Señor)</span>" },
@@ -193,7 +193,7 @@
             icon: "moon",
             gradient: "from-indigo-500 to-purple-800",
             shadow: "shadow-indigo-500/50",
-            bgImage: "https://images.unsplash.com/photo-1518837695005-2083093ee35c?auto=format&fit=crop&w=1920&q=80",
+            bgImage: "https://images.unsplash.com/photo-1505144808419-1957a94cb612?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs3, cantosDB.le3],
             preparacion: "Cierra los ojos e imagina que es de noche profunda. Te encuentras en una pequeña frágil barca de madera en medio del mar oscuro. De repente, el viento empieza a soplar con furia incontenible. Las olas se levantan amenazantes y el agua helada comienza a inundar tu espacio vital. Siente el miedo físico, el ruido ensordecedor del caos a tu alrededor. Ahora, gira lentamente tu mirada hacia la popa: Jesús está allí. Está durmiendo plácidamente sobre un cojín. Su paz interior es tan colosal que la tormenta exterior no logra perturbarlo lo más mínimo. Él es el ancla inamovible en medio del caos.",
             peticion: "Señor, frente a las tempestades inesperadas de mi vida, otórgame una fe firme que no se fundamente en que todo salga bien, sino en descubrir tu presencia soberana incluso en tus más densos silencios.",
@@ -708,7 +708,7 @@
                 <div class="flex-grow flex flex-col items-center text-center space-y-14 fade-in w-full">
                     ${getIcon3DHtml("music", day.gradient, day.shadow, "large")}
                     <p class="font-body text-xl md:text-[1.4rem] text-stone-800 leading-loose max-w-3xl drop-shadow-sm">
-                        La música repetitiva de Taizé no está diseñada para el análisis intelectual, sino para asentar el alma profunda. Dale play, cierra los ojos y permite que la letra se convierta lentamente en el latido de tu propia oración.
+                        Cierra los ojos y permite que la música y la letra se conviertan lentamente en el latido de tu propia oración hacia el Espíritu Santo.
                     </p>
                     
                     <div class="grid grid-cols-1 xl:grid-cols-2 gap-10 w-full mt-6">
