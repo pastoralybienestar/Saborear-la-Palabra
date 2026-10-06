@@ -5,31 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guías de Oración - Saborea Cada Palabra</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'], 
-                        serif: ['Playfair Display', 'serif'], 
-                        body: ['Lora', 'serif'], 
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
-        body { margin: 0; padding: 0; overflow-x: hidden; }
+        :root {
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-body: 'Lora', serif;
+            --c-stone-900: #1c1917;
+            --c-stone-800: #292524;
+            --c-stone-700: #44403c;
+            --c-stone-600: #57534e;
+            --c-stone-500: #78716c;
+            --c-stone-400: #a8a29e;
+            --c-stone-300: #d6d3d1;
+            --c-stone-200: #e7e5e4;
+            --c-stone-100: #f5f5f4;
+            --c-amber-100: #fef3c7;
+            --c-amber-200: #fde68a;
+            --c-amber-500: #f59e0b;
+            --c-amber-600: #d97706;
+            --c-rose-500: #f43f5e;
+            --c-emerald-600: #059669;
+            --c-white: #ffffff;
+            --c-black: #000000;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: var(--font-sans);
+            background-color: var(--c-stone-900);
+            color: var(--c-stone-900);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        ::selection {
+            background-color: rgba(253, 230, 138, 0.5); /* amber-200/50 */
+            color: var(--c-stone-900);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+
+        button, input, textarea {
+            font-family: inherit;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        input, textarea {
+            cursor: text;
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
         
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        
+        .grid-home {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 1024px) {
+            .grid-home { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .fixed-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-color: var(--c-stone-900);
+        }
+        
+        .overlay-gradient {
+            position: absolute;
+            inset: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1.5s ease-in-out;
+            opacity: 0.3;
+        }
+        
+        .mix-blend-overlay { mix-blend-mode: overlay; }
+        
+        .backdrop-blur-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(28, 25, 23, 0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .gradient-bottom {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent, rgba(28, 25, 23, 0.6));
+        }
+
         .fade-in { animation: fadeIn 1s ease-out forwards; }
         .slide-up { animation: slideUp 1s ease-out forwards; }
         
@@ -47,24 +152,10 @@
         }
         @keyframes offerUp {
             0% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
-            40% { transform: translateY(-20px) scale(1.02); opacity: 0.8; filter: blur(1px); color: #fbbf24; }
-            100% { transform: translateY(-80px) scale(0.9); opacity: 0; filter: blur(15px); color: #fef08a; }
+            40% { transform: translateY(-20px) scale(1.02); opacity: 0.8; filter: blur(1px); color: var(--c-amber-500); }
+            100% { transform: translateY(-80px) scale(0.9); opacity: 0; filter: blur(15px); color: var(--c-amber-200); }
         }
 
-        .breath-inhale .ring-1 { transform: scale(1.15); opacity: 0.5; }
-        .breath-exhale .ring-1 { transform: scale(0.5); opacity: 0.1; }
-        
-        .breath-inhale .ring-2 { transform: scale(1.05); }
-        .breath-exhale .ring-2 { transform: scale(0.75); }
-        
-        .breath-inhale .ring-3 { transform: scale(1); opacity: 1; }
-        .breath-exhale .ring-3 { transform: scale(0.5); opacity: 0; }
-        
-        .breath-inhale .center-circle { transform: scale(1.05); }
-        .breath-exhale .center-circle { transform: scale(0.95); opacity: 0.8; }
-        
-        .transition-all-slow { transition: all 4000ms ease-in-out; }
-        
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -76,22 +167,780 @@
             animation: gradientBG 30s ease infinite;
         }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+        .home-layout {
+            padding: 4rem 1.5rem 6rem;
+        }
+        .hero-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--c-white);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+        @media (min-width: 768px) { .hero-title { font-size: 4.5rem; } }
+        
+        .divider {
+            height: 1px;
+            width: 10rem;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+            margin: 2.5rem auto;
+        }
+
+        .hero-quote {
+            font-family: var(--font-body);
+            color: rgba(255,255,255,0.9);
+            font-size: 1.25rem;
+            font-style: italic;
+            max-width: 48rem;
+            margin: 0 auto;
+            line-height: 1.625;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+        @media (min-width: 768px) { .hero-quote { font-size: 1.7rem; } }
+
+        .hero-author {
+            font-family: var(--font-sans);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.75rem;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-weight: 600;
+        }
+        @media (min-width: 768px) { .hero-author { font-size: 0.875rem; } }
+
+        .welcome-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            margin: 0 auto 5rem;
+            max-width: 56rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) { .welcome-box { padding: 2.5rem; } }
+
+        .day-card {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 2rem;
+            border-radius: 2.5rem;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 15px 40px 0 rgba(0,0,0,0.3);
+        }
+        @media (min-width: 768px) { .day-card { padding: 2.5rem; } }
+        
+        .day-card:hover {
+            box-shadow: 0 20px 50px 0 rgba(255,255,255,0.15);
+            transform: translateY(-8px);
+        }
+
+        .day-card-bg-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 0;
+            mix-blend-mode: overlay;
+        }
+        .day-card:hover .day-card-bg-layer { opacity: 0.3; }
+
+        .day-card-gradient-layer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(28,25,23,0.6), transparent);
+            opacity: 0;
+            transition: opacity 1s ease;
+            z-index: 0;
+        }
+        .day-card:hover .day-card-gradient-layer { opacity: 1; }
+
+        .day-card-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .day-card-eyebrow {
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+        }
+        @media (min-width: 768px) { .day-card-eyebrow { font-size: 0.75rem; } }
+
+        .day-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            color: var(--c-white);
+            font-weight: 700;
+            transition: color 0.3s;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+        }
+        @media (min-width: 768px) { .day-card-title { font-size: 1.875rem; } }
+        .day-card:hover .day-card-title { color: var(--c-amber-100); }
+
+        .day-card-subtitle {
+            font-family: var(--font-body);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.875rem;
+            padding-left: 5.5rem;
+            line-height: 1.625;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) { .day-card-subtitle { font-size: 1rem; } }
+
+        .icon-3d-wrapper {
+            position: relative;
+            border-radius: 1rem;
+            padding: 2px;
+            transition: all 0.3s;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+        .icon-3d-normal { width: 3.5rem; height: 3.5rem; }
+        .icon-3d-large { width: 5rem; height: 5rem; }
+        
+        .icon-3d-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+        .day-card:hover .icon-3d-wrapper {
+            transform: scale(1.1) translateY(-4px);
+        }
+        .icon-shadow { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+
+        .day-layout {
+            padding: 1rem 1rem 9rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .nav-header {
+            position: relative;
+            z-index: 50;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            border-radius: 9999px;
+            padding: 1rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+        }
+        @media (min-width: 768px) { .nav-header { padding: 1rem 2rem; } }
+
+        .btn-back {
+            font-family: var(--font-sans);
+            color: var(--c-white);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: rgba(255,255,255,0.1);
+            padding: 0.625rem 1.25rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        @media (min-width: 768px) { .btn-back { font-size: 0.875rem; } }
+        .btn-back:hover {
+            color: var(--c-amber-200);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .header-title {
+            font-family: var(--font-sans);
+            color: var(--c-white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
+            opacity: 0.9;
+            text-align: center;
+        }
+        @media (min-width: 768px) { .header-title { font-size: 0.875rem; } }
+
+        .steps-container-wrapper { padding: 0 0.5rem; margin-bottom: 2.5rem; }
+        @media (min-width: 768px) { .steps-container-wrapper { padding: 0 4rem; } }
+        
+        .steps-container {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 9999px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .steps-line {
+            position: absolute;
+            left: 2.5rem;
+            right: 2.5rem;
+            top: 50%;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            z-index: 0;
+            border-radius: 9999px;
+            transform: translateY(-50%);
+        }
+
+        .step-circle {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.7s;
+            border: 1px solid;
+            position: relative;
+        }
+        @media (min-width: 768px) { .step-circle { width: 3rem; height: 3rem; } }
+        
+        .step-future {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            border-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+        }
+        
+        .step-past {
+            background: rgba(255,255,255,0.8);
+            color: var(--c-stone-800);
+            border-color: rgba(255,255,255,0.6);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+        
+        .step-active {
+            color: var(--c-white);
+            transform: scale(1.3) translateY(-6px);
+            border-color: rgba(255,255,255,0.4);
+            z-index: 20;
+        }
+        
+        .main-panel {
+            flex-grow: 1;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 3rem;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        @media (min-width: 768px) { .main-panel { padding: 4rem; } }
+
+        .panel-indicator {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10rem;
+            height: 0.375rem;
+            background: linear-gradient(to right, transparent, rgba(168,162,158,0.6), transparent);
+            border-bottom-left-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+        }
+
+        .main-title {
+            font-family: var(--font-serif);
+            font-size: 1.875rem;
+            text-align: center;
+            color: var(--c-stone-900);
+            margin-bottom: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 0.025em;
+            opacity: 0.95;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
+        }
+        @media (min-width: 768px) { .main-title { font-size: 2.5rem; } }
+
+        /* Utilidades para los pasos de contenido */
+        .content-stack { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3.5rem; }
+        .content-stack-wide { max-width: 56rem; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem; }
+        
+        .text-body-lg {
+            font-family: var(--font-body);
+            font-size: 1.25rem;
+            color: var(--c-stone-800);
+            line-height: 2;
+            max-width: 48rem;
+            text-wrap: balance;
+        }
+        @media (min-width: 768px) { .text-body-lg { font-size: 1.4rem; } }
+
+        .breath-container {
+            position: relative;
+            width: 18rem;
+            height: 18rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .breath-ring-1 {
+            position: absolute; inset: 0;
+            border-radius: 50%;
+            filter: blur(24px);
+            transition: all 4000ms ease-in-out;
+        }
+        .breath-ring-2 {
+            position: absolute; inset: 1.5rem;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 50px rgba(255,255,255,0.9);
+            transition: all 4000ms ease-in-out;
+        }
+        .breath-ring-3 {
+            position: absolute; inset: 3rem;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.9);
+            transition: all 4000ms ease-in-out;
+        }
+        .breath-center {
+            position: relative; z-index: 10;
+            width: 9rem; height: 9rem;
+            border-radius: 50%;
+            background: linear-gradient(to bottom right, var(--c-white), var(--c-stone-100));
+            box-shadow: 15px 15px 30px rgba(0,0,0,0.1), -15px -15px 30px rgba(255,255,255,0.9);
+            display: flex; align-items: center; justify-content: center;
+            border: 3px solid var(--c-white);
+            transition: all 4000ms ease-in-out;
+        }
+        
+        .breath-text {
+            font-family: var(--font-sans);
+            color: var(--c-stone-700);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .breath-inhale .breath-ring-1 { transform: scale(1.15); opacity: 0.5; }
+        .breath-exhale .breath-ring-1 { transform: scale(0.5); opacity: 0.1; }
+        .breath-inhale .breath-ring-2 { transform: scale(1.05); }
+        .breath-exhale .breath-ring-2 { transform: scale(0.75); }
+        .breath-inhale .breath-ring-3 { transform: scale(1); opacity: 1; }
+        .breath-exhale .breath-ring-3 { transform: scale(0.5); opacity: 0; }
+        .breath-inhale .breath-center { transform: scale(1.05); }
+        .breath-exhale .breath-center { transform: scale(0.95); opacity: 0.8; }
+
+        .info-pill {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--c-stone-600);
+            font-weight: 600;
+            background: rgba(255,255,255,0.5);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            border: 1px solid rgba(255,255,255,0.6);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            z-index: 10;
+            position: relative;
+        }
+        @media (min-width: 768px) { .info-pill { font-size: 0.875rem; } }
+
+        .content-box-light {
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.6), rgba(255,255,255,0.3));
+            padding: 2rem;
+            border-radius: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        @media (min-width: 768px) { .content-box-light { padding: 3rem; } }
+        
+        .content-box-inset {
+            background: rgba(255,255,255,0.5);
+            padding: 3rem;
+            border-radius: 3.5rem;
+            box-shadow: inset 0 0 50px rgba(255,255,255,0.9);
+            border: 1px solid rgba(255,255,255,0.8);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) { .content-box-inset { padding: 5rem; } }
+
+        .canto-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+        @media (min-width: 1280px) { .canto-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .canto-card {
+            background: rgba(255,255,255,0.5);
+            padding: 2rem;
+            border-radius: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.5s;
+        }
+        .canto-card:hover { transform: translateY(-6px); }
+
+        .video-box {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            border: 4px solid rgba(255,255,255,0.6);
+            margin-bottom: 2rem;
+            background: var(--c-stone-200);
+            position: relative;
+        }
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .video-box:hover .video-overlay { background: transparent; }
+        
+        .lyrics-box {
+            background: rgba(255,255,255,0.6);
+            padding: 2rem;
+            border-radius: 2rem;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: inset 0 2px 15px rgba(255,255,255,0.9);
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grace-quote {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--c-stone-900);
+            line-height: 1.6;
+            font-weight: 500;
+            text-wrap: balance;
+        }
+        @media (min-width: 768px) { .grace-quote { font-size: 2.2rem; } }
+
+        .eyebrow-label {
+            font-family: var(--font-sans);
+            color: var(--c-stone-500);
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            font-size: 0.75rem;
+            font-weight: 900;
+            margin-bottom: 2.5rem;
+        }
+
+        .quote-box-deep {
+            background: rgba(255,255,255,0.6);
+            padding: 3rem;
+            border-radius: 3rem;
+            box-shadow: inset 0 2px 20px rgba(255,255,255,1), 0 20px 50px rgba(0,0,0,0.06);
+            border: 1px solid rgba(255,255,255,0.9);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        @media (min-width: 768px) { .quote-box-deep { padding: 4rem; } }
+
+        .saboreo-box {
+            padding: 3rem;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+            border-radius: 3rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) { .saboreo-box { padding: 3.5rem; } }
+        
+        .saboreo-text {
+            font-family: var(--font-body);
+            font-size: 1.25rem;
+            color: var(--c-stone-800);
+            line-height: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) { .saboreo-text { font-size: 1.45rem; } }
+
+        .poem-box {
+            background: rgba(255,255,255,0.4);
+            backdrop-filter: blur(12px);
+            padding: 2.5rem;
+            border-radius: 3.5rem;
+            box-shadow: inset 0 0 30px rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.7);
+            width: 100%;
+            max-width: 48rem;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        @media (min-width: 768px) { .poem-box { padding: 4rem; } }
+        
+        .dialog-textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.5);
+            border-radius: 2.5rem;
+            border: 3px solid rgba(255,255,255,0.5);
+            padding: 2.5rem;
+            font-family: var(--font-body);
+            font-size: 1.25rem;
+            line-height: 1.625;
+            color: var(--c-stone-800);
+            transition: all 0.5s;
+            resize: none;
+            outline: none;
+            box-shadow: inset 0 5px 20px rgba(0,0,0,0.04);
+        }
+        @media (min-width: 768px) { .dialog-textarea { font-size: 1.4rem; } }
+        
+        .dialog-textarea:focus {
+            border-color: var(--c-stone-300);
+            background: rgba(255,255,255,0.8);
+        }
+        .dialog-textarea::placeholder { color: rgba(168, 162, 158, 0.6); }
+
+        .btn-submit {
+            position: relative;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(to right, var(--c-amber-200), var(--c-amber-500));
+            border-radius: 9999px;
+            font-family: var(--font-sans);
+            color: var(--c-stone-900);
+            font-weight: 700;
+            box-shadow: 0 0 40px rgba(251,191,36,0.3);
+            transition: all 0.5s;
+            overflow: hidden;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            border: 1px solid rgba(253, 230, 138, 1);
+            z-index: 10;
+        }
+        .btn-submit:hover {
+            box-shadow: 0 0 50px rgba(251,191,36,0.6);
+            transform: translateY(-6px);
+        }
+        .btn-submit-glare {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.4);
+            transform: skewX(-12deg) translateX(-100%);
+            transition: transform 1s ease-in-out;
+            z-index: -1;
+        }
+        .btn-submit:hover .btn-submit-glare { transform: translateX(100%); }
+
+        .ancla-input {
+            width: 100%;
+            text-align: center;
+            background: rgba(255,255,255,0.6);
+            border-radius: 2rem;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.05);
+            border: 3px solid rgba(255,255,255,0.8);
+            padding: 2rem 0;
+            font-family: var(--font-serif);
+            font-size: 1.875rem;
+            color: var(--c-stone-900);
+            font-weight: 700;
+            outline: none;
+            transition: all 0.3s;
+        }
+        @media (min-width: 768px) { .ancla-input { font-size: 2.25rem; } }
+        .ancla-input:focus { border-color: var(--c-stone-400); }
+        .ancla-input::placeholder { color: rgba(168, 162, 158, 0.5); }
+
+        .footer-nav {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 0;
+            right: 0;
+            padding: 0 1rem;
+            z-index: 50;
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+        }
+        @media (min-width: 768px) { .footer-nav { bottom: 2rem; } }
+        
+        .footer-glass {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            border-radius: 9999px;
+            padding: 0.625rem;
+            display: flex;
+            gap: 1rem;
+            pointer-events: auto;
+        }
+
+        .btn-prev {
+            font-family: var(--font-sans);
+            padding: 1rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--c-white);
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        @media (min-width: 768px) { .btn-prev { padding: 1rem 2rem; gap: 0.75rem; font-size: 0.875rem; } }
+        .btn-prev:hover { background: rgba(255,255,255,0.2); color: var(--c-amber-100); }
+        
+        .btn-next {
+            font-family: var(--font-sans);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            color: var(--c-white);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        @media (min-width: 768px) { .btn-next { padding: 1rem 2.5rem; font-size: 0.875rem; } }
+        .btn-next:hover { transform: scale(1.03); }
+        .btn-next:active { transform: scale(0.95); }
+
+        /* Reemplazan las utilidades de Tailwind */
+        .theme-1 { background-image: linear-gradient(to bottom right, #fbbf24, #ea580c); --theme-shadow: rgba(249, 115, 22, 0.5); }
+        .theme-2 { background-image: linear-gradient(to bottom right, #22d3ee, #2563eb); --theme-shadow: rgba(59, 130, 246, 0.5); }
+        .theme-3 { background-image: linear-gradient(to bottom right, #6366f1, #6b21a8); --theme-shadow: rgba(99, 102, 241, 0.5); }
+        .theme-4 { background-image: linear-gradient(to bottom right, #e879f9, #db2777); --theme-shadow: rgba(236, 72, 153, 0.5); }
+        .theme-5 { background-image: linear-gradient(to bottom right, #a3e635, #059669); --theme-shadow: rgba(16, 185, 129, 0.5); }
+        .theme-6 { background-image: linear-gradient(to bottom right, #5eead4, #0891b2); --theme-shadow: rgba(20, 184, 166, 0.5); }
+        .theme-7 { background-image: linear-gradient(to bottom right, #fde047, #f59e0b); --theme-shadow: rgba(234, 179, 8, 0.5); }
+        .theme-8 { background-image: linear-gradient(to bottom right, #fb923c, #dc2626); --theme-shadow: rgba(239, 68, 68, 0.5); }
+        .theme-9 { background-image: linear-gradient(to bottom right, #60a5fa, #4f46e5); --theme-shadow: rgba(59, 130, 246, 0.5); }
+        .theme-10 { background-image: linear-gradient(to bottom right, #fb7185, #f97316); --theme-shadow: rgba(244, 63, 94, 0.5); }
+        .theme-11 { background-image: linear-gradient(to bottom right, #fda4af, #ec4899); --theme-shadow: rgba(236, 72, 153, 0.5); }
+        .theme-12 { background-image: linear-gradient(to bottom right, #6ee7b7, #16a34a); --theme-shadow: rgba(34, 197, 94, 0.5); }
+        .theme-check { background-image: linear-gradient(to bottom right, #34d399, #16a34a); --theme-shadow: rgba(34, 197, 94, 0.5); }
+        .theme-anchor { background-image: linear-gradient(to bottom right, #a8a29e, #57534e); --theme-shadow: rgba(120, 113, 108, 0.3); }
+
+        .shadow-theme { box-shadow: 0 20px 25px -5px var(--theme-shadow), 0 8px 10px -6px var(--theme-shadow); }
+        .shadow-theme-glow { box-shadow: 0 25px 50px -12px var(--theme-shadow); }
+        
+        .bg-gradient-border {
+            position: absolute;
+            top: 0; left: 0;
+            width: 0.375rem;
+            height: 100%;
+        }
+
+        /* Helpers */
+        .hidden { display: none !important; }
+        .opacity-0 { opacity: 0; }
+        .mb-20 { margin-bottom: 5rem; }
+        .mt-10 { margin-top: 2.5rem; }
     </style>
 </head>
-<body class="font-sans antialiased text-stone-900 selection:bg-amber-200/50 selection:text-stone-900 bg-stone-900 min-h-screen relative">
+<body>
 
-    <div class="fixed inset-0 z-0 bg-stone-900">
-        <div id="gradient-overlay" class="absolute inset-0 color-bg-home transition-opacity duration-1000 ease-in-out opacity-100"></div>
+    <div class="fixed-bg">
+        <div id="gradient-overlay" class="overlay-gradient color-bg-home opacity-100"></div>
         <img id="bg-image" src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80" 
              alt="Fondo espiritual" 
              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80';"
-             class="w-full h-full object-cover transition-opacity duration-1500 ease-in-out opacity-30 mix-blend-overlay" />
-        <div class="absolute inset-0 bg-stone-900/20 backdrop-blur-[4px]"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-stone-900/60"></div>
+             class="bg-image mix-blend-overlay" />
+        <div class="backdrop-blur-overlay"></div>
+        <div class="gradient-bottom"></div>
     </div>
 
     <div id="app" class="relative z-10 w-full min-h-screen"></div>
@@ -101,17 +950,17 @@
     
     const cantosDB = {
         // --- 1. INVOCACIONES AL ESPÍRITU SANTO ---
-        hs1: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs1: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
         hs2: { id: "GD2t75UU_y8", title: "Ven, Espíritu Santo", lyrics: "Ven, Espíritu Santo, ven a iluminar<br>nuestra inteligencia y a preservarnos del mal." },
-        hs3: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs3: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
         hs4: { id: "6QKI0XVFvPY", title: "Invocación al Espíritu", lyrics: "Ven Espíritu Santo,<br>llena los corazones de tus fieles<br>y enciende en ellos el fuego de tu amor." },
-        hs5: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs5: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
         hs6: { id: "GD2t75UU_y8", title: "Ven, Espíritu Santo", lyrics: "Ven, Espíritu Santo, ven a iluminar<br>nuestra inteligencia y a preservarnos del mal." },
-        hs7: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs7: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
         hs8: { id: "6QKI0XVFvPY", title: "Invocación al Espíritu", lyrics: "Ven Espíritu Santo,<br>llena los corazones de tus fieles<br>y enciende en ellos el fuego de tu amor." },
-        hs9: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs9: { id: "uKj7iu0TyY8", title: "Veni Sancte Spiritus", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
         hs10: { id: "GD2t75UU_y8", title: "Ven, Espíritu Santo", lyrics: "Ven, Espíritu Santo, ven a iluminar<br>nuestra inteligencia y a preservarnos del mal." },
-        hs11: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span class='italic opacity-75 text-[0.85em]'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
+        hs11: { id: "gl2zZ0Szji8", title: "Tui amoris ignem", lyrics: "Veni Sancte Spiritus,<br>tui amoris ignem accende.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Ven, Espíritu Santo, enciende el fuego de tu amor)</span>" },
         hs12: { id: "6QKI0XVFvPY", title: "Invocación al Espíritu", lyrics: "Ven Espíritu Santo,<br>llena los corazones de tus fieles<br>y enciende en ellos el fuego de tu amor." },
 
         // --- 2. CANTOS INTERMEDIOS ---
@@ -121,12 +970,12 @@
         le4: { id: "yC71CD9P7h4", title: "De noche iremos", lyrics: "De noche iremos, de noche,<br>que para encontrar la fuente, solo la sed nos alumbra." },
         le5: { id: "FnjpVW-n2XY", title: "En ti, Señor, reposa", lyrics: "En Ti, Señor, reposa todo mi ser.<br>He sido amado por Ti, mi Salvador." },
         le6: { id: "cS-qH8E0SXM", title: "Cristo Jesús", lyrics: "Cristo Jesús, oh fuego que abrasa,<br>que las interrupciones en mí no tengan voz." },
-        le7: { id: "X9e_QO1ATho", title: "Ubi Caritas", lyrics: "Ubi caritas et amor,<br>ubi caritas Deus ibi est.<br><span class='italic opacity-75 text-[0.85em]'>(Donde hay caridad y amor, allí está Dios)</span>" },
-        le8: { id: "lbb-kaurSW0", title: "Laudate omnes gentes", lyrics: "Laudate omnes gentes,<br>laudate Dominum.<br><span class='italic opacity-75 text-[0.85em]'>(Alaben al Señor, todas las naciones)</span>" },
-        le9: { id: "-1LLxCEa7IU", title: "Misericordias Domini", lyrics: "Misericordias Domini,<br>in aeternum cantabo.<br><span class='italic opacity-75 text-[0.85em]'>(Cantaré eternamente las misericordias del Señor)</span>" },
-        le10: { id: "aC_e2V9_G3o", title: "Oculi nostri", lyrics: "Oculi nostri ad Dominum Jesum.<br>Oculi nostri ad Dominum nostrum.<br><span class='italic opacity-75 text-[0.85em]'>(Nuestros ojos miran al Señor Jesús. Nuestros ojos miran a nuestro Señor)</span>" },
-        le11: { id: "lsm919bwwag", title: "Bless the Lord my soul", lyrics: "Bless the Lord, my soul,<br>and bless God's holy name.<br><span class='italic opacity-75 text-[0.85em]'>(Bendice al Señor, alma mía, y bendice su santo nombre)</span>" },
-        le12: { id: "spe1vqO3zhM", title: "Let all who are thirsty come", lyrics: "Let all who are thirsty come.<br>Let all who wish receive the water of life freely.<br><span class='italic opacity-75 text-[0.85em]'>(Que vengan todos los que tienen sed. Que todos los que deseen reciban gratis el agua de la vida)</span>" },
+        le7: { id: "X9e_QO1ATho", title: "Ubi Caritas", lyrics: "Ubi caritas et amor,<br>ubi caritas Deus ibi est.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Donde hay caridad y amor, allí está Dios)</span>" },
+        le8: { id: "lbb-kaurSW0", title: "Laudate omnes gentes", lyrics: "Laudate omnes gentes,<br>laudate Dominum.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Alaben al Señor, todas las naciones)</span>" },
+        le9: { id: "-1LLxCEa7IU", title: "Misericordias Domini", lyrics: "Misericordias Domini,<br>in aeternum cantabo.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Cantaré eternamente las misericordias del Señor)</span>" },
+        le10: { id: "aC_e2V9_G3o", title: "Oculi nostri", lyrics: "Oculi nostri ad Dominum Jesum.<br>Oculi nostri ad Dominum nostrum.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Nuestros ojos miran al Señor Jesús. Nuestros ojos miran a nuestro Señor)</span>" },
+        le11: { id: "lsm919bwwag", title: "Bless the Lord my soul", lyrics: "Bless the Lord, my soul,<br>and bless God's holy name.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Bendice al Señor, alma mía, y bendice su santo nombre)</span>" },
+        le12: { id: "spe1vqO3zhM", title: "Let all who are thirsty come", lyrics: "Let all who are thirsty come.<br>Let all who wish receive the water of life freely.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Que vengan todos los que tienen sed. Que todos los que deseen reciban gratis el agua de la vida)</span>" },
 
         // --- 3. CANTOS DE CIERRE ---
         cl1: { id: "xKLn97XRERE", title: "En nuestra oscuridad", lyrics: "En nuestra oscuridad, enciende la llama de tu amor, Señor." },
@@ -134,13 +983,13 @@
         cl3: { id: "6L8ihFCshQI", title: "Donde hay amor", lyrics: "Donde hay amor y caridad,<br>donde hay amor, Dios ahí está." },
         cl4: { id: "O_Z1wA8W5aY", title: "Confío en Ti", lyrics: "Confío en ti, Señor.<br>Confío en ti." },
         cl5: { id: "Uv_wM9z_tC0", title: "Danos tu paz", lyrics: "Danos tu paz, danos la paz.<br>Danos la paz, Señor." },
-        cl6: { id: "dYyY8ydVjH8", title: "Confitemini Domino", lyrics: "Confitemini Domino,<br>quoniam bonus.<br><span class='italic opacity-75 text-[0.85em]'>(Den gracias al Señor, porque es bueno)</span>" },
-        cl7: { id: "xHfGuqbJMRM", title: "Laudate Dominum", lyrics: "Laudate Dominum,<br>omnes gentes, alleluia!<br><span class='italic opacity-75 text-[0.85em]'>(¡Alaben al Señor todas las naciones, aleluya!)</span>" },
-        cl8: { id: "FLff711C0vs", title: "Adoramus te Christe", lyrics: "Adoramus te Christe,<br>benedicimus tibi.<br><span class='italic opacity-75 text-[0.85em]'>(Te adoramos, Cristo, y te bendecimos)</span>" },
-        cl9: { id: "kOGN__V2Jyw", title: "Adoramus Te Domine", lyrics: "Adoramus Te Domine,<br>O Christe, Domine Jesu.<br><span class='italic opacity-75 text-[0.85em]'>(Te adoramos, Señor, Oh Cristo, Señor Jesús)</span>" },
-        cl10: { id: "615WUwA_AS4", title: "Stay with me", lyrics: "Stay with me, remain here with me,<br>watch and pray, watch and pray.<br><span class='italic opacity-75 text-[0.85em]'>(Quédate conmigo, permanece aquí conmigo, vela y ora)</span>" },
-        cl11: { id: "t9i75gz_Vx8", title: "Wait for the Lord", lyrics: "Wait for the Lord, whose day is near.<br>Wait for the Lord, be strong, take heart.<br><span class='italic opacity-75 text-[0.85em]'>(Espera al Señor, cuyo día está cerca. Sé fuerte, ten valor)</span>" },
-        cl12: { id: "ZyBcyfP_cfI", title: "In the Lord I'll be ever thankful", lyrics: "In the Lord I'll be ever thankful,<br>in the Lord I will rejoice!<br><span class='italic opacity-75 text-[0.85em]'>(¡En el Señor estaré siempre agradecido, en Él me regocijaré!)</span>" }
+        cl6: { id: "dYyY8ydVjH8", title: "Confitemini Domino", lyrics: "Confitemini Domino,<br>quoniam bonus.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Den gracias al Señor, porque es bueno)</span>" },
+        cl7: { id: "xHfGuqbJMRM", title: "Laudate Dominum", lyrics: "Laudate Dominum,<br>omnes gentes, alleluia!<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(¡Alaben al Señor todas las naciones, aleluya!)</span>" },
+        cl8: { id: "FLff711C0vs", title: "Adoramus te Christe", lyrics: "Adoramus te Christe,<br>benedicimus tibi.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Te adoramos, Cristo, y te bendecimos)</span>" },
+        cl9: { id: "kOGN__V2Jyw", title: "Adoramus Te Domine", lyrics: "Adoramus Te Domine,<br>O Christe, Domine Jesu.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Te adoramos, Señor, Oh Cristo, Señor Jesús)</span>" },
+        cl10: { id: "615WUwA_AS4", title: "Stay with me", lyrics: "Stay with me, remain here with me,<br>watch and pray, watch and pray.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Quédate conmigo, permanece aquí conmigo, vela y ora)</span>" },
+        cl11: { id: "t9i75gz_Vx8", title: "Wait for the Lord", lyrics: "Wait for the Lord, whose day is near.<br>Wait for the Lord, be strong, take heart.<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(Espera al Señor, cuyo día está cerca. Sé fuerte, ten valor)</span>" },
+        cl12: { id: "ZyBcyfP_cfI", title: "In the Lord I'll be ever thankful", lyrics: "In the Lord I'll be ever thankful,<br>in the Lord I will rejoice!<br><span style='font-style:italic; opacity:0.75; font-size:0.85em;'>(¡En el Señor estaré siempre agradecido, en Él me regocijaré!)</span>" }
     };
 
     const DAYS = [
@@ -149,8 +998,7 @@
             title: "La mirada que fundamenta mi valor",
             subtitle: "Encontrar descanso en la aceptación incondicional del Creador.",
             icon: "sun",
-            gradient: "from-amber-400 to-orange-600",
-            shadow: "shadow-orange-500/50",
+            theme: "theme-1",
             bgImage: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs1, cantosDB.le1],
             preparacion: "Encuentra un rincón de paz. Respira hondo, dejando que las tensiones y prisas de la jornada se desvanezcan con cada exhalación. Imagina por un momento que la puerta de tu habitación se abre suavemente y Jesús entra. No hay reproches en su rostro, ni expectativas de perfección; no viene a pedirte cuentas. Él se sienta frente a ti y te mira en un silencio envuelto en ternura. Es una mirada que no juzga, sino que abraza; una mirada que se alegra infinitamente de tu mera existencia, mucho más allá de tus logros o fracasos. Sostén esa mirada. Deja que su inmensa calidez disuelva, una a una, tus defensas y justificaciones.",
@@ -171,8 +1019,7 @@
             title: "Soltar el control y encontrar descanso",
             subtitle: "Cambiar la carga del perfeccionismo por el yugo suave del amor.",
             icon: "wind",
-            gradient: "from-cyan-400 to-blue-600",
-            shadow: "shadow-blue-500/50",
+            theme: "theme-2",
             bgImage: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs2, cantosDB.le2],
             preparacion: "Toma consciencia de tu propio cuerpo. ¿Dónde sientes tensión en este momento? ¿Acaso en los hombros, en el cuello, en la mandíbula apretada? Esas tensiones físicas son el eco resonante del peso mental que llevas. Imagina que cargas una mochila repleta de piedras pesadas: son tus preocupaciones incesantes, la necesidad compulsiva de que todo salga perfecto, el temor al futuro incierto. Al comenzar este rato, visualiza cómo te quitas esa mochila y la dejas, con un profundo suspiro de alivio, a los pies del Maestro. Él te mira, sabiendo exactamente cuánto pesa.",
@@ -193,8 +1040,7 @@
             title: "La paz que desafía la tormenta",
             subtitle: "Descubrir Su presencia silenciosa en el corazón de nuestras crisis.",
             icon: "moon",
-            gradient: "from-indigo-500 to-purple-800",
-            shadow: "shadow-indigo-500/50",
+            theme: "theme-3",
             bgImage: "https://images.unsplash.com/photo-1505144808419-1957a94cb612?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs3, cantosDB.le3],
             preparacion: "Cierra los ojos e imagina que es de noche profunda. Te encuentras en una pequeña frágil barca de madera en medio del mar oscuro. De repente, el viento empieza a soplar con furia incontenible. Las olas se levantan amenazantes y el agua helada comienza a inundar tu espacio vital. Siente el miedo físico, el ruido ensordecedor del caos a tu alrededor. Ahora, gira lentamente tu mirada hacia la popa: Jesús está allí. Está durmiendo plácidamente sobre un cojín. Su paz interior es tan colosal que la tormenta exterior no logra perturbarlo lo más mínimo. Él es el ancla inamovible en medio del caos.",
@@ -215,8 +1061,7 @@
             title: "Quitarse las vendas",
             subtitle: "El coraje vulnerable de soltar nuestras falsas y antiguas seguridades.",
             icon: "sparkles",
-            gradient: "from-fuchsia-400 to-pink-600",
-            shadow: "shadow-pink-500/50",
+            theme: "theme-4",
             bgImage: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs4, cantosDB.le4],
             preparacion: "Ponte en la piel asoleada de Bartimeo. Eres ciego, te encuentras sentado en el polvo, al borde del camino, tristemente acostumbrado a sobrevivir de las migajas y sobras de los demás. Has terminado por aceptar tu limitación como un destino inamovible. De pronto, un murmullo creciente agita el aire: Jesús de Nazaret está pasando. Movido por una esperanza irracional y fiera, empiezas a gritar. Los 'prudentes' te mandan callar, pero tú gritas aún más fuerte. Entonces, el universo entero parece detenerse de golpe. Alguien se acerca y te susurra: '¡Ánimo, levántate, te llama!'. Siente el salto desbocado de tu corazón en el pecho.",
@@ -237,8 +1082,7 @@
             title: "La savia que da alegría",
             subtitle: "Aprender a vivir desde el ser y no desde el hacer incesante.",
             icon: "leaf",
-            gradient: "from-lime-400 to-emerald-600",
-            shadow: "shadow-emerald-500/50",
+            theme: "theme-5",
             bgImage: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs5, cantosDB.le5],
             preparacion: "Imagina una viña espléndida despertando al rocío del amanecer. Observa los sarmientos (las ramas), repletos de hojas de un verde vibrante y uvas maduras y pesadas, profundamente unidos al tronco recio y antiguo. Es de ese tronco de donde reciben sin interrupción toda el agua, la vida y los nutrientes vitales (la savia). Piensa en ti mismo como uno de esos sarmientos. Mientras permanezcas injertado en el tronco, la vida fluirá a través de ti sin esfuerzo ansioso ni tensión. Pero si te cortan, por más lozano y verde que luzcas hoy, empezarás a secarte inevitablemente. Siente en tu interior esa necesidad vital, casi biológica, de conexión con la Fuente.",
@@ -259,8 +1103,7 @@
             title: "El lavatorio diario",
             subtitle: "El hermoso escándalo de la gracia que se abaja para servir.",
             icon: "droplets",
-            gradient: "from-teal-300 to-cyan-600",
-            shadow: "shadow-teal-500/50",
+            theme: "theme-6",
             bgImage: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs6, cantosDB.le6],
             preparacion: "Entra mentalmente y en silencio en la penumbra cálida e íntima de la sala de la Última Cena. Observa a Jesús. Sabiendo perfectamente que viene de Dios y vuelve a Dios, no exige tronos ni reconocimientos. Se levanta de la mesa en un silencio sagrado que sobrecoge, se quita el manto de maestro y se ciñe a la cintura una toalla rústica de siervo. Empieza a lavar los pies sucios, llagados y polvorientos de sus amigos más cercanos. Un trabajo reservado entonces exclusivamente para los esclavos de menor rango. Imagina que, lentamente, llega a tu lugar. Dios encarnado se arrodilla en el suelo de tierra, justo frente a ti, toma tus pies cansados en sus manos santas y los lava con una delicadeza y un amor infinitos.",
@@ -281,8 +1124,7 @@
             title: "Sal y Luz",
             subtitle: "El sutil arte de irradiar la Presencia sin estridencias.",
             icon: "sun",
-            gradient: "from-yellow-300 to-amber-500",
-            shadow: "shadow-yellow-500/50",
+            theme: "theme-7",
             bgImage: "https://images.unsplash.com/photo-1495555961416-6ed8d068d374?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs7, cantosDB.le7],
             preparacion: "Imagina una habitación inmensa sumida en una oscuridad total y asfixiante. Siente por un momento la incomodidad palpable de no ver absolutamente nada, la desorientación angustiosa. De pronto, alguien en la lejanía enciende un pequeño fósforo y prende una vela minúscula. Inmediatamente, la tiranía de la oscuridad es derrotada. No desaparece por completo, pero ya no domina el espacio. La luz no hace ruido al nacer, no exige atención de manera altanera, simplemente se da, se consume silenciosamente para iluminar a otros. Tú eres esa pequeña vela, encendida por el mismo Dios a través de este rato de intimidad y oración.",
@@ -303,8 +1145,7 @@
             title: "El desierto que purifica",
             subtitle: "Afrontar el silencio absoluto para escuchar lo verdaderamente esencial.",
             icon: "compass",
-            gradient: "from-orange-400 to-red-600",
-            shadow: "shadow-red-500/50",
+            theme: "theme-8",
             bgImage: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs8, cantosDB.le8],
             preparacion: "Visualiza un vasto e inabarcable desierto de arena bajo un cielo inmenso y límpido. El silencio allí es abrumador, posee una densidad casi física. No hay pantallas brillando, no hay notificaciones zumbando, no hay voces ajenas ni distracciones urgentes reclamando tu atención. Solo estás tú y tu verdad más desnuda ante el horizonte. En el centro de ese desierto, Dios te espera con paciencia infinita. Al principio, la falta de ruido te incomoda profundamente, te enfrenta de golpe a tus propios vacíos no resueltos. Quédate ahí. No huyas. Respira. Permite que la incomodidad inicial ceda lentamente el paso a una Presencia amorosa y majestuosa que llena todo ese espacio vacío.",
@@ -325,8 +1166,7 @@
             title: "El pozo de agua viva",
             subtitle: "Descubrir y nombrar la sed más honda y antigua de nuestra alma.",
             icon: "droplet",
-            gradient: "from-blue-400 to-indigo-600",
-            shadow: "shadow-blue-500/50",
+            theme: "theme-9",
             bgImage: "https://images.unsplash.com/photo-1445384763658-0400939829cd?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs9, cantosDB.le9],
             preparacion: "Es pleno mediodía, el sol cae a plomo, vertical, y el calor es abrasador y sofocante. Eres la mujer samaritana. Llegas arrastrando los pies, cansada, al milenario pozo de Jacob con tu pesado cántaro vacío a cuestas. Llevas contigo una sed antigua, un vacío y una insatisfacción crónica que ninguna relación, ningún logro y ninguna distracción ha podido saciar jamás. Allí, sentado al borde del brocal de piedra, te espera Jesús. Él conoce de sobra toda tu intrincada historia, conoce tus fracasos repetidos y los 'pozos' equivocados donde has buscado mendigar amor. Y, sin embargo, no hay ni un atisbo de condena en sus ojos. Te mira con una complicidad salvadora, pidiéndote de beber, haciéndose el necesitado para iniciar el encuentro que cambiará tu vida.",
@@ -347,8 +1187,7 @@
             title: "El camino de Emaús",
             subtitle: "La asombrosa liturgia de lo cotidiano y el corazón que arde de nuevo.",
             icon: "flame",
-            gradient: "from-rose-400 to-orange-500",
-            shadow: "shadow-rose-500/50",
+            theme: "theme-10",
             bgImage: "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs10, cantosDB.le10],
             preparacion: "Caminas pesadamente por un sendero polvoriento mientras el sol empieza a ocultarse tiñendo el cielo de tonos melancólicos. Te alejas de Jerusalén, el lugar de tus esperanzas frustradas. Vas inmensamente triste, decepcionado/a de la vida y quizá de Dios, dándole vueltas obsesivamente a tus ilusiones rotas y a las oraciones que parecen no haber sido escuchadas en absoluto. De pronto, un forastero se empareja suavemente contigo. Ajusta su ritmo a tu paso cansado. Te hace preguntas abiertas y te escucha con una atención absoluta y reverencial. Siente el inmenso, reparador alivio de poder volcar toda tu queja amarga y tu dolor contenido en alguien que no te interrumpe, no te juzga ni minimiza en lo más mínimo tu sufrimiento.",
@@ -369,8 +1208,7 @@
             title: "El abrazo del Padre",
             subtitle: "El milagro del perdón absoluto y el regreso a casa.",
             icon: "home",
-            gradient: "from-rose-300 to-pink-500",
-            shadow: "shadow-pink-500/50",
+            theme: "theme-11",
             bgImage: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs11, cantosDB.le11],
             preparacion: "Imagina que caminas arrastrando los pies por un camino de tierra. Vienes de un 'país lejano', un lugar de decisiones equivocadas, de tiempo perdido y vacíos que intentaste llenar con cosas que no te saciaron. Hueles a fracaso, tu ropa está rota y tu dignidad herida. Ensayas mentalmente discursos de disculpa, creyendo que tendrás que ganarte de nuevo el amor. A lo lejos, divisas tu casa. Y de pronto, ves una figura mayor que sale corriendo hacia ti. Es tu Padre. Contra toda costumbre, perdiendo la compostura y la dignidad, corre desesperado a tu encuentro. No te deja terminar tu discurso de culpa; te envuelve en un abrazo asfixiante de puro amor, besando tu rostro sucio, celebrando simplemente que estás vivo.",
@@ -391,8 +1229,7 @@
             title: "Semillas en la tierra",
             subtitle: "La fe inquebrantable en el trabajo silencioso de Dios.",
             icon: "sprout",
-            gradient: "from-emerald-300 to-green-600",
-            shadow: "shadow-green-500/50",
+            theme: "theme-12",
             bgImage: "https://images.unsplash.com/photo-1592647420148-bfcc177e2117?auto=format&fit=crop&w=1920&q=80",
             cantos: [cantosDB.hs12, cantosDB.le12],
             preparacion: "Visualiza un inmenso campo recién arado al amanecer. Una fina niebla cubre la tierra oscura y húmeda. Todo está en absoluto reposo y silencio. Sin embargo, debajo de esa superficie aparentemente inerte y aburrida, está ocurriendo el milagro más violento y extraordinario: millones de semillas están rompiendo su coraza para germinar. No hacen ruido, no exigen atención mediática, y su crecimiento es imperceptible al ojo humano día a día. Respira la frescura de esa mañana. Entiende que tu alma es también ese campo: Dios ha plantado promesas y gracias que, ahora mismo, están trabajando secretamente en la oscuridad de tu interior.",
@@ -454,13 +1291,14 @@
     let breathInterval = null;
     let isInhaling = true;
 
-    function getIcon3DHtml(iconName, gradient, shadow, size = "normal") {
-        const dimensions = size === "large" ? "w-20 h-20" : "w-14 h-14";
-        const iconSize = size === "large" ? "40" : "28";
+    function getIcon3DHtml(iconName, themeClass, size = "normal") {
+        const isLarge = size === "large";
+        const sizeClass = isLarge ? "icon-3d-large" : "icon-3d-normal";
+        const iconSize = isLarge ? "40" : "28";
         return `
-            <div class="relative ${dimensions} rounded-2xl bg-gradient-to-br ${gradient} p-[2px] ${shadow} shadow-2xl transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 flex-shrink-0 z-10">
-                <div class="w-full h-full rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-inner">
-                    <i data-lucide="${iconName}" width="${iconSize}" height="${iconSize}" class="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"></i>
+            <div class="icon-3d-wrapper ${themeClass} shadow-theme ${sizeClass}">
+                <div class="icon-3d-inner">
+                    <i data-lucide="${iconName}" width="${iconSize}" height="${iconSize}" class="icon-shadow" style="color: white;"></i>
                 </div>
             </div>
         `;
@@ -575,54 +1413,50 @@
 
     function renderHome() {
         let html = `
-            <div class="max-w-5xl mx-auto pb-24 pt-16 px-6 fade-in relative z-10">
-                <div class="text-center space-y-8 mb-20">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/5 backdrop-blur-lg border border-white/20 mb-2 shadow-2xl">
-                        <i data-lucide="book-open" class="w-10 h-10 text-white/90"></i>
+            <div class="container home-layout fade-in">
+                <div class="text-center mb-20" style="display:flex; flex-direction:column; align-items:center; gap: 2rem;">
+                    <div class="hero-icon">
+                        <i data-lucide="book-open" style="width:2.5rem; height:2.5rem; color:rgba(255,255,255,0.9);"></i>
                     </div>
-                    <h1 class="text-5xl md:text-7xl font-serif text-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)] tracking-tight font-bold leading-[1.1]">
+                    <h1 class="hero-title">
                         Saborea <br/> Cada Palabra
                     </h1>
-                    <div class="h-px w-40 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto my-10"></div>
-                    <p class="font-body text-white/90 text-xl md:text-[1.7rem] italic drop-shadow-lg max-w-3xl mx-auto leading-relaxed">
+                    <div class="divider"></div>
+                    <p class="hero-quote">
                         "No el mucho saber harta y satisface el alma, sino el sentir y gustar de las cosas internamente."
                     </p>
-                    <p class="font-sans text-white/60 text-xs md:text-sm mt-6 uppercase tracking-[0.3em] font-semibold">- San Ignacio de Loyola</p>
+                    <p class="hero-author">- San Ignacio de Loyola</p>
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl mb-20 text-center max-w-4xl mx-auto">
-                    <p class="font-body text-white/90 text-lg md:text-xl leading-loose">
+                <div class="welcome-box">
+                    <p style="font-family: var(--font-body); color: rgba(255,255,255,0.9); font-size: 1.125rem; line-height: 2;">
                         Bienvenido a este retiro personal. No hay prisa alguna. Elige un rincón sereno, respira profundo y permite que la Palabra ilumine tus propias zonas oscuras. Cuando estés listo, selecciona una guía y deja que el Espíritu actúe en el silencio.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid-home">
         `;
 
         DAYS.forEach(day => {
             const isCompleted = journalData[`${day.id}_ancla`] && journalData[`${day.id}_ancla`].trim() !== '';
             const iconHtml = isCompleted 
-                ? getIcon3DHtml("check", "from-emerald-400 to-green-600", "shadow-green-500/50")
-                : getIcon3DHtml(day.icon, day.gradient, day.shadow);
+                ? getIcon3DHtml("check", "theme-check")
+                : getIcon3DHtml(day.icon, day.theme);
 
             html += `
-                <button onclick="selectDay(${day.id})" class="group text-left p-8 md:p-10 rounded-[2.5rem] transition-all duration-500 relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_15px_40px_0_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_0_rgba(255,255,255,0.15)] hover:-translate-y-2">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-30 transition-opacity duration-1000 ease-in-out z-0 mix-blend-overlay" style="background-image: url('${day.bgImage}')"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0"></div>
+                <button onclick="selectDay(${day.id})" class="day-card group">
+                    <div class="day-card-bg-layer" style="background-image: url('${day.bgImage}')"></div>
+                    <div class="day-card-gradient-layer"></div>
                     
-                    <div class="flex flex-col h-full relative z-10">
-                        <div class="flex items-start gap-6 mb-5">
+                    <div class="day-card-content">
+                        <div style="display:flex; align-items:flex-start; gap:1.5rem; margin-bottom:1.25rem;">
                             ${iconHtml}
-                            <div class="flex-1 mt-1">
-                                <span class="font-sans text-[0.65rem] md:text-xs font-bold tracking-[0.2em] text-white/60 uppercase mb-2 block drop-shadow-md">Guía ${day.id}</span>
-                                <h3 class="font-serif text-2xl md:text-3xl leading-tight text-white drop-shadow-md font-bold group-hover:text-amber-100 transition-colors">
-                                    ${day.title}
-                                </h3>
+                            <div style="flex:1; padding-top:0.25rem;">
+                                <span class="day-card-eyebrow">Guía ${day.id}</span>
+                                <h3 class="day-card-title">${day.title}</h3>
                             </div>
                         </div>
-                        <p class="font-body text-white/80 text-sm md:text-base pl-[5.5rem] leading-relaxed italic mb-4">
-                            ${day.subtitle}
-                        </p>
+                        <p class="day-card-subtitle">${day.subtitle}</p>
                     </div>
                 </button>
             `;
@@ -636,33 +1470,34 @@
         const day = DAYS.find(d => d.id === activeDayId);
         
         let html = `
-            <div class="max-w-5xl mx-auto min-h-screen flex flex-col relative z-10 pt-4 pb-36 px-4 slide-up">
-                <header class="relative z-50 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-xl rounded-full px-4 md:px-8 py-4 flex items-center justify-between mb-10">
-                    <button onclick="goHome()" class="font-sans text-white hover:text-amber-200 transition-colors flex items-center gap-2 text-xs md:text-sm font-bold bg-white/10 px-5 py-2.5 rounded-full hover:bg-white/20 shadow-md border border-white/10 tracking-widest uppercase">
-                        <i data-lucide="chevron-left" class="w-4 h-4"></i> Índice
+            <div class="container day-layout slide-up">
+                <header class="nav-header">
+                    <button onclick="goHome()" class="btn-back">
+                        <i data-lucide="chevron-left" style="width:1rem; height:1rem;"></i> Índice
                     </button>
-                    <span class="font-sans text-white text-xs md:text-sm font-bold tracking-[0.3em] uppercase drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] opacity-90 text-center">
+                    <span class="header-title">
                         Guía ${day.id}
                     </span>
-                    <div class="w-[100px] hidden md:block"></div>
+                    <div style="width:6rem; display:none;"></div>
                 </header>
 
-                <div class="px-2 md:px-16 mb-10">
-                    <div class="bg-white/10 backdrop-blur-2xl rounded-full p-4 flex justify-between items-center relative border border-white/20 shadow-xl">
-                        <div class="absolute left-10 right-10 top-1/2 h-0.5 bg-white/20 -z-10 rounded-full"></div>
+                <div class="steps-container-wrapper">
+                    <div class="steps-container">
+                        <div class="steps-line"></div>
             `;
 
         STEPS.forEach((s, idx) => {
             const isActive = idx === currentStep;
             const isPast = idx < currentStep;
-            let classes = "bg-white/10 text-white/50 backdrop-blur-md border-white/10";
-            if (isActive) classes = `bg-gradient-to-br ${day.gradient} text-white scale-[1.3] -translate-y-1.5 ${day.shadow} border-white/40 shadow-2xl z-20`;
-            else if (isPast) classes = "bg-white/80 text-stone-800 border-white/60 shadow-inner z-10";
+            
+            let classes = "step-future";
+            if (isActive) classes = `step-active ${day.theme} shadow-theme`;
+            else if (isPast) classes = "step-past";
 
             html += `
-                <div class="flex flex-col items-center gap-2 relative transition-all duration-500 ${isActive ? 'z-20' : 'z-10'}">
-                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-700 shadow-lg border ${classes}" title="${s.title}">
-                        <i data-lucide="${s.icon}" class="w-4 h-4 md:w-5 md:h-5 ${isActive ? 'drop-shadow-md' : ''}"></i>
+                <div style="display:flex; flex-direction:column; align-items:center; position:relative; transition:all 0.5s; z-index:${isActive ? '20' : '10'}">
+                    <div class="step-circle ${classes}" title="${s.title}">
+                        <i data-lucide="${s.icon}" style="width:1.25rem; height:1.25rem;"></i>
                     </div>
                 </div>
             `;
@@ -670,50 +1505,42 @@
 
         html += `</div></div>`;
 
-        html += `<main class="flex-grow bg-white/70 backdrop-blur-[40px] rounded-[3rem] border border-white/60 shadow-[0_30px_80px_rgba(0,0,0,0.3)] p-8 md:p-16 flex flex-col fade-in overflow-hidden relative">`;
-        
-        html += `<div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-1.5 bg-gradient-to-r from-transparent via-stone-400/60 to-transparent rounded-b-full"></div>`;
+        html += `<main class="main-panel fade-in">`;
+        html += `<div class="panel-indicator"></div>`;
 
-        // Aquí cambiamos el título genérico por el título del poema si estamos en ese paso
         let stepTitle = STEPS[currentStep].title;
         if (currentStep === 4 && day.tituloPoema) {
             stepTitle = day.tituloPoema;
         }
         
-        html += `<h2 class="font-serif text-3xl md:text-[2.5rem] text-center text-stone-900 mb-14 font-bold drop-shadow-sm tracking-wide opacity-95">${stepTitle}</h2>`;
+        html += `<h2 class="main-title">${stepTitle}</h2>`;
 
         if (currentStep === 0) {
             html += `
-                <div class="flex flex-col items-center text-center space-y-16 fade-in">
-                    <p class="font-body text-xl md:text-[1.4rem] text-stone-800 leading-loose max-w-3xl drop-shadow-sm text-pretty">
+                <div class="content-stack fade-in">
+                    <p class="text-body-lg">
                         ${day.preparacion}
                     </p>
                     
-                    <div id="breath-container" class="relative w-72 h-72 flex items-center justify-center my-12 breath-exhale">
-                        <div class="ring-1 absolute inset-0 rounded-full bg-gradient-to-br ${day.gradient} blur-2xl transition-all-slow"></div>
-                        <div class="ring-2 absolute inset-6 rounded-full bg-white/70 backdrop-blur-lg shadow-[0_0_50px_rgba(255,255,255,0.9)] transition-all-slow"></div>
-                        <div class="ring-3 absolute inset-12 rounded-full border border-white/90 transition-all-slow"></div>
-                        
-                        <div class="center-circle relative z-10 w-36 h-36 rounded-full bg-gradient-to-br from-white to-stone-100 shadow-[15px_15px_30px_rgba(0,0,0,0.1),-15px_-15px_30px_rgba(255,255,255,0.9)] flex items-center justify-center border-[3px] border-white transition-all-slow">
-                            <span id="breath-text" class="font-sans text-stone-700 tracking-[0.4em] uppercase font-bold text-sm">Inhala</span>
+                    <div id="breath-container" class="breath-container breath-exhale">
+                        <div class="breath-ring-1 ${day.theme}"></div>
+                        <div class="breath-ring-2"></div>
+                        <div class="breath-ring-3"></div>
+                        <div class="breath-center">
+                            <span id="breath-text" class="breath-text">Inhala</span>
                         </div>
                     </div>
                     
-                    <div class="w-full max-w-2xl flex flex-col items-center mt-4">
-                        <p class="font-sans text-xs md:text-sm text-stone-600 font-semibold bg-white/50 px-8 py-4 rounded-full shadow-inner border border-white/60 tracking-widest uppercase mb-10 z-10 relative">
-                            Permanece aquí el tiempo que necesites.
-                        </p>
+                    <div style="width:100%; max-width:42rem; display:flex; flex-direction:column; align-items:center; margin-top:1rem;">
+                        <p class="info-pill">Permanece aquí el tiempo que necesites.</p>
                         
-                        <div class="bg-gradient-to-br from-white/60 to-white/30 p-8 md:p-12 rounded-[2.5rem] border border-white/80 shadow-[0_15px_40px_rgba(0,0,0,0.06)] relative overflow-hidden group hover:bg-white/70 transition-all duration-500 w-full mt-4">
-                            <div class="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-bl from-rose-400 to-orange-400 opacity-20 rounded-full blur-2xl group-hover:opacity-40 transition-opacity duration-700"></div>
-                            
-                            <div class="flex items-center justify-center gap-3 mb-6 relative z-10">
-                                <i data-lucide="flame" class="w-5 h-5 text-rose-500 drop-shadow-sm"></i>
-                                <h4 class="font-sans text-stone-600 uppercase tracking-[0.25em] text-xs font-black drop-shadow-sm">Invocación al Espíritu Santo</h4>
-                                <i data-lucide="flame" class="w-5 h-5 text-rose-500 drop-shadow-sm"></i>
+                        <div class="content-box-light">
+                            <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; margin-bottom:1.5rem;">
+                                <i data-lucide="flame" style="width:1.25rem; height:1.25rem; color:var(--c-rose-500);"></i>
+                                <h4 class="eyebrow-label" style="margin-bottom:0;">Invocación al Espíritu Santo</h4>
+                                <i data-lucide="flame" style="width:1.25rem; height:1.25rem; color:var(--c-rose-500);"></i>
                             </div>
-                            
-                            <p class="font-body text-[1.2rem] md:text-[1.35rem] text-stone-800 leading-relaxed italic text-balance font-medium relative z-10">
+                            <p style="font-family:var(--font-body); font-size:1.35rem; color:var(--c-stone-800); font-style:italic; line-height:1.625; text-align:center;">
                                 "Ven, Espíritu Santo. Ilumina mi mente, pacifica mi corazón y abre mi ser a la escucha atenta de tu Palabra. Que este tiempo de silencio sea un encuentro verdadero y transformador."
                             </p>
                         </div>
@@ -723,22 +1550,22 @@
         }
         else if (currentStep === 1) {
             html += `
-                <div class="flex-grow flex flex-col items-center text-center space-y-14 fade-in w-full">
-                    ${getIcon3DHtml("music", day.gradient, day.shadow, "large")}
-                    <p class="font-body text-xl md:text-[1.4rem] text-stone-800 leading-loose max-w-3xl drop-shadow-sm">
+                <div class="content-stack fade-in" style="width:100%;">
+                    ${getIcon3DHtml("music", day.theme, "large")}
+                    <p class="text-body-lg">
                         La música repetitiva de Taizé no está diseñada para el análisis intelectual, sino para asentar el alma profunda. Dale play, cierra los ojos y permite que la letra se convierta lentamente en el latido de tu propia oración.
                     </p>
                     
-                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-10 w-full mt-6">
+                    <div class="canto-grid">
                         ${day.cantos.map(canto => `
-                            <div class="bg-white/50 p-8 rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-white/80 flex flex-col items-center transition-transform hover:-translate-y-1.5 duration-500">
-                                <h4 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-6 drop-shadow-sm">${canto.title}</h4>
-                                <div class="w-full aspect-video rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/60 mb-8 bg-stone-200 relative group">
-                                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors pointer-events-none z-10"></div>
-                                    <iframe class="w-full h-full relative z-0" src="https://www.youtube.com/embed/${canto.id}?rel=0" title="${canto.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="canto-card">
+                                <h4 style="font-family:var(--font-serif); font-size:1.875rem; font-weight:700; margin-bottom:1.5rem; color:var(--c-stone-900); text-align:center;">${canto.title}</h4>
+                                <div class="video-box">
+                                    <div class="video-overlay"></div>
+                                    <iframe style="width:100%; height:100%; position:relative; z-index:0; border:none;" src="https://www.youtube.com/embed/${canto.id}?rel=0" title="${canto.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
-                                <div class="bg-white/60 p-8 rounded-[2rem] w-full border border-white/60 shadow-[inset_0_2px_15px_rgba(255,255,255,0.9)] flex-grow flex items-center justify-center">
-                                    <p class="font-body text-stone-800 text-[1.35rem] italic text-center leading-loose">
+                                <div class="lyrics-box">
+                                    <p style="font-family:var(--font-body); font-size:1.35rem; color:var(--c-stone-800); font-style:italic; line-height:2; text-align:center;">
                                         "${canto.lyrics}"
                                     </p>
                                 </div>
@@ -750,34 +1577,32 @@
         }
         else if (currentStep === 2) {
             html += `
-                <div class="flex-grow flex flex-col items-center justify-center text-center space-y-14 fade-in">
-                    ${getIcon3DHtml("heart", day.gradient, day.shadow, "large")}
-                    <div class="bg-white/50 p-12 md:p-20 rounded-[3.5rem] shadow-[inset_0_0_50px_rgba(255,255,255,0.9)] border border-white/80 w-full relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl ${day.gradient} opacity-10 rounded-bl-full"></div>
-                        <p class="font-sans text-stone-500 uppercase tracking-[0.4em] text-xs font-black mb-10">La Gracia que Deseamos Alcanzar</p>
-                        <h3 class="font-serif text-2xl md:text-[2.2rem] text-stone-900 leading-[1.6] font-medium text-balance">
-                            "${day.peticion}"
-                        </h3>
+                <div class="content-stack fade-in">
+                    ${getIcon3DHtml("heart", day.theme, "large")}
+                    <div class="content-box-inset">
+                        <div style="position:absolute; top:0; right:0; width:10rem; height:10rem; border-bottom-left-radius:9999px; opacity:0.1;" class="${day.theme}"></div>
+                        <p class="eyebrow-label">La Gracia que Deseamos Alcanzar</p>
+                        <h3 class="grace-quote">"${day.peticion}"</h3>
                     </div>
                 </div>
             `;
         }
         else if (currentStep === 3) {
             html += `
-                <div class="space-y-16 fade-in max-w-4xl mx-auto">
-                    <div class="bg-white/60 p-12 md:p-16 rounded-[3rem] shadow-[inset_0_2px_20px_rgba(255,255,255,1),0_20px_50px_rgba(0,0,0,0.06)] border border-white/90 relative overflow-hidden">
-                        <i data-lucide="quote" class="absolute -top-6 -left-6 w-40 h-40 text-stone-900/5 rotate-180 -z-10"></i>
-                        <p class="font-serif text-2xl md:text-[2.2rem] text-stone-900 leading-[1.6] relative z-10 font-medium text-balance">
+                <div class="content-stack-wide fade-in">
+                    <div class="quote-box-deep">
+                        <i data-lucide="quote" style="position:absolute; top:-1.5rem; left:-1.5rem; width:10rem; height:10rem; color:rgba(28,25,23,0.05); transform:rotate(180deg); z-index:0;"></i>
+                        <p class="grace-quote" style="position:relative; z-index:10;">
                             ${day.cita}
                         </p>
                     </div>
                     
-                    <div class="px-8 md:px-12 bg-gradient-to-br from-white/40 to-white/10 p-12 md:p-14 rounded-[3rem] border border-white/50 shadow-lg relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b ${day.gradient}"></div>
-                        <p class="font-sans text-stone-600 uppercase tracking-[0.25em] text-xs font-black mb-8 flex items-center gap-3">
-                            <i data-lucide="sparkles" class="w-5 h-5 text-amber-500"></i> Pistas para profundizar
+                    <div class="saboreo-box">
+                        <div class="bg-gradient-border ${day.theme}"></div>
+                        <p class="eyebrow-label" style="display:flex; align-items:center; gap:0.75rem; justify-content:flex-start; margin-bottom:2rem;">
+                            <i data-lucide="sparkles" style="width:1.25rem; height:1.25rem; color:var(--c-amber-500);"></i> Pistas para profundizar
                         </p>
-                        <div class="font-body text-xl md:text-[1.45rem] text-stone-800 leading-loose space-y-6">
+                        <div class="saboreo-text">
                             ${day.saboreo.split('\n\n').map(p => `<p>${p}</p>`).join('')}
                         </div>
                     </div>
@@ -786,12 +1611,11 @@
         }
         else if (currentStep === 4) {
             html += `
-                <div class="flex-grow flex flex-col items-center justify-center text-center space-y-10 fade-in">
-                    ${getIcon3DHtml("feather", day.gradient, day.shadow, "large")}
+                <div class="content-stack fade-in">
+                    ${getIcon3DHtml("feather", day.theme, "large")}
                     
-                    <div class="bg-white/40 backdrop-blur-md p-10 md:p-16 rounded-[3.5rem] shadow-[inset_0_0_30px_rgba(255,255,255,0.7)] border border-white/70 w-full max-w-3xl relative overflow-hidden mt-6">
-                        
-                        <div class="text-left font-body text-xl md:text-[1.5rem] text-stone-800 leading-loose italic whitespace-pre-line text-balance drop-shadow-sm relative z-10">
+                    <div class="poem-box">
+                        <div style="font-family:var(--font-body); font-size:1.5rem; line-height:2; color:var(--c-stone-800); font-style:italic; white-space:pre-line;">
                             ${day.oracionPoetica}
                         </div>
                     </div>
@@ -801,18 +1625,18 @@
         else if (currentStep === 5) {
             const yaEntregado = journalData[`${day.id}_entregado`];
             
-            html += `<div id="dialogo-content" class="space-y-14 fade-in max-w-4xl mx-auto transition-all duration-1000 ${yaEntregado ? 'hidden' : ''}">`;
+            html += `<div id="dialogo-content" class="content-stack-wide fade-in ${yaEntregado ? 'hidden' : ''}" style="transition:all 1s;">`;
             
             day.dialogo.forEach(prompt => {
                 const value = journalData[`${day.id}_${prompt.id}`] || '';
                 html += `
-                    <div class="space-y-6 group">
-                        <label class="block font-body text-2xl md:text-[1.6rem] text-stone-900 italic font-semibold drop-shadow-sm leading-relaxed text-pretty">
+                    <div style="width:100%; text-align:left; display:flex; flex-direction:column; gap:1.5rem;">
+                        <label style="font-family:var(--font-body); font-size:1.6rem; color:var(--c-stone-900); font-weight:600; font-style:italic; line-height:1.625;">
                             ${prompt.label}
                         </label>
                         <textarea
                             oninput="handleInputChange('${prompt.id}', this.value)"
-                            class="w-full bg-white/50 rounded-[2.5rem] border-[3px] border-white/50 focus:border-stone-300 focus:bg-white/80 shadow-[inset_0_5px_20px_rgba(0,0,0,0.04)] outline-none resize-none p-10 font-body text-xl md:text-[1.4rem] leading-relaxed transition-all duration-500 placeholder:text-stone-400/60 text-stone-800"
+                            class="dialog-textarea"
                             rows="4"
                             placeholder="Escribe desde el silencio de tu corazón...">${value}</textarea>
                     </div>
@@ -820,46 +1644,41 @@
             });
             
             html += `
-                <div class="pt-12 flex justify-center fade-in">
-                    <button onclick="entregarOracion()" class="group relative px-12 py-6 bg-gradient-to-r from-amber-200 to-yellow-500 rounded-full font-sans text-stone-900 font-bold shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.6)] transition-all duration-500 hover:-translate-y-1.5 overflow-hidden tracking-[0.2em] uppercase text-sm border border-yellow-300 z-10">
-                        <div class="absolute inset-0 bg-white/40 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out -z-10"></div>
-                        <span class="relative flex items-center gap-4">
-                            <i data-lucide="send" class="w-5 h-5 -mt-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                <div style="padding-top:3rem; display:flex; justify-content:center; width:100%;" class="fade-in">
+                    <button onclick="entregarOracion()" class="btn-submit">
+                        <div class="btn-submit-glare"></div>
+                        <span style="position:relative; display:flex; items-center; gap:1rem;">
+                            <i data-lucide="send" style="width:1.25rem; height:1.25rem; margin-top:-2px;"></i>
                             Entregar a Dios
                         </span>
                     </button>
                 </div>
             </div>`;
 
-            // Mensaje de éxito
             html += `
-                <div id="entregado-msg" class="${yaEntregado ? 'flex' : 'hidden opacity-0'} flex-col items-center justify-center space-y-12 text-center py-10 transition-opacity duration-1000 w-full max-w-3xl mx-auto">
-                    <div class="space-y-6 flex flex-col items-center">
-                        <div class="w-24 h-24 bg-white/60 rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.9)] border-2 border-white mb-4">
-                            <i data-lucide="heart-handshake" class="w-12 h-12 text-stone-700 drop-shadow-md"></i>
-                        </div>
-                        <h3 class="font-serif text-3xl md:text-4xl text-stone-900 font-bold drop-shadow-md">Tu oración ha sido acogida</h3>
-                        <p class="font-body text-stone-800 text-[1.2rem] italic max-w-xl leading-relaxed">
-                            Tus palabras, tus cargas y tus deseos más profundos ya descansan pacíficamente en el corazón de Dios.
-                        </p>
+                <div id="entregado-msg" class="${yaEntregado ? 'content-stack fade-in' : 'hidden opacity-0'}" style="transition:opacity 1s; padding:2.5rem 0;">
+                    <div style="width:6rem; height:6rem; border-radius:50%; background:rgba(255,255,255,0.6); display:flex; align-items:center; justify-content:center; box-shadow:0 0 50px rgba(255,255,255,0.9); border:2px solid var(--c-white); margin-bottom:1rem;">
+                        <i data-lucide="heart-handshake" style="width:3rem; height:3rem; color:var(--c-stone-700);"></i>
                     </div>
+                    <h3 style="font-family:var(--font-serif); font-size:2.25rem; font-weight:700; color:var(--c-stone-900);">Tu oración ha sido acogida</h3>
+                    <p style="font-family:var(--font-body); font-size:1.2rem; font-style:italic; color:var(--c-stone-800); max-width:36rem; line-height:1.625;">
+                        Tus palabras, tus cargas y tus deseos más profundos ya descansan pacíficamente en el corazón de Dios.
+                    </p>
                 </div>
             `;
         }
         else if (currentStep === 6) {
             html += `
-                <div class="flex-grow flex flex-col items-center justify-center text-center space-y-14 fade-in max-w-3xl mx-auto w-full">
-                    ${getIcon3DHtml("book-heart", day.gradient, day.shadow, "large")}
+                <div class="content-stack fade-in" style="width:100%; max-width:48rem; margin:0 auto;">
+                    ${getIcon3DHtml("book-heart", day.theme, "large")}
                     
-                    <div class="text-center space-y-6">
-                        <p class="font-body text-xl md:text-[1.4rem] text-stone-800 leading-loose text-balance drop-shadow-sm">
-                            ${day.introPadreNuestro}
-                        </p>
-                    </div>
+                    <p class="text-body-lg" style="text-align:center;">
+                        ${day.introPadreNuestro}
+                    </p>
 
-                    <div class="bg-white/40 backdrop-blur-md p-10 md:p-14 rounded-[3rem] border border-white/60 shadow-inner w-full relative">
-                        <i data-lucide="quote" class="absolute top-8 left-8 w-8 h-8 text-stone-900/10 rotate-180"></i>
-                        <div class="font-serif text-xl md:text-[1.4rem] text-stone-800 leading-loose italic text-pretty text-center space-y-2 relative z-10">
+                    <div style="background:rgba(255,255,255,0.4); padding:3.5rem; border-radius:3rem; border:1px solid rgba(255,255,255,0.6); box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); width:100%; position:relative; text-align:center;">
+                        <i data-lucide="quote" style="position:absolute; top:2rem; left:2rem; width:2rem; height:2rem; color:rgba(28,25,23,0.1); transform:rotate(180deg);"></i>
+                        <div style="font-family:var(--font-serif); font-size:1.4rem; color:var(--c-stone-800); line-height:2; font-style:italic; display:flex; flex-direction:column; gap:0.5rem; position:relative; z-index:10;">
                             <p>Padre nuestro, que estás en el cielo,</p>
                             <p>santificado sea tu Nombre;</p>
                             <p>venga a nosotros tu reino;</p>
@@ -869,7 +1688,7 @@
                             <p>como también nosotros perdonamos a los que nos ofenden;</p>
                             <p>no nos dejes caer en la tentación,</p>
                             <p>y líbranos del mal.</p>
-                            <p class="font-bold mt-4">Amén.</p>
+                            <p style="font-weight:700; margin-top:1rem;">Amén.</p>
                         </div>
                     </div>
                 </div>
@@ -879,65 +1698,66 @@
             const val = journalData[`${day.id}_ancla`] || '';
             const canto = day.cantoCierre;
             html += `
-                <div class="flex-grow flex flex-col items-center justify-center text-center space-y-16 fade-in w-full">
-                    ${getIcon3DHtml("anchor", "from-stone-400 to-stone-600", "shadow-stone-500/30", "large")}
+                <div class="content-stack fade-in" style="width:100%;">
+                    ${getIcon3DHtml("anchor", "theme-anchor", "large")}
                     
-                    <div class="bg-white/50 p-12 md:p-16 rounded-[3.5rem] shadow-[inset_0_0_40px_rgba(255,255,255,0.8)] border border-white/80 w-full max-w-2xl space-y-10">
-                        <p class="font-sans text-stone-600 uppercase tracking-[0.3em] text-xs font-black">Tu Palabra Ancla</p>
-                        <p class="font-body text-stone-800 text-[1.35rem] leading-loose italic">
+                    <div class="content-box-inset" style="max-width:42rem; display:flex; flex-direction:column; gap:2.5rem; padding:3rem;">
+                        <p class="eyebrow-label" style="margin-bottom:0;">Tu Palabra Ancla</p>
+                        <p style="font-family:var(--font-body); font-size:1.35rem; color:var(--c-stone-800); line-height:2; font-style:italic;">
                             Después de todo lo meditado y sentido, ¿qué palabra o breve frase te regala el Espíritu para llevarte como un ancla en el bolsillo durante el resto de tu jornada?
                         </p>
                         <input
                             type="text"
                             oninput="handleInputChange('ancla', this.value)"
-                            class="w-full text-center bg-white/60 rounded-[2rem] shadow-[inset_0_5px_15px_rgba(0,0,0,0.05)] border-[3px] border-white/80 focus:border-stone-400 outline-none py-8 font-serif text-3xl md:text-4xl text-stone-900 transition-all placeholder:text-stone-400/50 font-bold"
+                            class="ancla-input"
                             placeholder="Ej. 'Soy tuyo', 'Paz'..."
                             value="${val}"
                         />
                     </div>
 
-                    <div class="w-full max-w-3xl mt-12">
-                        <div class="flex items-center justify-center gap-4 mb-8">
-                            <i data-lucide="music" class="w-5 h-5 text-stone-600"></i>
-                            <p class="font-sans text-stone-600 uppercase tracking-[0.3em] text-xs font-black">Canto de Despedida</p>
-                            <i data-lucide="music" class="w-5 h-5 text-stone-600"></i>
+                    <div style="width:100%; max-width:48rem; margin-top:3rem;">
+                        <div style="display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                            <i data-lucide="music" style="width:1.25rem; height:1.25rem; color:var(--c-stone-600);"></i>
+                            <p class="eyebrow-label" style="margin-bottom:0;">Canto de Despedida</p>
+                            <i data-lucide="music" style="width:1.25rem; height:1.25rem; color:var(--c-stone-600);"></i>
                         </div>
-                        <div class="bg-white/50 p-8 rounded-[3rem] shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-white/80 flex flex-col items-center transition-transform hover:-translate-y-1.5 duration-500 mb-16">
-                            <h4 class="font-serif text-[1.75rem] md:text-3xl text-stone-900 font-bold mb-6 drop-shadow-sm">${canto.title}</h4>
-                            <div class="w-full aspect-video rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/60 mb-8 bg-stone-200 relative group">
-                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors pointer-events-none z-10"></div>
-                                <iframe class="w-full h-full relative z-0" src="https://www.youtube.com/embed/${canto.id}?rel=0" title="${canto.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        
+                        <div class="canto-card" style="margin-bottom:4rem;">
+                            <h4 style="font-family:var(--font-serif); font-size:1.875rem; font-weight:700; margin-bottom:1.5rem; color:var(--c-stone-900); text-align:center;">${canto.title}</h4>
+                            <div class="video-box">
+                                <div class="video-overlay"></div>
+                                <iframe style="width:100%; height:100%; position:relative; z-index:0; border:none;" src="https://www.youtube.com/embed/${canto.id}?rel=0" title="${canto.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
-                            <div class="bg-white/60 p-8 rounded-[2rem] w-full border border-white/60 shadow-[inset_0_2px_15px_rgba(255,255,255,0.9)] flex-grow flex items-center justify-center">
-                                <p class="font-body text-stone-800 text-xl md:text-[1.35rem] italic text-center leading-loose">
+                            <div class="lyrics-box">
+                                <p style="font-family:var(--font-body); font-size:1.35rem; color:var(--c-stone-800); font-style:italic; line-height:2; text-align:center;">
                                     "${canto.lyrics}"
                                 </p>
                             </div>
                         </div>
 
-                        <div class="flex items-center justify-center gap-4 mb-10">
-                            <div class="h-px bg-white/40 flex-grow"></div>
-                            <i data-lucide="sun-dim" class="w-5 h-5 text-stone-500"></i>
-                            <div class="h-px bg-white/40 flex-grow"></div>
+                        <div style="display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:2.5rem;">
+                            <div style="height:1px; background:rgba(255,255,255,0.4); flex-grow:1;"></div>
+                            <i data-lucide="sun-dim" style="width:1.25rem; height:1.25rem; color:var(--c-stone-500);"></i>
+                            <div style="height:1px; background:rgba(255,255,255,0.4); flex-grow:1;"></div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full text-left">
-                            <div class="bg-white/50 p-8 md:p-10 rounded-[2.5rem] border border-white/80 shadow-[0_10px_30px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:bg-white/60 transition-colors">
-                                <div class="absolute -right-6 -top-6 w-32 h-32 bg-gradient-to-bl ${day.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
-                                <p class="font-sans text-stone-500 uppercase tracking-[0.2em] text-[0.7rem] font-black mb-5 flex items-center gap-3">
-                                    <i data-lucide="heart" class="w-4 h-4 text-amber-600"></i> Oración Final
+                        <div class="grid-home" style="text-align:left;">
+                            <div class="content-box-light" style="padding:2.5rem; display:flex; flex-direction:column; gap:1.25rem;">
+                                <div style="position:absolute; top:-1.5rem; right:-1.5rem; width:8rem; height:8rem; border-radius:50%; filter:blur(24px); opacity:0.1;" class="${day.theme}"></div>
+                                <p class="eyebrow-label" style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0; font-size:0.7rem;">
+                                    <i data-lucide="heart" style="width:1rem; height:1rem; color:var(--c-amber-600);"></i> Oración Final
                                 </p>
-                                <p class="font-body text-[1.15rem] md:text-[1.25rem] text-stone-800 leading-relaxed italic text-balance relative z-10">
+                                <p style="font-family:var(--font-body); font-size:1.25rem; color:var(--c-stone-800); line-height:1.625; font-style:italic; position:relative; z-index:10;">
                                     "${day.oracionFinal}"
                                 </p>
                             </div>
                             
-                            <div class="bg-white/50 p-8 md:p-10 rounded-[2.5rem] border border-white/80 shadow-[0_10px_30px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:bg-white/60 transition-colors">
-                                <div class="absolute -left-6 -bottom-6 w-32 h-32 bg-gradient-to-tr ${day.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
-                                <p class="font-sans text-stone-500 uppercase tracking-[0.2em] text-[0.7rem] font-black mb-5 flex items-center gap-3">
-                                    <i data-lucide="map" class="w-4 h-4 text-emerald-600"></i> Compromiso Práctico
+                            <div class="content-box-light" style="padding:2.5rem; display:flex; flex-direction:column; gap:1.25rem;">
+                                <div style="position:absolute; bottom:-1.5rem; left:-1.5rem; width:8rem; height:8rem; border-radius:50%; filter:blur(24px); opacity:0.1;" class="${day.theme}"></div>
+                                <p class="eyebrow-label" style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0; font-size:0.7rem;">
+                                    <i data-lucide="map" style="width:1rem; height:1rem; color:var(--c-emerald-600);"></i> Compromiso Práctico
                                 </p>
-                                <p class="font-body text-[1.15rem] md:text-[1.25rem] text-stone-800 leading-relaxed text-balance font-medium relative z-10">
+                                <p style="font-family:var(--font-body); font-size:1.25rem; color:var(--c-stone-800); line-height:1.625; font-weight:500; position:relative; z-index:10;">
                                     ${day.compromiso}
                                 </p>
                             </div>
@@ -951,23 +1771,23 @@
         html += `</main>`;
 
         html += `
-            <footer class="fixed bottom-6 md:bottom-8 left-0 right-0 px-4 z-50 flex justify-center pointer-events-none">
-                <div class="bg-white/20 backdrop-blur-[20px] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.4)] rounded-full p-2.5 flex gap-4 pointer-events-auto">
+            <footer class="footer-nav">
+                <div class="footer-glass">
         `;
 
         if (currentStep > 0) {
             html += `
-                <button onclick="prevStep()" class="font-sans px-6 md:px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2 md:gap-3 text-white hover:bg-white/20 hover:text-amber-100 bg-white/10 shadow-md border border-white/20 tracking-wider text-xs md:text-sm uppercase">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i> <span class="hidden sm:inline">Anterior</span>
+                <button onclick="prevStep()" class="btn-prev">
+                    <i data-lucide="chevron-left" style="width:1.25rem; height:1.25rem;"></i> <span class="hidden sm-inline" style="display:none;">Anterior</span>
                 </button>
             `;
         }
 
         const isLastStep = currentStep === 7;
         html += `
-                    <button onclick="nextStep()" class="font-sans px-8 md:px-10 py-4 rounded-full font-bold text-white transition-all flex items-center gap-3 group transform hover:scale-[1.03] active:scale-95 bg-gradient-to-r ${day.gradient} shadow-xl ${day.shadow} border border-white/40 tracking-[0.15em] text-xs md:text-sm uppercase">
+                    <button onclick="nextStep()" class="btn-next ${day.theme} shadow-theme">
                         ${isLastStep ? 'Finalizar Guía' : 'Siguiente'} 
-                        ${!isLastStep ? '<i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1.5 transition-transform"></i>' : '<i data-lucide="check-circle" class="w-5 h-5"></i>'}
+                        ${!isLastStep ? '<i data-lucide="chevron-right" style="width:1.25rem; height:1.25rem; transition:transform 0.3s;" class="hover-translate"></i>' : '<i data-lucide="check-circle" style="width:1.25rem; height:1.25rem;"></i>'}
                     </button>
                 </div>
             </footer>
@@ -981,6 +1801,11 @@
         
         if (currentView === 'home') {
             app.innerHTML = renderHome();
+            
+            // Media query manual para mostrar/ocultar texto "Anterior"
+            const style = document.createElement('style');
+            style.innerHTML = `@media (min-width: 640px) { .sm-inline { display: inline !important; } }`;
+            document.head.appendChild(style);
         } else {
             app.innerHTML = renderDay();
             initBreathingAnimation();
